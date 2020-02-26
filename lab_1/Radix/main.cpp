@@ -2,7 +2,7 @@
 #include <string>
 
 using namespace std;
-const int maxRadix = ('Z' - 'A') + 11;
+
 
 bool SafeMult(int a, int b, int& result)
 {
@@ -74,22 +74,44 @@ bool SafeAdd(int a, int b, int& result)
     return false;
 }
 
-int StringToInt(const string& str, int radix, bool& wasError)
+int CharToInt(char ch, int radix, bool& wasError)
 {
-    int i = 0;
-    int number = 0;
-    int n = 0;
     char maxValue;
+    int number;
     if (radix > 10)
     {
         maxValue = char(radix - 11 + 'A');
-
     }
     else
     {
         maxValue = char(radix - 1 + '0');
     }
-    char maxNumber = radix - 11 + 'A';
+    if(ch >= '0' && ch <= '9' && ch <= maxValue)
+    {
+        number = ch - '0';
+    }
+    else
+    {
+        char upperLetter = toupper(ch);
+        if (upperLetter >= 'A' && upperLetter <= maxValue)
+        {
+            number = upperLetter - 'A' + 10;
+        }
+        else
+        {
+            wasError = true;
+            cout << "Invalid symbol " << ch << '\n';
+        }
+    }
+    return number;
+}
+
+int StringToInt(const string& str, int radix, bool& wasError)
+{
+    const int maxRadix = ('Z' - 'A') + 11;
+    int i = 0;
+    int number = 0;
+    int n = 0;
     bool checkMinus = false;
     if (radix < 2 || radix > maxRadix)
     {
@@ -105,23 +127,7 @@ int StringToInt(const string& str, int radix, bool& wasError)
         }
         while(str[i] != '\0' && !wasError)
         {
-            if(str[i] >= '0' && str[i] <= '9' && str[i] <= maxValue)
-            {
-                number = str[i] - '0';
-            }
-            else
-            {
-                char upperLetter = toupper(str[i]);
-                if (upperLetter >= 'A' && upperLetter <= maxNumber)
-                {
-                    number = upperLetter - 'A' + 10;
-                }
-                else
-                {
-                    wasError = true;
-                    cout << "Invalid symbol " << str[i] << '\n';
-                }
-            }
+            number = CharToInt(str[i], radix, wasError);
             if (checkMinus)
             {
                 if (!SafeMult(n, radix, n) || !SafeAdd(n, -number, n))
@@ -146,6 +152,7 @@ int StringToInt(const string& str, int radix, bool& wasError)
 
 string IntToString(int n, int radix, bool &wasError)
 {
+    const int maxRadix = ('Z' - 'A') + 11;
     string str;
     if (radix < 2 || radix > maxRadix)
     {
