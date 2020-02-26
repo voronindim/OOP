@@ -17,10 +17,9 @@ fi
 "cmake-build-release/radix" 10 36 35 > "tests/output.txt"
 if [ $? -ne 0 ]; then err;
 fi
-if cmp -s "tests/output.txt" "tests/output2.txt" ; then
+if cmp -s "tests/output.txt" "tests/output2.txt"; then
   echo Test 2 passed;
 fi
-
 
 # Проверка крайних значений (INT_MIN)
 "cmake-build-release/radix" 10 2 -2147483648 > "tests/output.txt"
