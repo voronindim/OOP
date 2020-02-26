@@ -2,6 +2,7 @@
 #include <string>
 
 using namespace std;
+const int maxRadix = ('Z' - 'A') + 11;
 
 bool SafeMult(int a, int b, int& result)
 {
@@ -10,7 +11,6 @@ bool SafeMult(int a, int b, int& result)
         result = 0;
         return true;
     }
-
     if (a > 0)
     {
         if (b > 0)
@@ -49,7 +49,7 @@ bool SafeMult(int a, int b, int& result)
             }
         }
     }
-    cout << "Выход за рамки INT!\n";
+    cout << "Выход за границы INT!\n";
     return false;
 }
 
@@ -91,7 +91,7 @@ int StringToInt(const string& str, int radix, bool& wasError)
     }
     char maxNumber = radix - 11 + 'A';
     bool checkMinus = false;
-    if (radix < 2 || radix > ('Z' - 'A') + 10)
+    if (radix < 2 || radix > maxRadix)
     {
         wasError = true;
         cout << "Ошибка системы счисления!" << '\n';
@@ -138,7 +138,6 @@ int StringToInt(const string& str, int radix, bool& wasError)
                     cout << "Ошибка переполнения!" << '\n';
                 }
             }
-
             i = i + 1;
         }
     }
@@ -148,7 +147,7 @@ int StringToInt(const string& str, int radix, bool& wasError)
 string IntToString(int n, int radix, bool &wasError)
 {
     string str;
-    if (radix < 2 || radix > ('Z' - 'A') + 10)
+    if (radix < 2 || radix > maxRadix)
     {
         wasError = true;
         cout << "Ошибка системы счисления!" << '\n';
@@ -161,7 +160,6 @@ string IntToString(int n, int radix, bool &wasError)
         {
             checkMinus = true;
         }
-
         while (n != 0)
         {
             x = abs(n % radix);
@@ -205,6 +203,9 @@ int main(int argc, char* argv[])
            cout << str_number << '\n';
        }
     }
-
+    if (wasError)
+    {
+        return 1;
+    }
     return 0;
 }
