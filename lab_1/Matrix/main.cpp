@@ -7,17 +7,6 @@
 using namespace std;
 const int matrixSize = 3;
 
-int checkOpen(ifstream& file, const string& inputFileName)
-{
-    file.open(inputFileName);
-    if (!(file.is_open()))
-    {
-	    cout << "NO FILE" << "\n";
-	    return 1;
-    }
-    return 0;
-}
-
 void FillingMatrix(double (&matrix)[matrixSize][matrixSize],  istream& inputMatrix)
 {
     for (int i = 0; i < matrixSize;i++)
@@ -29,17 +18,19 @@ void FillingMatrix(double (&matrix)[matrixSize][matrixSize],  istream& inputMatr
     }
 }
 
-void CountDeterminant(double (&matrix)[matrixSize][matrixSize], double& determinant)
+double CountDeterminant(double (&matrix)[matrixSize][matrixSize])
 {
+    double determinant;
     determinant = ((matrix[0][0] * matrix[1][1] * matrix[2][2])
                 + (matrix[1][0] * matrix[0][2] * matrix[2][1])
 		        + (matrix[2][0] * matrix[0][1] * matrix[1][2]))
 		        - ((matrix[2][0] * matrix[1][1] * matrix[0][2])
 		        + (matrix[1][0] * matrix[0][1] * matrix[2][2])
 		        + (matrix[0][0] * matrix[2][1] * matrix[1][2]));
+    return determinant;
 }
 
-double FillingMinorMatrix(double (&matrix)[matrixSize][matrixSize], double (&minorMatrix)[matrixSize][matrixSize])
+double FillingMinorMatrix(double (&matrix)[matrixSize][matrixSize], double (&minorMatrix)[matrixSize][matrixSize], const double& determinant)
 {
     minorMatrix[0][0] = matrix[1][1] * matrix[2][2] - matrix[2][1] * matrix[1][2];
     minorMatrix[0][1] = (-1) * (matrix[1][0] * matrix[2][2] - matrix[2][0] * matrix[1][2]);
@@ -52,16 +43,22 @@ double FillingMinorMatrix(double (&matrix)[matrixSize][matrixSize], double (&min
     minorMatrix[2][0] = matrix[0][1] * matrix[1][2] - matrix[1][1] * matrix[0][2];
     minorMatrix[2][1] = (-1) * (matrix[0][0] * matrix[1][2] - matrix[1][0] * matrix[0][2]);
     minorMatrix[2][2] = matrix[0][0] * matrix[1][1] - matrix[1][0] * matrix[0][1];
+    for (int i = 0; i < matrixSize ; i++)
+    {
+        for (int j = 0; j < matrixSize; j++)
+        {
+           minorMatrix[i][j] = round((minorMatrix[i][j] / determinant) * 1000) / 1000;
+        }
+    }
 }
 
-void OutputResult(double(&minorMatrix)[matrixSize][matrixSize], const double& determinant)
+void Print(double(&minorMatrix)[matrixSize][matrixSize], const double& determinant)
 {
     for (int i = 0; i < matrixSize ; i++)
     {
         for (int j = 0; j < matrixSize; j++)
         {
-            cout << round((minorMatrix[i][j] / determinant) * 1000) / 1000 << " ";
-
+            cout << minorMatrix[i][j] <<  " ";
         }
         cout << "\n";
     }
@@ -69,21 +66,30 @@ void OutputResult(double(&minorMatrix)[matrixSize][matrixSize], const double& de
 
 int main(int argc, char *argv[])
 {
+    if (argc != 2)
+    {
+        cout << "Ошибка ввода! \n";
+    }
     string inputFileName = argv[1];
     ifstream inputMatrix;
-    checkOpen(inputMatrix, inputFileName);
+    inputMatrix.open(inputFileName);
+    if (!(inputMatrix.is_open()))
+    {
+        cout << "NO FILE" << "\n";
+        return 1;
+    }
     double matrix[matrixSize][matrixSize];
     double determinant = 0;
     FillingMatrix(matrix, inputMatrix);
-    CountDeterminant(matrix, determinant);
+    determinant = CountDeterminant(matrix);
     if (determinant == 0)
     {
         cout << "Определитель матрицы равен 0. Такая матрица не имеет обратной! \n";
         return 1;
     }
     double minorMatrix[matrixSize][matrixSize];
-    FillingMinorMatrix(matrix, minorMatrix);
-    OutputResult(minorMatrix, determinant);
+    FillingMinorMatrix(matrix, minorMatrix, determinant);
+    Print(minorMatrix, determinant);
 
     return 0;
 }
