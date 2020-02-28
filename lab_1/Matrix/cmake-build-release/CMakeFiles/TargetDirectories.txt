@@ -1,0 +1,3 @@
+/Applications/Homework/lab_1/Matrix/cmake-build-release/CMakeFiles/rebuild_cache.dir
+/Applications/Homework/lab_1/Matrix/cmake-build-release/CMakeFiles/edit_cache.dir
+/Applications/Homework/lab_1/Matrix/cmake-build-release/CMakeFiles/Matrix.dir
