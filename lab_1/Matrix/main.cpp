@@ -1,13 +1,15 @@
 #include <iostream>
 #include <fstream>
 #include <cmath>
+#include <optional>
+#include <string>
 
 using namespace std;
 const int matrixSize = 3;
 
-int checkOpen(ifstream& file)
+int checkOpen(ifstream& file, const string& inputFileName)
 {
-    file.open("matrix.txt");
+    file.open(inputFileName);
     if (!(file.is_open()))
     {
 	    cout << "NO FILE" << "\n";
@@ -65,10 +67,11 @@ void OutputResult(double(&minorMatrix)[matrixSize][matrixSize], const double& de
     }
 }
 
-int main()
+int main(int argc, char *argv[])
 {
+    string inputFileName = argv[1];
     ifstream inputMatrix;
-    checkOpen(inputMatrix);
+    checkOpen(inputMatrix, inputFileName);
     double matrix[matrixSize][matrixSize];
     double determinant = 0;
     FillingMatrix(matrix, inputMatrix);
