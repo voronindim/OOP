@@ -6,6 +6,16 @@
 
 using namespace std;
 const int matrixSize = 3;
+void CreateMatrix()
+{
+    char ch;
+    string number;
+    while ( ch != '\0' && ch >= 0 && ch <= 9)
+    {
+        number = number + ch;
+        ch = getchar();
+    }
+}
 
 void FillingMatrix(double (&matrix)[matrixSize][matrixSize],  istream& inputMatrix)
 {
@@ -30,19 +40,20 @@ double CountDeterminant(double (&matrix)[matrixSize][matrixSize])
     return determinant;
 }
 
-double FillingMinorMatrix(double (&matrix)[matrixSize][matrixSize], double (&minorMatrix)[matrixSize][matrixSize], const double& determinant)
+void CreateInverseMatrix(double (&matrix)[matrixSize][matrixSize], double (&minorMatrix)[matrixSize][matrixSize], const double& determinant)
 {
     minorMatrix[0][0] = matrix[1][1] * matrix[2][2] - matrix[2][1] * matrix[1][2];
-    minorMatrix[0][1] = (-1) * (matrix[1][0] * matrix[2][2] - matrix[2][0] * matrix[1][2]);
-    minorMatrix[0][2] = matrix[1][0] * matrix[2][1] - matrix[2][0] * matrix[1][1];
+    minorMatrix[1][0] = (-1) * (matrix[1][0] * matrix[2][2] - matrix[2][0] * matrix[1][2]);
+    minorMatrix[2][0] = matrix[1][0] * matrix[2][1] - matrix[2][0] * matrix[1][1];
 
-    minorMatrix[1][0] = (-1) * (matrix[0][1] * matrix[2][2] - matrix[2][1] * matrix[0][2]);
+    minorMatrix[0][1] = (-1) * (matrix[0][1] * matrix[2][2] - matrix[2][1] * matrix[0][2]);
     minorMatrix[1][1] = matrix[0][0] * matrix[2][2] - matrix[2][0] * matrix[0][2];
-    minorMatrix[1][2] = (-1) * (matrix[0][0] * matrix[2][1] - matrix[2][0] * matrix[0][1]);
+    minorMatrix[2][1] = (-1) * (matrix[0][0] * matrix[2][1] - matrix[2][0] * matrix[0][1]);
 
-    minorMatrix[2][0] = matrix[0][1] * matrix[1][2] - matrix[1][1] * matrix[0][2];
-    minorMatrix[2][1] = (-1) * (matrix[0][0] * matrix[1][2] - matrix[1][0] * matrix[0][2]);
+    minorMatrix[0][2] = matrix[0][1] * matrix[1][2] - matrix[1][1] * matrix[0][2];
+    minorMatrix[1][2] = (-1) * (matrix[0][0] * matrix[1][2] - matrix[1][0] * matrix[0][2]);
     minorMatrix[2][2] = matrix[0][0] * matrix[1][1] - matrix[1][0] * matrix[0][1];
+
     for (int i = 0; i < matrixSize ; i++)
     {
         for (int j = 0; j < matrixSize; j++)
@@ -88,7 +99,7 @@ int main(int argc, char *argv[])
         return 1;
     }
     double minorMatrix[matrixSize][matrixSize];
-    FillingMinorMatrix(matrix, minorMatrix, determinant);
+    CreateInverseMatrix(matrix, minorMatrix, determinant);
     Print(minorMatrix, determinant);
 
     return 0;
