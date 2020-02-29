@@ -8,38 +8,51 @@ const int matrixSize = 3;
 
 bool CreateMatrix(const string& inputFileName, double (&matrix)[matrixSize][matrixSize])
 {
-    ifstream inputFile;
-    inputFile.open(inputFileName);
-    if (!(inputFile.is_open()))
-    {
+	ifstream inputFile;
+	inputFile.open(inputFileName);
+	if (!(inputFile.is_open()))
+	{
 		cout << "Файла нет!\n";
 		return false;
-    }
-    string str;
+	}
+	string str;
 	string number;
 	int i = 0;
-	while(!inputFile.eof())
-    {
-        getline(inputFile, str);
-        int k = 0;
-        for (int j = 0; j <= str.length(); j++)
-        {
-            if (str[j] >= '0' && str[j] <= '9')
-            {
-                number = number + str[j];
-            }
-            else
-            {
-				if (str[j] == ' ' || str[j] == '\0')
+	int check = 0;
+	while (!inputFile.eof() && i < matrixSize)
+	{
+		getline(inputFile, str);
+		int k = 0;
+		for (int j = 0; j <= str.length(); j++)
+		{
+			if (str[j] >= '0' && str[j] <= '9')
+			{
+				number = number + str[j];
+			}
+			else
+			{
+				if (str[j] == ' ' || str[j] == '\0' || str[j] == '\t')
 				{
 					if (str[j - 1] == '.' || str[j - 1] == '-')
 					{
 						cout << "Матрица имеет ошибку!\n";
 						return false;
 					}
-					matrix[i][k] = atof(number.c_str());
-					number = "";
-					k = k + 1;
+					if (!(number.empty()))
+					{
+						matrix[i][k] = atof(number.c_str());
+						check = check + 1;
+						number = "";
+						if (k + 1 < matrixSize)
+						{
+							k = k + 1;
+						}
+						else
+						{
+							cout << "Матрица должна быть 3*3!\n";
+							return false;
+						}
+					}
 				}
 				else
 				{
@@ -80,20 +93,24 @@ bool CreateMatrix(const string& inputFileName, double (&matrix)[matrixSize][matr
 		}
 		i = i + 1;
 	}
+	if (check != 9)
+	{
+		cout << "В матрице нехватает элементов!\n";
+		return false;
+	}
 	return true;
 }
 
 double CountDeterminant(double (&matrix)[matrixSize][matrixSize])
 {
     double determinant;
-    determinant = ((matrix[0][0] * matrix[1][1] * matrix[2][2])
-                + (matrix[1][0] * matrix[0][2] * matrix[2][1])
-		        + (matrix[2][0] * matrix[0][1] * matrix[1][2]))
-
-		        - ((matrix[2][0] * matrix[1][1] * matrix[0][2])
-		        + (matrix[1][0] * matrix[0][1] * matrix[2][2])
-		        + (matrix[0][0] * matrix[2][1] * matrix[1][2]));
-    return determinant;
+	determinant = ((matrix[0][0] * matrix[1][1] * matrix[2][2])
+					  + (matrix[1][0] * matrix[0][2] * matrix[2][1])
+					  + (matrix[2][0] * matrix[0][1] * matrix[1][2]))
+		- ((matrix[2][0] * matrix[1][1] * matrix[0][2])
+			+ (matrix[1][0] * matrix[0][1] * matrix[2][2])
+			+ (matrix[0][0] * matrix[2][1] * matrix[1][2]));
+	return determinant;
 }
 
 void CreateInverseMatrix(double (&matrix)[matrixSize][matrixSize], double (&minorMatrix)[matrixSize][matrixSize], const double& determinant)
