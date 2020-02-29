@@ -40,7 +40,10 @@ bool CreateMatrix(const string& inputFileName, double (&matrix)[matrixSize][matr
 					}
 					if (!(number.empty()))
 					{
-						matrix[i][k] = atof(number.c_str());
+						if (k < matrixSize)
+						{
+							matrix[i][k] = atof(number.c_str());
+						}
 						check = check + 1;
 						number = "";
 						if (k + 1 <= matrixSize)
@@ -146,11 +149,17 @@ void Print(double(&minorMatrix)[matrixSize][matrixSize], const double& determina
     for (int i = 0; i < matrixSize ; i++)
     {
         for (int j = 0; j < matrixSize; j++)
-        {
-            cout << minorMatrix[i][j] <<  "   ";
-        }
-        cout << "\n";
-    }
+		{
+			if (j < 2)
+			{
+				cout << minorMatrix[i][j] << "    ";
+			}
+			else
+			{
+				cout << minorMatrix[i][j] << '\n';
+			}
+		}
+	}
 }
 
 int main(int argc, char *argv[])
@@ -171,8 +180,8 @@ int main(int argc, char *argv[])
     if (determinant == 0)
     {
         cout << "Определитель матрицы равен 0. Такая матрица не имеет обратной! \n";
-        return 1;
-    }
+		return 0;
+	}
     double minorMatrix[matrixSize][matrixSize];
     CreateInverseMatrix(matrix, minorMatrix, determinant);
     Print(minorMatrix, determinant);
