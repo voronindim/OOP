@@ -1,31 +1,52 @@
 #include <iostream>
 #include <fstream>
 #include <cmath>
-#include <optional>
 #include <string>
 
 using namespace std;
 const int matrixSize = 3;
-void CreateMatrix()
-{
-    char ch;
-    string number;
-    while ( ch != '\0' && ch >= 0 && ch <= 9)
-    {
-        number = number + ch;
-        ch = getchar();
-    }
-}
 
-void FillingMatrix(double (&matrix)[matrixSize][matrixSize],  istream& inputMatrix)
+bool CreateMatrix(const string& inputFileName, double (&matrix)[matrixSize][matrixSize])
 {
-    for (int i = 0; i < matrixSize;i++)
+    ifstream inputFile;
+    inputFile.open(inputFileName);
+    if (!(inputFile.is_open()))
     {
-	    for (int j = 0; j < matrixSize;j++)
-	    {
-	        inputMatrix >> matrix[i][j];
-	    }
+        cout << "Файла нет!" << "\n";
+        return false;
     }
+    string str;
+    string number;
+    int i = -1;
+    while(!inputFile.eof())
+    {
+        getline(inputFile, str);
+        i = i + 1;
+        int k = 0;
+        for (int j = 0; j <= str.length(); j++)
+        {
+
+            if (str[j] >= '0' && str[j] <= '9')
+            {
+                number = number + str[j];
+            }
+            else
+            {
+                if (str[j] == ' ' || str[j] == '\0')
+                {
+                    matrix[i][k] = atof(number.c_str());
+                    number = "";
+                    k = k + 1;
+                }
+                else
+                {
+                    cout << "Матрица имеет ошибку!\n";
+                    return false;
+                }
+            }
+        }
+    }
+    return true;
 }
 
 double CountDeterminant(double (&matrix)[matrixSize][matrixSize])
@@ -34,6 +55,7 @@ double CountDeterminant(double (&matrix)[matrixSize][matrixSize])
     determinant = ((matrix[0][0] * matrix[1][1] * matrix[2][2])
                 + (matrix[1][0] * matrix[0][2] * matrix[2][1])
 		        + (matrix[2][0] * matrix[0][1] * matrix[1][2]))
+
 		        - ((matrix[2][0] * matrix[1][1] * matrix[0][2])
 		        + (matrix[1][0] * matrix[0][1] * matrix[2][2])
 		        + (matrix[0][0] * matrix[2][1] * matrix[1][2]));
@@ -58,7 +80,12 @@ void CreateInverseMatrix(double (&matrix)[matrixSize][matrixSize], double (&mino
     {
         for (int j = 0; j < matrixSize; j++)
         {
-           minorMatrix[i][j] = round((minorMatrix[i][j] / determinant) * 1000) / 1000;
+            if (minorMatrix[i][j] == 0)
+            {
+                minorMatrix[i][j] = abs(minorMatrix[i][j]);
+            }
+            else
+                minorMatrix[i][j] = round((minorMatrix[i][j] / determinant) * 1000) / 1000;
         }
     }
 }
@@ -69,7 +96,7 @@ void Print(double(&minorMatrix)[matrixSize][matrixSize], const double& determina
     {
         for (int j = 0; j < matrixSize; j++)
         {
-            cout << minorMatrix[i][j] <<  " ";
+            cout << minorMatrix[i][j] <<  "   ";
         }
         cout << "\n";
     }
@@ -79,19 +106,16 @@ int main(int argc, char *argv[])
 {
     if (argc != 2)
     {
-        cout << "Ошибка ввода! \n";
-    }
-    string inputFileName = argv[1];
-    ifstream inputMatrix;
-    inputMatrix.open(inputFileName);
-    if (!(inputMatrix.is_open()))
-    {
-        cout << "NO FILE" << "\n";
+        cout << "Количество параметров введено неправильно!\n";
         return 1;
     }
+    string inputFileName = argv[1];
     double matrix[matrixSize][matrixSize];
+    if (!(CreateMatrix(inputFileName, matrix)))
+    {
+        return 1;
+    }
     double determinant = 0;
-    FillingMatrix(matrix, inputMatrix);
     determinant = CountDeterminant(matrix);
     if (determinant == 0)
     {
