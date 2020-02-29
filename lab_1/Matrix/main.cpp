@@ -12,16 +12,15 @@ bool CreateMatrix(const string& inputFileName, double (&matrix)[matrixSize][matr
     inputFile.open(inputFileName);
     if (!(inputFile.is_open()))
     {
-        cout << "Файла нет!" << "\n";
-        return false;
+		cout << "Файла нет!\n";
+		return false;
     }
     string str;
-    string number;
-    int i = -1;
-    while(!inputFile.eof())
+	string number;
+	int i = 0;
+	while(!inputFile.eof())
     {
         getline(inputFile, str);
-        i = i + 1;
         int k = 0;
         for (int j = 0; j <= str.length(); j++)
         {
@@ -35,18 +34,19 @@ bool CreateMatrix(const string& inputFileName, double (&matrix)[matrixSize][matr
                 if (str[j] == ' ' || str[j] == '\0')
                 {
                     matrix[i][k] = atof(number.c_str());
-                    number = "";
-                    k = k + 1;
-                }
-                else
-                {
-                    cout << "Матрица имеет ошибку!\n";
-                    return false;
-                }
-            }
-        }
-    }
-    return true;
+					number = "";
+					k = k + 1;
+				}
+				else
+				{
+					cout << "Матрица имеет ошибку!\n";
+					return false;
+				}
+			}
+		}
+		i = i + 1;
+	}
+	return true;
 }
 
 double CountDeterminant(double (&matrix)[matrixSize][matrixSize])
