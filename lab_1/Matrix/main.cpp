@@ -43,7 +43,7 @@ bool CreateMatrix(const string& inputFileName, double (&matrix)[matrixSize][matr
 						matrix[i][k] = atof(number.c_str());
 						check = check + 1;
 						number = "";
-						if (k + 1 < matrixSize)
+						if (k + 1 <= matrixSize)
 						{
 							k = k + 1;
 						}
@@ -176,7 +176,6 @@ int main(int argc, char *argv[])
     double minorMatrix[matrixSize][matrixSize];
     CreateInverseMatrix(matrix, minorMatrix, determinant);
     Print(minorMatrix, determinant);
-
     return 0;
 }
 
