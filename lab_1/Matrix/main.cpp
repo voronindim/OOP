@@ -51,7 +51,7 @@ bool CreateMatrix(const string& inputFileName, double (&matrix)[matrixSize][matr
 						}
 						else
 						{
-							cout << "Лишний символ '-'\n";
+							cout << "Минус может стоять только вначале числа! Проверьте матрицу!\n";
 							return false;
 						}
 					}
@@ -65,13 +65,13 @@ bool CreateMatrix(const string& inputFileName, double (&matrix)[matrixSize][matr
 							}
 							else
 							{
-								cout << "Неизвестная Точка\n";
+								cout << "Встречена отдельно стоящая точка! Проверьте матрицу!\n";
 								return false;
 							}
 						}
 						else
 						{
-							cout << "Матрица имеет ошибку!\n";
+							cout << "Матрица должна содержать только числа!\n";
 							return false;
 						}
 					}
