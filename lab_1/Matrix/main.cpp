@@ -24,23 +24,57 @@ bool CreateMatrix(const string& inputFileName, double (&matrix)[matrixSize][matr
         int k = 0;
         for (int j = 0; j <= str.length(); j++)
         {
-
             if (str[j] >= '0' && str[j] <= '9')
             {
                 number = number + str[j];
             }
             else
             {
-                if (str[j] == ' ' || str[j] == '\0')
-                {
-                    matrix[i][k] = atof(number.c_str());
+				if (str[j] == ' ' || str[j] == '\0')
+				{
+					if (str[j - 1] == '.' || str[j - 1] == '-')
+					{
+						cout << "Матрица имеет ошибку!\n";
+						return false;
+					}
+					matrix[i][k] = atof(number.c_str());
 					number = "";
 					k = k + 1;
 				}
 				else
 				{
-					cout << "Матрица имеет ошибку!\n";
-					return false;
+					if (str[j] == '-')
+					{
+						if (number.empty())
+						{
+							number = number + str[j];
+						}
+						else
+						{
+							cout << "Лишний символ '-'\n";
+							return false;
+						}
+					}
+					else
+					{
+						if (str[j] == '.')
+						{
+							if (!(number.empty()))
+							{
+								number = number + str[j];
+							}
+							else
+							{
+								cout << "Неизвестная Точка\n";
+								return false;
+							}
+						}
+						else
+						{
+							cout << "Матрица имеет ошибку!\n";
+							return false;
+						}
+					}
 				}
 			}
 		}
