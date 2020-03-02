@@ -82,3 +82,10 @@ if cmp -s "tests/output.txt" "tests/output10.txt" ; then
   echo Test 10 passed;
   else err;
 fi
+
+# Нехватка аргументов
+"cmake-build-release/radix" 16 10  > "tests/output.txt"
+"cmake-build-release/radix" 10 2 A > "tests/output.txt"
+if [ $? -ne 1 ]; then err;
+else echo Test 11 passed
+fi

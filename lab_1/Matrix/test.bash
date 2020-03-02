@@ -60,6 +60,14 @@ if [ $? -ne 1 ]; then err;
   else echo Test 9 passed;
 fi
 
+# еденичная марица
+"cmake-build-release/matrix" "tests/matrix10.txt" > "tests/output.txt"
+if [ $? -ne 0 ]; then err;
+fi
+if cmp -s "tests/output.txt" "tests/output10.txt"; then
+  echo Test 10 passed;
+fi
+
 
 
 

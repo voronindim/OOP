@@ -76,7 +76,7 @@ bool SafeAdd(int a, int b, int& result)
 int CharToInt(char ch, int radix, bool& wasError)
 {
 	char maxValue;
-	int number;
+	int number = 0;
 	if (radix > 10)
 	{
 		maxValue = char(radix - 11 + 'A');
@@ -129,20 +129,13 @@ int StringToInt(const string& str, int radix, bool& wasError)
 			number = CharToInt(str[i], radix, wasError);
 			if (checkMinus)
 			{
-				if (!SafeMult(n, radix, n) || !SafeAdd(n, -number, n))
-				{
-					wasError = true;
-					cout << "Ошибка переполнения!" << '\n';
-				}
+				number = -number;
 			}
-			else
-			{
-				if (!SafeMult(n, radix, n) || !SafeAdd(n, number, n))
-				{
-					wasError = true;
-					cout << "Ошибка переполнения!" << '\n';
-				}
-			}
+            if (!SafeMult(n, radix, n) || !SafeAdd(n, number, n))
+            {
+                wasError = true;
+                cout << "Ошибка переполнения!" << '\n';
+            }
 			i = i + 1;
 		}
 	}
@@ -194,10 +187,16 @@ string IntToString(int n, int radix, bool& wasError)
 
 int main(int argc, char* argv[])
 {
+	if (argc != 4)
+	{
+		cout << "Ошибка входных данных, нехватка аргументов!\n";
+		return 1;
+	}
 	int state1 = atoi(argv[1]);
 	int state2 = atoi(argv[2]);
+	string str = argv[3];
 	bool wasError = false;
-	int number = StringToInt(argv[3], state1, wasError);
+	int number = StringToInt(str, state1, wasError);
 	string str_number;
 	if (!wasError)
 	{

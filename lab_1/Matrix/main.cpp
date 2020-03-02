@@ -4,174 +4,120 @@
 #include <string>
 
 using namespace std;
-const int matrixSize = 3;
+const int MATRIX_SIZE = 3;
 
-bool CreateMatrix(const string& inputFileName, double (&matrix)[matrixSize][matrixSize])
-{
-	ifstream inputFile;
-	inputFile.open(inputFileName);
-	if (!(inputFile.is_open()))
-	{
-		cout << "Файла нет!\n";
-		return false;
-	}
-	string str;
-	string number;
-	int i = 0;
-	int check = 0;
-	while (!inputFile.eof() && i < matrixSize)
-	{
-		getline(inputFile, str);
-		int k = 0;
-		for (int j = 0; j <= str.length(); j++)
-		{
-			if (str[j] >= '0' && str[j] <= '9')
-			{
-				number = number + str[j];
-			}
-			else
-			{
-				if (str[j] == ' ' || str[j] == '\0' || str[j] == '\t')
-				{
-					if (str[j - 1] == '.' || str[j - 1] == '-')
-					{
-						cout << "Матрица имеет ошибку!\n";
-						return false;
-					}
-					if (!(number.empty()))
-					{
-						if (k < matrixSize)
-						{
-							matrix[i][k] = atof(number.c_str());
-						}
-						check = check + 1;
-						number = "";
-						if (k + 1 <= matrixSize)
-						{
-							k = k + 1;
-						}
-						else
-						{
-							cout << "Матрица должна быть 3*3!\n";
-							return false;
-						}
-					}
-				}
-				else
-				{
-					if (str[j] == '-')
-					{
-						if (number.empty())
-						{
-							number = number + str[j];
-						}
-						else
-						{
-							cout << "Минус может стоять только вначале числа! Проверьте матрицу!\n";
-							return false;
-						}
-					}
-					else
-					{
-						if (str[j] == '.')
-						{
-							if (!(number.empty()))
-							{
-								number = number + str[j];
-							}
-							else
-							{
-								cout << "Встречена отдельно стоящая точка! Проверьте матрицу!\n";
-								return false;
-							}
-						}
-						else
-						{
-							cout << "Матрица должна содержать только числа!\n";
-							return false;
-						}
-					}
-				}
-			}
-		}
-		i = i + 1;
-	}
-	if (check != 9)
-	{
-		cout << "В матрице нехватает элементов!\n";
-		return false;
-	}
-	return true;
-}
+typedef double Matrix[MATRIX_SIZE][MATRIX_SIZE];
 
-double CountDeterminant(double (&matrix)[matrixSize][matrixSize])
-{
-	double determinant;
-	determinant = matrix[0][0] * matrix[1][1] * matrix[2][2]
-		+ matrix[1][0] * matrix[0][2] * matrix[2][1]
-		+ matrix[2][0] * matrix[0][1] * matrix[1][2]
-		- matrix[2][0] * matrix[1][1] * matrix[0][2]
-		- matrix[1][0] * matrix[0][1] * matrix[2][2]
-		- matrix[0][0] * matrix[2][1] * matrix[1][2];
-	return determinant;
-}
-
-void CreateInverseMatrix(double (&matrix)[matrixSize][matrixSize], double (&minorMatrix)[matrixSize][matrixSize], const double& determinant)
-{
-    minorMatrix[0][0] = matrix[1][1] * matrix[2][2] - matrix[2][1] * matrix[1][2];
-    minorMatrix[1][0] = (-1) * (matrix[1][0] * matrix[2][2] - matrix[2][0] * matrix[1][2]);
-    minorMatrix[2][0] = matrix[1][0] * matrix[2][1] - matrix[2][0] * matrix[1][1];
-
-    minorMatrix[0][1] = (-1) * (matrix[0][1] * matrix[2][2] - matrix[2][1] * matrix[0][2]);
-    minorMatrix[1][1] = matrix[0][0] * matrix[2][2] - matrix[2][0] * matrix[0][2];
-    minorMatrix[2][1] = (-1) * (matrix[0][0] * matrix[2][1] - matrix[2][0] * matrix[0][1]);
-
-    minorMatrix[0][2] = matrix[0][1] * matrix[1][2] - matrix[1][1] * matrix[0][2];
-    minorMatrix[1][2] = (-1) * (matrix[0][0] * matrix[1][2] - matrix[1][0] * matrix[0][2]);
-    minorMatrix[2][2] = matrix[0][0] * matrix[1][1] - matrix[1][0] * matrix[0][1];
-
-    for (int i = 0; i < matrixSize ; i++)
-    {
-        for (int j = 0; j < matrixSize; j++)
-        {
-            if (minorMatrix[i][j] == 0)
-            {
-                minorMatrix[i][j] = abs(minorMatrix[i][j]);
+void Print(Matrix minorMatrix) {
+    for (int i = 0; i < MATRIX_SIZE; i++) {
+        for (int j = 0; j < MATRIX_SIZE; j++) {
+            if (j < 2) {
+                cout << round((minorMatrix[i][j]) * 1000) / 1000 << "    ";
+            } else {
+                cout << round((minorMatrix[i][j]) * 1000) / 1000 << '\n';
             }
-            else
-                minorMatrix[i][j] = round((minorMatrix[i][j] / determinant) * 1000) / 1000;
         }
     }
 }
 
-void Print(double(&minorMatrix)[matrixSize][matrixSize], const double& determinant)
-{
-    for (int i = 0; i < matrixSize ; i++)
-    {
-        for (int j = 0; j < matrixSize; j++)
-		{
-			if (j < 2)
-			{
-				cout << minorMatrix[i][j] << "    ";
-			}
-			else
-			{
-				cout << minorMatrix[i][j] << '\n';
-			}
-		}
-	}
+void MultMatrixByNumber(Matrix &matrix, double number) {
+    for (int i = 0; i < MATRIX_SIZE; i++) {
+        for (int j = 0; j < MATRIX_SIZE; j++) {
+            matrix[i][j] = matrix[i][j] * number;
+        }
+    }
+}
+
+void AdjugateMatrix(Matrix &matrix, Matrix &inverseMatrix) {
+    inverseMatrix[0][0] = matrix[1][1] * matrix[2][2] - matrix[2][1] * matrix[1][2];
+    inverseMatrix[1][0] = (-1) * (matrix[1][0] * matrix[2][2] - matrix[2][0] * matrix[1][2]);
+    inverseMatrix[2][0] = matrix[1][0] * matrix[2][1] - matrix[2][0] * matrix[1][1];
+
+    inverseMatrix[0][1] = (-1) * (matrix[0][1] * matrix[2][2] - matrix[2][1] * matrix[0][2]);
+    inverseMatrix[1][1] = matrix[0][0] * matrix[2][2] - matrix[2][0] * matrix[0][2];
+    inverseMatrix[2][1] = (-1) * (matrix[0][0] * matrix[2][1] - matrix[2][0] * matrix[0][1]);
+
+    inverseMatrix[0][2] = matrix[0][1] * matrix[1][2] - matrix[1][1] * matrix[0][2];
+    inverseMatrix[1][2] = (-1) * (matrix[0][0] * matrix[1][2] - matrix[1][0] * matrix[0][2]);
+    inverseMatrix[2][2] = matrix[0][0] * matrix[1][1] - matrix[1][0] * matrix[0][1];
+}
+
+double FindingDeterminant(Matrix &matrix) {
+    double determinant;
+    determinant = matrix[0][0] * matrix[1][1] * matrix[2][2]
+                  + matrix[1][0] * matrix[0][2] * matrix[2][1]
+                  + matrix[2][0] * matrix[0][1] * matrix[1][2]
+                  - matrix[2][0] * matrix[1][1] * matrix[0][2]
+                  - matrix[1][0] * matrix[0][1] * matrix[2][2]
+                  - matrix[0][0] * matrix[2][1] * matrix[1][2];
+    return determinant;
+}
+
+bool ReadMatrixFromFile(const string &inputFileName, Matrix &matrix) {
+    ifstream inputFile;
+    inputFile.open(inputFileName);
+    if (!(inputFile.is_open())) {
+        cout << "Файла нет!\n";
+        return false;
+    }
+    int check = 0;
+    double tmp = 0;
+    for (int i = 0; i < MATRIX_SIZE; i++) {
+        for (int j = 0; j < MATRIX_SIZE; j++) {
+            if (inputFile.good()) {
+                cout << tmp << endl;
+                matrix[i][j] = tmp;
+                check = check + 1;
+                tmp = 0;
+            } else {
+                cout << "Встречен неизвестный символ в матрице!\n";
+                return false;
+            }
+        }
+
+    }
+
+    if (check != 9) {
+        cout << "В матрице нехватает элементов!\n";
+        return false;
+    }
+    return true;
+}
+
+bool InvertMatrix(Matrix &matrix, Matrix &inverseMatrix) {
+    double determinant = 0;
+    determinant = FindingDeterminant(matrix);
+    if (determinant == 0) {
+        cout << "Определитель матрицы равен 0. Такая матрица не имеет обратной! \n";
+        return false;
+    }
+    AdjugateMatrix(matrix, inverseMatrix);
+    MultMatrixByNumber(inverseMatrix, 1 / determinant);
+    return true;
 }
 
 int main(int argc, char *argv[])
 {
-    if (argc != 2)
-    {
-        cout << "Количество параметров введено неправильно!\n";
+    if (argc != 2) {
+        cout << "Количество параметров введено неправильно!\n"
+                "Формат командной строки приложения: invert.exe <matrix file1>";
         return 1;
     }
+    Matrix matrix;
     string inputFileName = argv[1];
-    double matrix[matrixSize][matrixSize];
-    if (!(CreateMatrix(inputFileName, matrix)))
+    if (!(ReadMatrixFromFile(inputFileName, matrix))) {
+        return 1;
+    }
+    Matrix inverseMatrix;
+    if (!(InvertMatrix(matrix, inverseMatrix))) {
+        return 1;
+    }
+    Print(inverseMatrix);
+    return 0;
+}
+
+/*    Matrix matrix;
+    if (!(ReadMatrixFromFile(inputFileName, matrix)))
     {
         return 1;
     }
@@ -182,9 +128,6 @@ int main(int argc, char *argv[])
         cout << "Определитель матрицы равен 0. Такая матрица не имеет обратной! \n";
 		return 0;
 	}
-    double minorMatrix[matrixSize][matrixSize];
+    Matrix minorMatrix;
     CreateInverseMatrix(matrix, minorMatrix, determinant);
-    Print(minorMatrix, determinant);
-    return 0;
-}
-
+    Print(minorMatrix, determinant);*/

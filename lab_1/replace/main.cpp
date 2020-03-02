@@ -2,9 +2,9 @@
 #include <fstream>
 
 using namespace std;
-string replaceString(string str, string lineBefore, string lineAfter)
+string ReplaceString(string str, string const& lineBefore, string const& lineAfter)
 {
-    if(lineBefore != "")
+    if(!lineBefore.empty())
     {
         size_t value = 0;
         value = str.find(lineBefore, value);
@@ -19,12 +19,16 @@ string replaceString(string str, string lineBefore, string lineAfter)
     return str;
 }
 
-void readFile(ifstream &fileInput,ofstream &fileOutput, string lineBefore, string lineAfter)
+void ReadFile(ifstream &fileInput,ofstream &fileOutput, string const& lineBefore, string lineAfter)
 {
     string str;
     while (getline(fileInput, str))
     {
-        fileOutput << replaceString(str, lineBefore, lineAfter) << '\n';
+        fileOutput << ReplaceString(str, lineBefore, lineAfter);
+        if (!fileInput.eof())
+        {
+            fileOutput << '\n';
+        }
     }
 }
 
@@ -40,22 +44,22 @@ int main(int argc, char * argv[])
     ofstream fileOutput;
     fileInput.open(argv[1]);
     fileOutput.open(argv[2]);
+    string lineBefore = argv[3];
+    string lineAfter = argv[4];
+
     if (!fileInput.is_open())
     {
-        cout << "файил input невозможно открыть\n";
+        cout << "Файл input невозможно открыть\n";
         return 1;
     }
 
     if (!fileOutput.is_open())
     {
-        cout << "файил output невозможно открыть\n";
+        cout << "Файл output невозможно открыть\n";
         return 1;
     }
 
-    string lineBefore = argv[3];
-    string lineAfter = argv[4];
-
-    readFile(fileInput, fileOutput, lineBefore, lineAfter);
+    ReadFile(fileInput, fileOutput, lineBefore, lineAfter);
 
     if (!fileOutput.flush())
     {
