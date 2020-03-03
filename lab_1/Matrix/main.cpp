@@ -1,5 +1,5 @@
-#include <cmath>
 #include <fstream>
+#include <iomanip>
 #include <iostream>
 #include <sstream>
 #include <string>
@@ -18,11 +18,11 @@ void PrintMatrix(const Matrix matrix)
 		{
 			if (j < 2)
 			{
-				cout << round((matrix[i][j]) * 1000) / 1000 << "    ";
+				cout << setprecision(3) << matrix[i][j] << "\t";
 			}
 			else
 			{
-				cout << round((matrix[i][j]) * 1000) / 1000 << '\n';
+				cout << matrix[i][j] << '\n';
 			}
 		}
 	}

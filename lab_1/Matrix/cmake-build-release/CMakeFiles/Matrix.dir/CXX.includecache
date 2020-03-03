@@ -7,7 +7,7 @@
 #IncludeRegexTransform: 
 
 /Applications/Homework/lab_1/Matrix/main.cpp
-cmath
+iomanip
 -
 fstream
 -
