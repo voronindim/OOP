@@ -82,14 +82,12 @@ bool ReadMatrixFromFile(const string& inputFileName, Matrix& matrix)
 		int j = 0;
 		double number;
 		stringstream ss(row);
-		vector<double> rowNumbers;
 		while (ss >> number)
 		{
-			rowNumbers.push_back(number);
 			matrix[i][j] = number;
 			j = j + 1;
 		}
-		if (rowNumbers.size() != 3)
+		if (j != MATRIX_SIZE)
 		{
 			cout << "Неверное количество элементов в матрице!\n";
 			return false;
