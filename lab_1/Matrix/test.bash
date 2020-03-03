@@ -30,15 +30,15 @@ if [ $? -ne 1 ]; then err;
   else echo Test 4 passed;
 fi
 
-# проверка точки после числа (145.)
+# проверка точки после числа (1.)
 "cmake-build-release/matrix" "tests/matrix5.txt" > "tests/output.txt"
-if [ $? -ne 1 ]; then err;
+if [ $? -ne 0 ]; then err;
   else echo Test 5 passed;
 fi
 
-# проверка минуса после числа (145-)
+# после матрицы файл не закончен
 "cmake-build-release/matrix" "tests/matrix6.txt" > "tests/output.txt"
-if [ $? -ne 1 ]; then err;
+if [ $? -ne 0 ]; then err;
   else echo Test 6 passed;
 fi
 
