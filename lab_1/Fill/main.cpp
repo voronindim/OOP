@@ -18,6 +18,17 @@ struct Coord
     int x;
     int y;
 };
+void Print(const Vector &field, ostream& output)
+{
+    for (int i = 0; i < field.size() ; i++)
+    {
+        for (int j = 0; j < field[i].size(); j++)
+        {
+            output << field[i][j];
+        }
+        output << endl;
+    }
+}
 
 void OpenOutputFileAndPrintResult(const Vector &field, const string &outputFileName)
 {
@@ -27,25 +38,12 @@ void OpenOutputFileAndPrintResult(const Vector &field, const string &outputFileN
     {
         cout << "Output file not found!\n";
         cout << "Результат будет выдан в командной строке!\n";
-        for (int i = 0; i < field.size() ; i++)
-        {
-            for (int j = 0; j < field[i].size(); j++)
-            {
-                cout << field[i][j];
-            }
-            cout << endl;
-        }
+        Print(field, cout);
+
     }
     else
     {
-        for (int i = 0; i < field.size() ; i++)
-        {
-            for (int j = 0; j < field[i].size(); j++)
-            {
-                outputFile << field[i][j];
-            }
-            outputFile << endl;
-        }
+        Print(field, outputFile);
     }
 }
 
