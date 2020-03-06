@@ -59,19 +59,17 @@ bool ReadFieldFromFile(const string &inputFileName, Vector &field)
   string str;
   while (getline(fileInput, str))
   {
+      if (str.size() > MAX_SIZE || field.size() > MAX_SIZE - 1)
+      {
+          cout << "Превышен лимит области. Рабочее поле 100*100\n";
+          return false;
+      }
       for (char ch : str)
       {
-          if ((ch == FILL_START || ch == WALL || ch == EMPTY_CHAR) && str.size() < MAX_SIZE)
+          if (ch != FILL_START && ch != WALL && ch != EMPTY_CHAR)
           {
-              str.push_back(ch);
-          }
-          else
-          {
-              if (str.size() != MAX_SIZE && ch != '\0')
-              {
-                  cout << "Встречен неизвестный символ!\n";
-                  return false;
-              }
+              cout << "Встречен неизвестный символ!\n";
+              return false;
           }
       }
       field.push_back(str);
@@ -157,6 +155,7 @@ int main(int argc, char* argv[])
     {
         cout << "Invalid arguments\n";
         cout << "Arguments should be: fill.exe <input file> <output file>\n";
+        return 1;
     }
     string inputFileName = argv[1];
     string outputFileName = argv[2];
