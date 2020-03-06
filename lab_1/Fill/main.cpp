@@ -11,13 +11,15 @@ const char WALL = '#';
 const char EMPTY_CHAR = ' ';
 const char POINT_CHAR = '.';
 
+typedef vector<vector<char>> Vector;
+
 struct Coord
 {
     int x;
     int y;
 };
 
-void OpenOutputFileAndPrintResult(vector<vector<char>> field, const string &outputFileName)
+void OpenOutputFileAndPrintResult(const Vector &field, const string &outputFileName)
 {
     fstream outputFile;
     outputFile.open(outputFileName);
@@ -45,11 +47,9 @@ void OpenOutputFileAndPrintResult(vector<vector<char>> field, const string &outp
             outputFile << endl;
         }
     }
-
-
 }
 
-bool ReadFieldFromFile(const string &inputFileName, vector<vector<char>> &field)
+bool ReadFieldFromFile(const string &inputFileName, Vector &field)
 {
   ifstream fileInput;
   fileInput.open(inputFileName);
@@ -83,38 +83,49 @@ bool ReadFieldFromFile(const string &inputFileName, vector<vector<char>> &field)
 
 }
 
-void SetThePoints(vector<vector<char>> &resultVector, Coord position)
+void SetThePoints(Vector &resultVector, Coord &position)
 {
     int i = position.x;
     int j = position.y;
-    if ((resultVector[i][j] == FILL_START || resultVector[i][j] == EMPTY_CHAR) && i < MAX_SIZE && j < MAX_SIZE)
+    if (i >= resultVector.size() && i < MAX_SIZE)
+    {
+        for (int k = resultVector.size(); k < MAX_SIZE ; k++)
+        {
+            vector<char> row(100, ' ');
+            resultVector.push_back(row);
+        }
+    }
+    if (j >= resultVector[i].size())
+    {
+        for (int k = resultVector[i].size(); k < MAX_SIZE ; k++)
+        {
+            resultVector[i].push_back(' ');
+        }
+    }
+    if (i < MAX_SIZE && j < MAX_SIZE && i >= 0 && j >= 0 && (resultVector[i][j] == FILL_START || resultVector[i][j] == EMPTY_CHAR))
     {
         resultVector[i][j] = POINT_CHAR;
         Coord nextFill{};
-        if (i < resultVector.size())
-        {
-            nextFill.x = i + 1;
-            nextFill.y = j;
-            SetThePoints(resultVector,nextFill);
-        }
 
         nextFill.x = i - 1;
         nextFill.y = j;
         SetThePoints(resultVector,nextFill);
-        if (j < resultVector[i].size())
-        {
-            nextFill.x = i;
-            nextFill.y = j + 1;
-            SetThePoints(resultVector,nextFill);
-        }
 
         nextFill.x = i;
         nextFill.y = j - 1;
         SetThePoints(resultVector,nextFill);
+
+        nextFill.x = i + 1;
+        nextFill.y = j;
+        SetThePoints(resultVector,nextFill);
+
+        nextFill.x = i;
+        nextFill.y = j + 1;
+        SetThePoints(resultVector,nextFill);
     }
 }
 
-void FillingFieldWithDots(vector<vector<char>> &field, vector<vector<char>> &resultField)
+void FillingFieldWithDots(const Vector &field, Vector &resultField)
 {
     list<Coord> initialCoord;
     for (int i = 0; i < field.size(); i++)
@@ -131,15 +142,9 @@ void FillingFieldWithDots(vector<vector<char>> &field, vector<vector<char>> &res
             }
             row.push_back(field[i][j]);
         }
-        if (row.size() != MAX_SIZE)
-        {
-            for (int j = row.size(); j < MAX_SIZE; j++)
-            {
-                row.push_back(' ');
-            }
-        }
         resultField.push_back(row);
     }
+
     for(Coord startFill : initialCoord)
     {
         SetThePoints(resultField, startFill);
@@ -148,19 +153,6 @@ void FillingFieldWithDots(vector<vector<char>> &field, vector<vector<char>> &res
     {
         resultField[startFill.x][startFill.y] = 'O';
     }
-
-
-//    for (int i = 0; i < resultField.size() ; i++)
-//    {
-//        for (int j = 0; j < resultField[i].size(); j++)
-//        {
-//            file << resultField[i][j];
-//        }
-//        if (i != field.size() - 1)
-//        {
-//            file << endl;
-//        }
-//    }
 }
 
 
