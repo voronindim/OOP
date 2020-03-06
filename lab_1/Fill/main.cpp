@@ -82,7 +82,7 @@ void SetThePoints(Vector &resultVector, Coord &position)
 {
     int i = position.x;
     int j = position.y;
-    if (i >= resultVector.size() && i < MAX_SIZE)
+    if (i >= resultVector.size() && i < MAX_SIZE && i > -1)
     {
         for (int k = resultVector.size(); k < MAX_SIZE ; k++)
         {
