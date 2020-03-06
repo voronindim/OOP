@@ -11,7 +11,7 @@ const char WALL = '#';
 const char EMPTY_CHAR = ' ';
 const char POINT_CHAR = '.';
 
-typedef vector<vector<char>> Vector;
+typedef vector<string> Vector;
 
 struct Coord
 {
@@ -59,23 +59,22 @@ bool ReadFieldFromFile(const string &inputFileName, Vector &field)
   string str;
   while (getline(fileInput, str))
   {
-      vector<char> row;
       for (char ch : str)
       {
-          if ((ch == FILL_START || ch == WALL || ch == EMPTY_CHAR) && row.size() < MAX_SIZE)
+          if ((ch == FILL_START || ch == WALL || ch == EMPTY_CHAR) && str.size() < MAX_SIZE)
           {
-              row.push_back(ch);
+              str.push_back(ch);
           }
           else
           {
-              if (row.size() != MAX_SIZE && ch != '\0')
+              if (str.size() != MAX_SIZE && ch != '\0')
               {
                   cout << "Встречен неизвестный символ!\n";
                   return false;
               }
           }
       }
-      field.push_back(row);
+      field.push_back(str);
   }
    return true;
 
@@ -89,7 +88,7 @@ void SetThePoints(Vector &resultVector, Coord &position)
     {
         for (int k = resultVector.size(); k < MAX_SIZE ; k++)
         {
-            vector<char> row(100, ' ');
+            string row(100, ' ');
             resultVector.push_back(row);
         }
     }
@@ -128,7 +127,6 @@ void FillingFieldWithDots(const Vector &field, Vector &resultField)
     list<Coord> initialCoord;
     for (int i = 0; i < field.size(); i++)
     {
-        vector<char> row;
         for (int j = 0; j < field[i].size(); j++)
         {
             if (field[i][j] == FILL_START)
@@ -138,9 +136,8 @@ void FillingFieldWithDots(const Vector &field, Vector &resultField)
                 fillStart.y = j;
                 initialCoord.push_back(fillStart);
             }
-            row.push_back(field[i][j]);
         }
-        resultField.push_back(row);
+        resultField.push_back(field[i]);
     }
 
     for(Coord startFill : initialCoord)
@@ -163,9 +160,9 @@ int main(int argc, char* argv[])
     }
     string inputFileName = argv[1];
     string outputFileName = argv[2];
-    vector<vector<char>> field;
+    Vector field;
     ReadFieldFromFile(inputFileName, field);
-    vector<vector<char>> resultField;
+    Vector resultField;
     FillingFieldWithDots(field, resultField);
     OpenOutputFileAndPrintResult(resultField, outputFileName);
 

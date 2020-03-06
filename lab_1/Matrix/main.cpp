@@ -94,6 +94,11 @@ bool ReadMatrixFromFile(const string& inputFileName, Matrix& matrix)
 		}
 		i = i + 1;
 	}
+	if (i != MATRIX_SIZE)
+	{
+		cout << "Неверное количество элементов в матрице!\n";
+		return false;
+	}
 	return true;
 }
 
