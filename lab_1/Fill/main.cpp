@@ -20,26 +20,23 @@ struct Coord
 };
 void Print(const Vector &field, ostream& output)
 {
-    for (int i = 0; i < field.size() ; i++)
+    for (const auto & i : field)
     {
-        for (int j = 0; j < field[i].size(); j++)
-        {
-            output << field[i][j];
-        }
-        output << endl;
+        output << i << endl;
     }
 }
 
 void OpenOutputFileAndPrintResult(const Vector &field, const string &outputFileName)
 {
     fstream outputFile;
-    outputFile.open(outputFileName);
+    outputFile.open(outputFileName, std::ios::out );
+    ;
     if (!outputFile.is_open())
     {
+        cout << '\n';
         cout << "Output file not found!\n";
         cout << "Результат будет выдан в командной строке!\n";
         Print(field, cout);
-
     }
     else
     {
@@ -97,7 +94,8 @@ void SetThePoints(Vector &resultVector, Coord &position)
             resultVector[i].push_back(' ');
         }
     }
-    if (i < MAX_SIZE && j < MAX_SIZE && i >= 0 && j >= 0 && (resultVector[i][j] == FILL_START || resultVector[i][j] == EMPTY_CHAR))
+    if (i < MAX_SIZE && j < MAX_SIZE && i >= 0 && j >= 0 &&
+    	(resultVector[i][j] == FILL_START || resultVector[i][j] == EMPTY_CHAR))
     {
         resultVector[i][j] = POINT_CHAR;
         Coord nextFill{};
