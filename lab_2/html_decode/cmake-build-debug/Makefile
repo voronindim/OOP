@@ -48,10 +48,10 @@ RM = /Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /Applications/Homework/lab_2/Vector
+CMAKE_SOURCE_DIR = /Applications/Homework/lab_2/html_decode
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /Applications/Homework/lab_2/Vector/cmake-build-debug
+CMAKE_BINARY_DIR = /Applications/Homework/lab_2/html_decode/cmake-build-debug
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -80,9 +80,9 @@ edit_cache/fast: edit_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /Applications/Homework/lab_2/Vector/cmake-build-debug/CMakeFiles /Applications/Homework/lab_2/Vector/cmake-build-debug/CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /Applications/Homework/lab_2/html_decode/cmake-build-debug/CMakeFiles /Applications/Homework/lab_2/html_decode/cmake-build-debug/CMakeFiles/progress.marks
 	$(MAKE) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /Applications/Homework/lab_2/Vector/cmake-build-debug/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /Applications/Homework/lab_2/html_decode/cmake-build-debug/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -111,44 +111,44 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named Vector
+# Target rules for targets named html_decode
 
 # Build rule for target.
-Vector: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 Vector
-.PHONY : Vector
+html_decode: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 html_decode
+.PHONY : html_decode
 
 # fast build rule for target.
-Vector/fast:
-	$(MAKE) -f CMakeFiles/Vector.dir/build.make CMakeFiles/Vector.dir/build
-.PHONY : Vector/fast
+html_decode/fast:
+	$(MAKE) -f CMakeFiles/html_decode.dir/build.make CMakeFiles/html_decode.dir/build
+.PHONY : html_decode/fast
 
-ProcessVector_7.o: ProcessVector_7.cpp.o
+decode.o: decode.cpp.o
 
-.PHONY : ProcessVector_7.o
+.PHONY : decode.o
 
 # target to build an object file
-ProcessVector_7.cpp.o:
-	$(MAKE) -f CMakeFiles/Vector.dir/build.make CMakeFiles/Vector.dir/ProcessVector_7.cpp.o
-.PHONY : ProcessVector_7.cpp.o
+decode.cpp.o:
+	$(MAKE) -f CMakeFiles/html_decode.dir/build.make CMakeFiles/html_decode.dir/decode.cpp.o
+.PHONY : decode.cpp.o
 
-ProcessVector_7.i: ProcessVector_7.cpp.i
+decode.i: decode.cpp.i
 
-.PHONY : ProcessVector_7.i
+.PHONY : decode.i
 
 # target to preprocess a source file
-ProcessVector_7.cpp.i:
-	$(MAKE) -f CMakeFiles/Vector.dir/build.make CMakeFiles/Vector.dir/ProcessVector_7.cpp.i
-.PHONY : ProcessVector_7.cpp.i
+decode.cpp.i:
+	$(MAKE) -f CMakeFiles/html_decode.dir/build.make CMakeFiles/html_decode.dir/decode.cpp.i
+.PHONY : decode.cpp.i
 
-ProcessVector_7.s: ProcessVector_7.cpp.s
+decode.s: decode.cpp.s
 
-.PHONY : ProcessVector_7.s
+.PHONY : decode.s
 
 # target to generate assembly for a file
-ProcessVector_7.cpp.s:
-	$(MAKE) -f CMakeFiles/Vector.dir/build.make CMakeFiles/Vector.dir/ProcessVector_7.cpp.s
-.PHONY : ProcessVector_7.cpp.s
+decode.cpp.s:
+	$(MAKE) -f CMakeFiles/html_decode.dir/build.make CMakeFiles/html_decode.dir/decode.cpp.s
+.PHONY : decode.cpp.s
 
 main.o: main.cpp.o
 
@@ -156,7 +156,7 @@ main.o: main.cpp.o
 
 # target to build an object file
 main.cpp.o:
-	$(MAKE) -f CMakeFiles/Vector.dir/build.make CMakeFiles/Vector.dir/main.cpp.o
+	$(MAKE) -f CMakeFiles/html_decode.dir/build.make CMakeFiles/html_decode.dir/main.cpp.o
 .PHONY : main.cpp.o
 
 main.i: main.cpp.i
@@ -165,7 +165,7 @@ main.i: main.cpp.i
 
 # target to preprocess a source file
 main.cpp.i:
-	$(MAKE) -f CMakeFiles/Vector.dir/build.make CMakeFiles/Vector.dir/main.cpp.i
+	$(MAKE) -f CMakeFiles/html_decode.dir/build.make CMakeFiles/html_decode.dir/main.cpp.i
 .PHONY : main.cpp.i
 
 main.s: main.cpp.s
@@ -174,7 +174,7 @@ main.s: main.cpp.s
 
 # target to generate assembly for a file
 main.cpp.s:
-	$(MAKE) -f CMakeFiles/Vector.dir/build.make CMakeFiles/Vector.dir/main.cpp.s
+	$(MAKE) -f CMakeFiles/html_decode.dir/build.make CMakeFiles/html_decode.dir/main.cpp.s
 .PHONY : main.cpp.s
 
 # Help Target
@@ -185,10 +185,10 @@ help:
 	@echo "... depend"
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
-	@echo "... Vector"
-	@echo "... ProcessVector_7.o"
-	@echo "... ProcessVector_7.i"
-	@echo "... ProcessVector_7.s"
+	@echo "... html_decode"
+	@echo "... decode.o"
+	@echo "... decode.i"
+	@echo "... decode.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"

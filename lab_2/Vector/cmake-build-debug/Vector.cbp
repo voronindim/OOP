@@ -78,6 +78,12 @@
 				</MakeCommands>
 			</Target>
 		</Build>
+		<Unit filename="/Applications/Homework/lab_2/Vector/ProcessVector_7.cpp">
+			<Option target="Vector"/>
+		</Unit>
+		<Unit filename="/Applications/Homework/lab_2/Vector/ProcessVector_7.h">
+			<Option target="Vector"/>
+		</Unit>
 		<Unit filename="/Applications/Homework/lab_2/Vector/main.cpp">
 			<Option target="Vector"/>
 		</Unit>

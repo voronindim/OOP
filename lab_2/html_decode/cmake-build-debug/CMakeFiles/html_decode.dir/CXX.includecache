@@ -1,0 +1,20 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/Applications/Homework/lab_2/html_decode/Decode.h
+iostream
+-
+string
+-
+sstream
+-
+
+/Applications/Homework/lab_2/html_decode/decode.cpp
+Decode.h
+/Applications/Homework/lab_2/html_decode/Decode.h
+

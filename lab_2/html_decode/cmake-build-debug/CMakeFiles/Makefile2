@@ -44,21 +44,21 @@ RM = /Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /Applications/Homework/lab_2/Vector
+CMAKE_SOURCE_DIR = /Applications/Homework/lab_2/html_decode
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /Applications/Homework/lab_2/Vector/cmake-build-debug
+CMAKE_BINARY_DIR = /Applications/Homework/lab_2/html_decode/cmake-build-debug
 
 #=============================================================================
 # Directory level rules for the build root directory
 
 # The main recursive "all" target.
-all: CMakeFiles/Vector.dir/all
+all: CMakeFiles/html_decode.dir/all
 
 .PHONY : all
 
 # The main recursive "clean" target.
-clean: CMakeFiles/Vector.dir/clean
+clean: CMakeFiles/html_decode.dir/clean
 
 .PHONY : clean
 
@@ -68,31 +68,31 @@ preinstall:
 .PHONY : preinstall
 
 #=============================================================================
-# Target rules for target CMakeFiles/Vector.dir
+# Target rules for target CMakeFiles/html_decode.dir
 
 # All Build rule for target.
-CMakeFiles/Vector.dir/all:
-	$(MAKE) -f CMakeFiles/Vector.dir/build.make CMakeFiles/Vector.dir/depend
-	$(MAKE) -f CMakeFiles/Vector.dir/build.make CMakeFiles/Vector.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/Applications/Homework/lab_2/Vector/cmake-build-debug/CMakeFiles --progress-num=1,2,3 "Built target Vector"
-.PHONY : CMakeFiles/Vector.dir/all
+CMakeFiles/html_decode.dir/all:
+	$(MAKE) -f CMakeFiles/html_decode.dir/build.make CMakeFiles/html_decode.dir/depend
+	$(MAKE) -f CMakeFiles/html_decode.dir/build.make CMakeFiles/html_decode.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/Applications/Homework/lab_2/html_decode/cmake-build-debug/CMakeFiles --progress-num=1,2,3 "Built target html_decode"
+.PHONY : CMakeFiles/html_decode.dir/all
 
 # Build rule for subdir invocation for target.
-CMakeFiles/Vector.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /Applications/Homework/lab_2/Vector/cmake-build-debug/CMakeFiles 3
-	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/Vector.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /Applications/Homework/lab_2/Vector/cmake-build-debug/CMakeFiles 0
-.PHONY : CMakeFiles/Vector.dir/rule
+CMakeFiles/html_decode.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /Applications/Homework/lab_2/html_decode/cmake-build-debug/CMakeFiles 3
+	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/html_decode.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /Applications/Homework/lab_2/html_decode/cmake-build-debug/CMakeFiles 0
+.PHONY : CMakeFiles/html_decode.dir/rule
 
 # Convenience name for target.
-Vector: CMakeFiles/Vector.dir/rule
+html_decode: CMakeFiles/html_decode.dir/rule
 
-.PHONY : Vector
+.PHONY : html_decode
 
 # clean rule for target.
-CMakeFiles/Vector.dir/clean:
-	$(MAKE) -f CMakeFiles/Vector.dir/build.make CMakeFiles/Vector.dir/clean
-.PHONY : CMakeFiles/Vector.dir/clean
+CMakeFiles/html_decode.dir/clean:
+	$(MAKE) -f CMakeFiles/html_decode.dir/build.make CMakeFiles/html_decode.dir/clean
+.PHONY : CMakeFiles/html_decode.dir/clean
 
 #=============================================================================
 # Special targets to cleanup operation of make.

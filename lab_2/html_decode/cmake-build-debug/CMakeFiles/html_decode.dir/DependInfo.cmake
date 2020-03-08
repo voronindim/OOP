@@ -4,8 +4,8 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/Applications/Homework/lab_2/Vector/ProcessVector_7.cpp" "/Applications/Homework/lab_2/Vector/cmake-build-debug/CMakeFiles/Vector.dir/ProcessVector_7.cpp.o"
-  "/Applications/Homework/lab_2/Vector/main.cpp" "/Applications/Homework/lab_2/Vector/cmake-build-debug/CMakeFiles/Vector.dir/main.cpp.o"
+  "/Applications/Homework/lab_2/html_decode/decode.cpp" "/Applications/Homework/lab_2/html_decode/cmake-build-debug/CMakeFiles/html_decode.dir/decode.cpp.o"
+  "/Applications/Homework/lab_2/html_decode/main.cpp" "/Applications/Homework/lab_2/html_decode/cmake-build-debug/CMakeFiles/html_decode.dir/main.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "AppleClang")
 
