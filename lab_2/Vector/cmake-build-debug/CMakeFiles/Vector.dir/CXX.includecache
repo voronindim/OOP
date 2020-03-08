@@ -1,0 +1,22 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/Applications/Homework/lab_2/Vector/ProcessVector_7.h
+iostream
+-
+vector
+-
+
+/Applications/Homework/lab_2/Vector/main.cpp
+iostream
+-
+iomanip
+-
+ProcessVector_7.h
+/Applications/Homework/lab_2/Vector/ProcessVector_7.h
+
