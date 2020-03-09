@@ -1,54 +1,57 @@
 #include "Decode.h"
-std::string ReplacementSearch(std::string& str)
+std::string ReplacementSearch(std::string str)
 {
     if (str == "&quot;")
     {
         str = "\"";
-        return str;
     }
-    if (str == "&apos;")
+    else if (str == "&apos;")
     {
         str = "\'";
-        return str;
     }
-    if (str == "&lt;")
+    else if (str == "&lt;")
     {
         str = "<";
-        return str;
     }
-    if (str == "&gt;")
+    else if (str == "&gt;")
     {
         str = ">";
-        return str;
     }
-    if (str == "&amp;")
+    else if (str == "&amp;")
     {
         str = "&";
-        return str;
     }
     return str;
 }
 
-std::string DecodeHtml(std::string& str)
+std::string HtmlDecode(std::string const& html)
 {
     std::string decodingText;
-    decodingText.reserve(str.size());
+    decodingText.reserve(html.size());
 
-    std::string::iterator iter = str.begin();
+    std::string::const_iterator iter = html.begin();
 
-    while(iter != str.end())
+    while(iter != html.end())
     {
         if (*iter == START_SYMBOL_DECODER)
         {
-            std::string::iterator rightBorder = std::find(iter, str.end(), END_SYMBOL_DECODER);
-            if (rightBorder != str.end())
+            std::string::const_iterator rightBorder = std::find(iter, html.end(), END_SYMBOL_DECODER);
+            if (rightBorder != html.end())
             {
-                int current = iter - str.begin();
+                int current = iter - html.begin();
                 long lengthSubStr = rightBorder - iter + 1;
-                std::string cipherLetters = str.substr(current, lengthSubStr);
-                std::string symbol = ReplacementSearch(cipherLetters);
-                decodingText += symbol;
-                iter += lengthSubStr;
+                std::string subStr = html.substr(current, lengthSubStr);
+                std::string symbol = ReplacementSearch(subStr);
+                if (subStr == symbol)
+                {
+                    decodingText += *iter;
+                    ++iter;
+                }
+                else
+                {
+                    decodingText += symbol;
+                    iter += lengthSubStr;
+                }
             }
             else
             {

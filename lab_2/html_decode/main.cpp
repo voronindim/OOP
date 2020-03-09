@@ -7,7 +7,7 @@ int main()
 
     while(std::getline(std::cin, encodingLine))
     {
-        std::string decodeLine = DecodeHtml(encodingLine);
+        std::string decodeLine = HtmlDecode(encodingLine);
         std::cout << decodeLine << std::endl;
     }
     return 0;
