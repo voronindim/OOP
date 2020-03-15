@@ -48,10 +48,10 @@ RM = /Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = "/Applications/Homework/lab_2/Tests Html Decode"
+CMAKE_SOURCE_DIR = "/Users/dmitrii/Documents/GitHub/OOP/lab_2/Tests Html Decode"
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = "/Applications/Homework/lab_2/Tests Html Decode/cmake-build-debug"
+CMAKE_BINARY_DIR = "/Users/dmitrii/Documents/GitHub/OOP/lab_2/Tests Html Decode/cmake-build-debug"
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -80,9 +80,9 @@ edit_cache/fast: edit_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start "/Applications/Homework/lab_2/Tests Html Decode/cmake-build-debug/CMakeFiles" "/Applications/Homework/lab_2/Tests Html Decode/cmake-build-debug/CMakeFiles/progress.marks"
+	$(CMAKE_COMMAND) -E cmake_progress_start "/Users/dmitrii/Documents/GitHub/OOP/lab_2/Tests Html Decode/cmake-build-debug/CMakeFiles" "/Users/dmitrii/Documents/GitHub/OOP/lab_2/Tests Html Decode/cmake-build-debug/CMakeFiles/progress.marks"
 	$(MAKE) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start "/Applications/Homework/lab_2/Tests Html Decode/cmake-build-debug/CMakeFiles" 0
+	$(CMAKE_COMMAND) -E cmake_progress_start "/Users/dmitrii/Documents/GitHub/OOP/lab_2/Tests Html Decode/cmake-build-debug/CMakeFiles" 0
 .PHONY : all
 
 # The main clean target
@@ -123,6 +123,60 @@ Tests_Html_Decode/fast:
 	$(MAKE) -f CMakeFiles/Tests_Html_Decode.dir/build.make CMakeFiles/Tests_Html_Decode.dir/build
 .PHONY : Tests_Html_Decode/fast
 
+Tests.o: Tests.cpp.o
+
+.PHONY : Tests.o
+
+# target to build an object file
+Tests.cpp.o:
+	$(MAKE) -f CMakeFiles/Tests_Html_Decode.dir/build.make CMakeFiles/Tests_Html_Decode.dir/Tests.cpp.o
+.PHONY : Tests.cpp.o
+
+Tests.i: Tests.cpp.i
+
+.PHONY : Tests.i
+
+# target to preprocess a source file
+Tests.cpp.i:
+	$(MAKE) -f CMakeFiles/Tests_Html_Decode.dir/build.make CMakeFiles/Tests_Html_Decode.dir/Tests.cpp.i
+.PHONY : Tests.cpp.i
+
+Tests.s: Tests.cpp.s
+
+.PHONY : Tests.s
+
+# target to generate assembly for a file
+Tests.cpp.s:
+	$(MAKE) -f CMakeFiles/Tests_Html_Decode.dir/build.make CMakeFiles/Tests_Html_Decode.dir/Tests.cpp.s
+.PHONY : Tests.cpp.s
+
+decode.o: decode.cpp.o
+
+.PHONY : decode.o
+
+# target to build an object file
+decode.cpp.o:
+	$(MAKE) -f CMakeFiles/Tests_Html_Decode.dir/build.make CMakeFiles/Tests_Html_Decode.dir/decode.cpp.o
+.PHONY : decode.cpp.o
+
+decode.i: decode.cpp.i
+
+.PHONY : decode.i
+
+# target to preprocess a source file
+decode.cpp.i:
+	$(MAKE) -f CMakeFiles/Tests_Html_Decode.dir/build.make CMakeFiles/Tests_Html_Decode.dir/decode.cpp.i
+.PHONY : decode.cpp.i
+
+decode.s: decode.cpp.s
+
+.PHONY : decode.s
+
+# target to generate assembly for a file
+decode.cpp.s:
+	$(MAKE) -f CMakeFiles/Tests_Html_Decode.dir/build.make CMakeFiles/Tests_Html_Decode.dir/decode.cpp.s
+.PHONY : decode.cpp.s
+
 main.o: main.cpp.o
 
 .PHONY : main.o
@@ -159,6 +213,12 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
 	@echo "... Tests_Html_Decode"
+	@echo "... Tests.o"
+	@echo "... Tests.i"
+	@echo "... Tests.s"
+	@echo "... decode.o"
+	@echo "... decode.i"
+	@echo "... decode.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"

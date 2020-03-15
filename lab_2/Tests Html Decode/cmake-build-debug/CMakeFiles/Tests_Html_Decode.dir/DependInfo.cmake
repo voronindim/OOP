@@ -4,7 +4,9 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/Applications/Homework/lab_2/Tests Html Decode/main.cpp" "/Applications/Homework/lab_2/Tests Html Decode/cmake-build-debug/CMakeFiles/Tests_Html_Decode.dir/main.cpp.o"
+  "/Users/dmitrii/Documents/GitHub/OOP/lab_2/Tests Html Decode/Tests.cpp" "/Users/dmitrii/Documents/GitHub/OOP/lab_2/Tests Html Decode/cmake-build-debug/CMakeFiles/Tests_Html_Decode.dir/Tests.cpp.o"
+  "/Users/dmitrii/Documents/GitHub/OOP/lab_2/Tests Html Decode/decode.cpp" "/Users/dmitrii/Documents/GitHub/OOP/lab_2/Tests Html Decode/cmake-build-debug/CMakeFiles/Tests_Html_Decode.dir/decode.cpp.o"
+  "/Users/dmitrii/Documents/GitHub/OOP/lab_2/Tests Html Decode/main.cpp" "/Users/dmitrii/Documents/GitHub/OOP/lab_2/Tests Html Decode/cmake-build-debug/CMakeFiles/Tests_Html_Decode.dir/main.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "AppleClang")
 

@@ -43,10 +43,10 @@ RM = /Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /Applications/Homework/lab_2/html_decode
+CMAKE_SOURCE_DIR = /Users/dmitrii/Documents/GitHub/OOP/lab_2/html_decode
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /Applications/Homework/lab_2/html_decode/cmake-build-debug
+CMAKE_BINARY_DIR = /Users/dmitrii/Documents/GitHub/OOP/lab_2/html_decode/cmake-build-debug
 
 # Include any dependencies generated for this target.
 include CMakeFiles/html_decode.dir/depend.make
@@ -59,29 +59,29 @@ include CMakeFiles/html_decode.dir/flags.make
 
 CMakeFiles/html_decode.dir/main.cpp.o: CMakeFiles/html_decode.dir/flags.make
 CMakeFiles/html_decode.dir/main.cpp.o: ../main.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Applications/Homework/lab_2/html_decode/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/html_decode.dir/main.cpp.o"
-	/Library/Developer/CommandLineTools/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/html_decode.dir/main.cpp.o -c /Applications/Homework/lab_2/html_decode/main.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/dmitrii/Documents/GitHub/OOP/lab_2/html_decode/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/html_decode.dir/main.cpp.o"
+	/Library/Developer/CommandLineTools/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/html_decode.dir/main.cpp.o -c /Users/dmitrii/Documents/GitHub/OOP/lab_2/html_decode/main.cpp
 
 CMakeFiles/html_decode.dir/main.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/html_decode.dir/main.cpp.i"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Applications/Homework/lab_2/html_decode/main.cpp > CMakeFiles/html_decode.dir/main.cpp.i
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/dmitrii/Documents/GitHub/OOP/lab_2/html_decode/main.cpp > CMakeFiles/html_decode.dir/main.cpp.i
 
 CMakeFiles/html_decode.dir/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/html_decode.dir/main.cpp.s"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Applications/Homework/lab_2/html_decode/main.cpp -o CMakeFiles/html_decode.dir/main.cpp.s
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/dmitrii/Documents/GitHub/OOP/lab_2/html_decode/main.cpp -o CMakeFiles/html_decode.dir/main.cpp.s
 
 CMakeFiles/html_decode.dir/decode.cpp.o: CMakeFiles/html_decode.dir/flags.make
 CMakeFiles/html_decode.dir/decode.cpp.o: ../decode.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Applications/Homework/lab_2/html_decode/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/html_decode.dir/decode.cpp.o"
-	/Library/Developer/CommandLineTools/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/html_decode.dir/decode.cpp.o -c /Applications/Homework/lab_2/html_decode/decode.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/dmitrii/Documents/GitHub/OOP/lab_2/html_decode/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/html_decode.dir/decode.cpp.o"
+	/Library/Developer/CommandLineTools/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/html_decode.dir/decode.cpp.o -c /Users/dmitrii/Documents/GitHub/OOP/lab_2/html_decode/decode.cpp
 
 CMakeFiles/html_decode.dir/decode.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/html_decode.dir/decode.cpp.i"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Applications/Homework/lab_2/html_decode/decode.cpp > CMakeFiles/html_decode.dir/decode.cpp.i
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/dmitrii/Documents/GitHub/OOP/lab_2/html_decode/decode.cpp > CMakeFiles/html_decode.dir/decode.cpp.i
 
 CMakeFiles/html_decode.dir/decode.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/html_decode.dir/decode.cpp.s"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Applications/Homework/lab_2/html_decode/decode.cpp -o CMakeFiles/html_decode.dir/decode.cpp.s
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/dmitrii/Documents/GitHub/OOP/lab_2/html_decode/decode.cpp -o CMakeFiles/html_decode.dir/decode.cpp.s
 
 # Object files for target html_decode
 html_decode_OBJECTS = \
@@ -95,7 +95,7 @@ html_decode: CMakeFiles/html_decode.dir/main.cpp.o
 html_decode: CMakeFiles/html_decode.dir/decode.cpp.o
 html_decode: CMakeFiles/html_decode.dir/build.make
 html_decode: CMakeFiles/html_decode.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Applications/Homework/lab_2/html_decode/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX executable html_decode"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/dmitrii/Documents/GitHub/OOP/lab_2/html_decode/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX executable html_decode"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/html_decode.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -108,6 +108,6 @@ CMakeFiles/html_decode.dir/clean:
 .PHONY : CMakeFiles/html_decode.dir/clean
 
 CMakeFiles/html_decode.dir/depend:
-	cd /Applications/Homework/lab_2/html_decode/cmake-build-debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /Applications/Homework/lab_2/html_decode /Applications/Homework/lab_2/html_decode /Applications/Homework/lab_2/html_decode/cmake-build-debug /Applications/Homework/lab_2/html_decode/cmake-build-debug /Applications/Homework/lab_2/html_decode/cmake-build-debug/CMakeFiles/html_decode.dir/DependInfo.cmake --color=$(COLOR)
+	cd /Users/dmitrii/Documents/GitHub/OOP/lab_2/html_decode/cmake-build-debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /Users/dmitrii/Documents/GitHub/OOP/lab_2/html_decode /Users/dmitrii/Documents/GitHub/OOP/lab_2/html_decode /Users/dmitrii/Documents/GitHub/OOP/lab_2/html_decode/cmake-build-debug /Users/dmitrii/Documents/GitHub/OOP/lab_2/html_decode/cmake-build-debug /Users/dmitrii/Documents/GitHub/OOP/lab_2/html_decode/cmake-build-debug/CMakeFiles/html_decode.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/html_decode.dir/depend
 

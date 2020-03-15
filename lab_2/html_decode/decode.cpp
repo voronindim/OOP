@@ -7,7 +7,7 @@ std::string ReplacementSearch(std::string str)
     }
     else if (str == "&apos;")
     {
-        str = "\'";
+        str = "’";
     }
     else if (str == "&lt;")
     {

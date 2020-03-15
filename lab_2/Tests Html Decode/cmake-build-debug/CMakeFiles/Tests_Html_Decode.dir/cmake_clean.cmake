@@ -1,4 +1,6 @@
 file(REMOVE_RECURSE
+  "CMakeFiles/Tests_Html_Decode.dir/Tests.cpp.o"
+  "CMakeFiles/Tests_Html_Decode.dir/decode.cpp.o"
   "CMakeFiles/Tests_Html_Decode.dir/main.cpp.o"
   "Tests_Html_Decode"
   "Tests_Html_Decode.pdb"
