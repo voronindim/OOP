@@ -1,0 +1,3 @@
+/Applications/Homework/lab_2/Tests Vector/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/Applications/Homework/lab_2/Tests Vector/cmake-build-debug/CMakeFiles/edit_cache.dir
+/Applications/Homework/lab_2/Tests Vector/cmake-build-debug/CMakeFiles/Tests_Vector.dir
