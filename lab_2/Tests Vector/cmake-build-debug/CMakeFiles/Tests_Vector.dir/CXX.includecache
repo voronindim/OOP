@@ -6,17 +6,17 @@
 
 #IncludeRegexTransform: 
 
-/Applications/Homework/lab_2/Tests Vector/ProcessVector.h
+/Users/dmitrii/Documents/GitHub/OOP/lab_2/Tests Vector/ProcessVector.h
 iostream
 -
 vector
 -
 
-/Applications/Homework/lab_2/Tests Vector/ProcessVector_7.cpp
+/Users/dmitrii/Documents/GitHub/OOP/lab_2/Tests Vector/ProcessVector_7.cpp
 ProcessVector.h
-/Applications/Homework/lab_2/Tests Vector/ProcessVector.h
+/Users/dmitrii/Documents/GitHub/OOP/lab_2/Tests Vector/ProcessVector.h
 
-/Applications/Homework/lab_2/Tests Vector/catch.hpp
+/Users/dmitrii/Documents/GitHub/OOP/lab_2/Tests Vector/catch.hpp
 TargetConditionals.h
 -
 ciso646
@@ -388,7 +388,7 @@ string
 memory
 -
 Foundation/Foundation.h
-/Applications/Homework/lab_2/Tests Vector/Foundation/Foundation.h
+/Users/dmitrii/Documents/GitHub/OOP/lab_2/Tests Vector/Foundation/Foundation.h
 limits
 -
 set
@@ -590,13 +590,13 @@ algorithm
 cassert
 -
 
-/Applications/Homework/lab_2/Tests Vector/main.cpp
+/Users/dmitrii/Documents/GitHub/OOP/lab_2/Tests Vector/main.cpp
 catch.hpp
-/Applications/Homework/lab_2/Tests Vector/catch.hpp
+/Users/dmitrii/Documents/GitHub/OOP/lab_2/Tests Vector/catch.hpp
 
-/Applications/Homework/lab_2/Tests Vector/tests.cpp
+/Users/dmitrii/Documents/GitHub/OOP/lab_2/Tests Vector/tests.cpp
 catch.hpp
-/Applications/Homework/lab_2/Tests Vector/catch.hpp
+/Users/dmitrii/Documents/GitHub/OOP/lab_2/Tests Vector/catch.hpp
 ProcessVector.h
-/Applications/Homework/lab_2/Tests Vector/ProcessVector.h
+/Users/dmitrii/Documents/GitHub/OOP/lab_2/Tests Vector/ProcessVector.h
 

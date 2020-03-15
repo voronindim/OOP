@@ -4,9 +4,9 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/Applications/Homework/lab_2/Tests Vector/ProcessVector_7.cpp" "/Applications/Homework/lab_2/Tests Vector/cmake-build-release/CMakeFiles/Tests_Vector.dir/ProcessVector_7.cpp.o"
-  "/Applications/Homework/lab_2/Tests Vector/main.cpp" "/Applications/Homework/lab_2/Tests Vector/cmake-build-release/CMakeFiles/Tests_Vector.dir/main.cpp.o"
-  "/Applications/Homework/lab_2/Tests Vector/tests.cpp" "/Applications/Homework/lab_2/Tests Vector/cmake-build-release/CMakeFiles/Tests_Vector.dir/tests.cpp.o"
+  "/Users/dmitrii/Documents/GitHub/OOP/lab_2/Tests Vector/ProcessVector_7.cpp" "/Users/dmitrii/Documents/GitHub/OOP/lab_2/Tests Vector/cmake-build-release/CMakeFiles/Tests_Vector.dir/ProcessVector_7.cpp.o"
+  "/Users/dmitrii/Documents/GitHub/OOP/lab_2/Tests Vector/main.cpp" "/Users/dmitrii/Documents/GitHub/OOP/lab_2/Tests Vector/cmake-build-release/CMakeFiles/Tests_Vector.dir/main.cpp.o"
+  "/Users/dmitrii/Documents/GitHub/OOP/lab_2/Tests Vector/tests.cpp" "/Users/dmitrii/Documents/GitHub/OOP/lab_2/Tests Vector/cmake-build-release/CMakeFiles/Tests_Vector.dir/tests.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "AppleClang")
 

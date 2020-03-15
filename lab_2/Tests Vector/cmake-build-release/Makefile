@@ -48,10 +48,10 @@ RM = /Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = "/Applications/Homework/lab_2/Tests Vector"
+CMAKE_SOURCE_DIR = "/Users/dmitrii/Documents/GitHub/OOP/lab_2/Tests Vector"
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = "/Applications/Homework/lab_2/Tests Vector/cmake-build-release"
+CMAKE_BINARY_DIR = "/Users/dmitrii/Documents/GitHub/OOP/lab_2/Tests Vector/cmake-build-release"
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -80,9 +80,9 @@ edit_cache/fast: edit_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start "/Applications/Homework/lab_2/Tests Vector/cmake-build-release/CMakeFiles" "/Applications/Homework/lab_2/Tests Vector/cmake-build-release/CMakeFiles/progress.marks"
+	$(CMAKE_COMMAND) -E cmake_progress_start "/Users/dmitrii/Documents/GitHub/OOP/lab_2/Tests Vector/cmake-build-release/CMakeFiles" "/Users/dmitrii/Documents/GitHub/OOP/lab_2/Tests Vector/cmake-build-release/CMakeFiles/progress.marks"
 	$(MAKE) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start "/Applications/Homework/lab_2/Tests Vector/cmake-build-release/CMakeFiles" 0
+	$(CMAKE_COMMAND) -E cmake_progress_start "/Users/dmitrii/Documents/GitHub/OOP/lab_2/Tests Vector/cmake-build-release/CMakeFiles" 0
 .PHONY : all
 
 # The main clean target

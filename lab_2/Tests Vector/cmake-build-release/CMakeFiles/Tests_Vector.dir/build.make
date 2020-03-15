@@ -43,10 +43,10 @@ RM = /Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = "/Applications/Homework/lab_2/Tests Vector"
+CMAKE_SOURCE_DIR = "/Users/dmitrii/Documents/GitHub/OOP/lab_2/Tests Vector"
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = "/Applications/Homework/lab_2/Tests Vector/cmake-build-release"
+CMAKE_BINARY_DIR = "/Users/dmitrii/Documents/GitHub/OOP/lab_2/Tests Vector/cmake-build-release"
 
 # Include any dependencies generated for this target.
 include CMakeFiles/Tests_Vector.dir/depend.make
@@ -59,42 +59,42 @@ include CMakeFiles/Tests_Vector.dir/flags.make
 
 CMakeFiles/Tests_Vector.dir/main.cpp.o: CMakeFiles/Tests_Vector.dir/flags.make
 CMakeFiles/Tests_Vector.dir/main.cpp.o: ../main.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/Applications/Homework/lab_2/Tests Vector/cmake-build-release/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/Tests_Vector.dir/main.cpp.o"
-	/Library/Developer/CommandLineTools/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Tests_Vector.dir/main.cpp.o -c "/Applications/Homework/lab_2/Tests Vector/main.cpp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/Users/dmitrii/Documents/GitHub/OOP/lab_2/Tests Vector/cmake-build-release/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/Tests_Vector.dir/main.cpp.o"
+	/Library/Developer/CommandLineTools/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Tests_Vector.dir/main.cpp.o -c "/Users/dmitrii/Documents/GitHub/OOP/lab_2/Tests Vector/main.cpp"
 
 CMakeFiles/Tests_Vector.dir/main.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Tests_Vector.dir/main.cpp.i"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/Applications/Homework/lab_2/Tests Vector/main.cpp" > CMakeFiles/Tests_Vector.dir/main.cpp.i
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/Users/dmitrii/Documents/GitHub/OOP/lab_2/Tests Vector/main.cpp" > CMakeFiles/Tests_Vector.dir/main.cpp.i
 
 CMakeFiles/Tests_Vector.dir/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Tests_Vector.dir/main.cpp.s"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/Applications/Homework/lab_2/Tests Vector/main.cpp" -o CMakeFiles/Tests_Vector.dir/main.cpp.s
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/Users/dmitrii/Documents/GitHub/OOP/lab_2/Tests Vector/main.cpp" -o CMakeFiles/Tests_Vector.dir/main.cpp.s
 
 CMakeFiles/Tests_Vector.dir/tests.cpp.o: CMakeFiles/Tests_Vector.dir/flags.make
 CMakeFiles/Tests_Vector.dir/tests.cpp.o: ../tests.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/Applications/Homework/lab_2/Tests Vector/cmake-build-release/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/Tests_Vector.dir/tests.cpp.o"
-	/Library/Developer/CommandLineTools/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Tests_Vector.dir/tests.cpp.o -c "/Applications/Homework/lab_2/Tests Vector/tests.cpp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/Users/dmitrii/Documents/GitHub/OOP/lab_2/Tests Vector/cmake-build-release/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/Tests_Vector.dir/tests.cpp.o"
+	/Library/Developer/CommandLineTools/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Tests_Vector.dir/tests.cpp.o -c "/Users/dmitrii/Documents/GitHub/OOP/lab_2/Tests Vector/tests.cpp"
 
 CMakeFiles/Tests_Vector.dir/tests.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Tests_Vector.dir/tests.cpp.i"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/Applications/Homework/lab_2/Tests Vector/tests.cpp" > CMakeFiles/Tests_Vector.dir/tests.cpp.i
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/Users/dmitrii/Documents/GitHub/OOP/lab_2/Tests Vector/tests.cpp" > CMakeFiles/Tests_Vector.dir/tests.cpp.i
 
 CMakeFiles/Tests_Vector.dir/tests.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Tests_Vector.dir/tests.cpp.s"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/Applications/Homework/lab_2/Tests Vector/tests.cpp" -o CMakeFiles/Tests_Vector.dir/tests.cpp.s
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/Users/dmitrii/Documents/GitHub/OOP/lab_2/Tests Vector/tests.cpp" -o CMakeFiles/Tests_Vector.dir/tests.cpp.s
 
 CMakeFiles/Tests_Vector.dir/ProcessVector_7.cpp.o: CMakeFiles/Tests_Vector.dir/flags.make
 CMakeFiles/Tests_Vector.dir/ProcessVector_7.cpp.o: ../ProcessVector_7.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/Applications/Homework/lab_2/Tests Vector/cmake-build-release/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/Tests_Vector.dir/ProcessVector_7.cpp.o"
-	/Library/Developer/CommandLineTools/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Tests_Vector.dir/ProcessVector_7.cpp.o -c "/Applications/Homework/lab_2/Tests Vector/ProcessVector_7.cpp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/Users/dmitrii/Documents/GitHub/OOP/lab_2/Tests Vector/cmake-build-release/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/Tests_Vector.dir/ProcessVector_7.cpp.o"
+	/Library/Developer/CommandLineTools/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Tests_Vector.dir/ProcessVector_7.cpp.o -c "/Users/dmitrii/Documents/GitHub/OOP/lab_2/Tests Vector/ProcessVector_7.cpp"
 
 CMakeFiles/Tests_Vector.dir/ProcessVector_7.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Tests_Vector.dir/ProcessVector_7.cpp.i"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/Applications/Homework/lab_2/Tests Vector/ProcessVector_7.cpp" > CMakeFiles/Tests_Vector.dir/ProcessVector_7.cpp.i
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/Users/dmitrii/Documents/GitHub/OOP/lab_2/Tests Vector/ProcessVector_7.cpp" > CMakeFiles/Tests_Vector.dir/ProcessVector_7.cpp.i
 
 CMakeFiles/Tests_Vector.dir/ProcessVector_7.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Tests_Vector.dir/ProcessVector_7.cpp.s"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/Applications/Homework/lab_2/Tests Vector/ProcessVector_7.cpp" -o CMakeFiles/Tests_Vector.dir/ProcessVector_7.cpp.s
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/Users/dmitrii/Documents/GitHub/OOP/lab_2/Tests Vector/ProcessVector_7.cpp" -o CMakeFiles/Tests_Vector.dir/ProcessVector_7.cpp.s
 
 # Object files for target Tests_Vector
 Tests_Vector_OBJECTS = \
@@ -110,7 +110,7 @@ Tests_Vector: CMakeFiles/Tests_Vector.dir/tests.cpp.o
 Tests_Vector: CMakeFiles/Tests_Vector.dir/ProcessVector_7.cpp.o
 Tests_Vector: CMakeFiles/Tests_Vector.dir/build.make
 Tests_Vector: CMakeFiles/Tests_Vector.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir="/Applications/Homework/lab_2/Tests Vector/cmake-build-release/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_4) "Linking CXX executable Tests_Vector"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir="/Users/dmitrii/Documents/GitHub/OOP/lab_2/Tests Vector/cmake-build-release/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_4) "Linking CXX executable Tests_Vector"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/Tests_Vector.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -123,6 +123,6 @@ CMakeFiles/Tests_Vector.dir/clean:
 .PHONY : CMakeFiles/Tests_Vector.dir/clean
 
 CMakeFiles/Tests_Vector.dir/depend:
-	cd "/Applications/Homework/lab_2/Tests Vector/cmake-build-release" && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" "/Applications/Homework/lab_2/Tests Vector" "/Applications/Homework/lab_2/Tests Vector" "/Applications/Homework/lab_2/Tests Vector/cmake-build-release" "/Applications/Homework/lab_2/Tests Vector/cmake-build-release" "/Applications/Homework/lab_2/Tests Vector/cmake-build-release/CMakeFiles/Tests_Vector.dir/DependInfo.cmake" --color=$(COLOR)
+	cd "/Users/dmitrii/Documents/GitHub/OOP/lab_2/Tests Vector/cmake-build-release" && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" "/Users/dmitrii/Documents/GitHub/OOP/lab_2/Tests Vector" "/Users/dmitrii/Documents/GitHub/OOP/lab_2/Tests Vector" "/Users/dmitrii/Documents/GitHub/OOP/lab_2/Tests Vector/cmake-build-release" "/Users/dmitrii/Documents/GitHub/OOP/lab_2/Tests Vector/cmake-build-release" "/Users/dmitrii/Documents/GitHub/OOP/lab_2/Tests Vector/cmake-build-release/CMakeFiles/Tests_Vector.dir/DependInfo.cmake" --color=$(COLOR)
 .PHONY : CMakeFiles/Tests_Vector.dir/depend
 

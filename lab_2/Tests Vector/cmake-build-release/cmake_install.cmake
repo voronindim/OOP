@@ -1,4 +1,4 @@
-# Install script for directory: /Applications/Homework/lab_2/Tests Vector
+# Install script for directory: /Users/dmitrii/Documents/GitHub/OOP/lab_2/Tests Vector
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -40,5 +40,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/Applications/Homework/lab_2/Tests Vector/cmake-build-release/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/Users/dmitrii/Documents/GitHub/OOP/lab_2/Tests Vector/cmake-build-release/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")
