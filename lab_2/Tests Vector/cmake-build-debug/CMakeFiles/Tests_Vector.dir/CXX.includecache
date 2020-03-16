@@ -12,10 +12,6 @@ iostream
 vector
 -
 
-/Users/dmitrii/Documents/GitHub/OOP/lab_2/Tests Vector/ProcessVector_7.cpp
-ProcessVector.h
-/Users/dmitrii/Documents/GitHub/OOP/lab_2/Tests Vector/ProcessVector.h
-
 /Users/dmitrii/Documents/GitHub/OOP/lab_2/Tests Vector/catch.hpp
 TargetConditionals.h
 -
@@ -589,10 +585,6 @@ algorithm
 -
 cassert
 -
-
-/Users/dmitrii/Documents/GitHub/OOP/lab_2/Tests Vector/main.cpp
-catch.hpp
-/Users/dmitrii/Documents/GitHub/OOP/lab_2/Tests Vector/catch.hpp
 
 /Users/dmitrii/Documents/GitHub/OOP/lab_2/Tests Vector/tests.cpp
 catch.hpp

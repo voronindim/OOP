@@ -1,7 +1,8 @@
 #include "catch.hpp"
 #include "ProcessVector.h"
 
-TEST_CASE("Check the result of ProcessVector()") {
+TEST_CASE("Check the result of ProcessVector()")
+{
     VectorOfDouble vector;
     VectorOfDouble resultVector;
     CHECK(!ProcessVector(vector));

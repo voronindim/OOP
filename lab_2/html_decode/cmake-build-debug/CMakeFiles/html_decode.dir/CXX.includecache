@@ -1,0 +1,26 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/Users/dmitrii/Documents/GitHub/OOP/lab_2/html_decode/Decode.h
+iostream
+-
+string
+-
+sstream
+-
+
+/Users/dmitrii/Documents/GitHub/OOP/lab_2/html_decode/decode.cpp
+Decode.h
+/Users/dmitrii/Documents/GitHub/OOP/lab_2/html_decode/Decode.h
+
+/Users/dmitrii/Documents/GitHub/OOP/lab_2/html_decode/main.cpp
+Decode.h
+/Users/dmitrii/Documents/GitHub/OOP/lab_2/html_decode/Decode.h
+iostream
+-
+
