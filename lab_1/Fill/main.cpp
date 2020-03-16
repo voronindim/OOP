@@ -46,32 +46,32 @@ void OpenOutputFileAndPrintResult(const Vector &field, const string &outputFileN
 
 bool ReadFieldFromFile(const string &inputFileName, Vector &field)
 {
-  ifstream fileInput;
-  fileInput.open(inputFileName);
-  if (!fileInput.is_open())
-  {
-    cout << "Input File not Found!\n";
-    return false;
-  }
-  string str;
-  while (getline(fileInput, str))
-  {
-      if (str.size() > MAX_SIZE || field.size() > MAX_SIZE - 1)
-      {
-          cout << "Превышен лимит области. Рабочее поле 100*100\n";
-          return false;
-      }
-      for (char ch : str)
-      {
-          if (ch != FILL_START && ch != WALL && ch != EMPTY_CHAR)
-          {
-              cout << "Встречен неизвестный символ!\n";
-              return false;
-          }
-      }
-      field.push_back(str);
-  }
-   return true;
+	ifstream fileInput;
+	fileInput.open(inputFileName);
+	if (!fileInput.is_open())
+	{
+		cout << "Input File not Found!\n";
+		return false;
+	}
+	string str;
+	while (getline(fileInput, str))
+	{
+		if (str.size() > MAX_SIZE || field.size() > MAX_SIZE - 1)
+		{
+			cout << "Превышен лимит области. Рабочее поле 100*100\n";
+			return false;
+		}
+		for (char ch : str)
+		{
+			if (ch != FILL_START && ch != WALL && ch != EMPTY_CHAR)
+			{
+				cout << "Встречен неизвестный символ!\n";
+				return false;
+			}
+		  }
+		field.push_back(str);
+	}
+	return true;
 
 }
 
