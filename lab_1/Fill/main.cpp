@@ -30,7 +30,6 @@ void OpenOutputFileAndPrintResult(const Vector &field, const string &outputFileN
 {
     fstream outputFile;
     outputFile.open(outputFileName, std::ios::out );
-    ;
     if (!outputFile.is_open())
     {
         cout << '\n';
