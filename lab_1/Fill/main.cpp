@@ -18,6 +18,7 @@ struct Coord
     int x;
     int y;
 };
+
 void Print(const Vector &field, ostream& output)
 {
     for (const auto & i : field)
@@ -71,7 +72,6 @@ bool ReadFieldFromFile(const string &inputFileName, Vector &field)
 		field.push_back(str);
 	}
 	return true;
-
 }
 
 void SetThePoints(Vector &resultVector, Coord &position)
@@ -157,10 +157,12 @@ int main(int argc, char* argv[])
     string inputFileName = argv[1];
     string outputFileName = argv[2];
     Vector field;
-    ReadFieldFromFile(inputFileName, field);
+    if (!ReadFieldFromFile(inputFileName, field))
+    {
+        return 1;
+    }
     Vector resultField;
     FillingFieldWithDots(field, resultField);
     OpenOutputFileAndPrintResult(resultField, outputFileName);
-
     return 0;
 }
