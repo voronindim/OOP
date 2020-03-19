@@ -164,5 +164,5 @@ int main(int argc, char* argv[])
     Vector resultField;
     FillingFieldWithDots(field, resultField);
     OpenOutputFileAndPrintResult(resultField, outputFileName);
-    return 0;
+    return  0;
 }
