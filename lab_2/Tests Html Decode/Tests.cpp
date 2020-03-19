@@ -18,4 +18,8 @@ TEST_CASE("Check the result of HtmlDecode()")
     str = "Cat &amp";
     resultStr = "Cat &amp";
     CHECK(HtmlDecode(str) == resultStr);
+
+    str = "&amp;amp;";
+    resultStr = "&amp;";
+    CHECK(HtmlDecode(str) == resultStr);
 }

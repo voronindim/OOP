@@ -45,7 +45,7 @@ std::string HtmlDecode(std::string const& html)
                 if (subStr == symbol)
                 {
                     decodingText += *iter;
-                    ++iter;
+                    ++iter
                 }
                 else
                 {

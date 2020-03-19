@@ -42,28 +42,17 @@ std::string HtmlDecode(std::string const& html)
                 long lengthSubStr = rightBorder - iter + 1;
                 std::string subStr = html.substr(current, lengthSubStr);
                 std::string symbol = ReplacementSearch(subStr);
-                if (subStr == symbol)
-                {
-                    decodingText += *iter;
-                    ++iter;
-                }
-                else
+                if (subStr != symbol)
                 {
                     decodingText += symbol;
                     iter += lengthSubStr;
+                    continue;
                 }
             }
-            else
-            {
-                decodingText += *iter;
-                ++iter;
-            }
         }
-        else
-        {
-            decodingText += *iter;
-            ++iter;
-        }
+
+        decodingText += *iter;
+        ++iter;
     }
     return decodingText;
 }

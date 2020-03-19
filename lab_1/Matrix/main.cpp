@@ -3,7 +3,6 @@
 #include <iostream>
 #include <sstream>
 #include <string>
-#include <vector>
 
 using namespace std;
 const int MATRIX_SIZE = 3;
@@ -16,13 +15,14 @@ void PrintMatrix(const Matrix matrix)
 	{
 		for (int j = 0; j < MATRIX_SIZE; j++)
 		{
+			cout << setprecision(3) << matrix[i][j];
 			if (j < 2)
 			{
-				cout << setprecision(3) << matrix[i][j] << "\t";
+				cout << "\t";
 			}
 			else
 			{
-				cout << matrix[i][j] << '\n';
+				cout << '\n';
 			}
 		}
 	}
@@ -102,7 +102,7 @@ bool ReadMatrixFromFile(const string& inputFileName, Matrix& matrix)
 	return true;
 }
 
-bool InvertMatrix(Matrix& matrix, Matrix& inverseMatrix)
+bool InvertMatrix(const Matrix& matrix, Matrix& inverseMatrix)
 {
 	double determinant = 0;
 	determinant = CalculateDeterminant(matrix);

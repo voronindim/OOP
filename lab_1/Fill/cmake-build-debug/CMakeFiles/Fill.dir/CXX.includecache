@@ -6,7 +6,7 @@
 
 #IncludeRegexTransform: 
 
-/Applications/Homework/lab_1/Fill/main.cpp
+/Users/dmitrii/Documents/GitHub/OOP/lab_1/Fill/main.cpp
 iostream
 -
 fstream
