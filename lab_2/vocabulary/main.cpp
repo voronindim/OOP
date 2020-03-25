@@ -3,6 +3,7 @@
 #include <map>
 #include <vector>
 #include <sstream>
+#include <algorithm>
 
 using namespace std;
 
@@ -90,8 +91,9 @@ void AskingAndSaveChanges(string& vocabularyFileName, Dictionary& vocabulary)
 	}
 }
 
-bool SearchAndPrintTranslation( const string& word, Dictionary& vocabulary)
+bool SearchAndPrintTranslation( string word, Dictionary& vocabulary)
 {
+	transform(word.begin(), word.end(), word.begin(), towlower);
 	auto it = (vocabulary.find(word));
 	if (it != vocabulary.end())
 	{
@@ -112,8 +114,9 @@ bool SearchAndPrintTranslation( const string& word, Dictionary& vocabulary)
 	return true;
 }
 
-bool AddWord( string& word, Dictionary& vocabulary, string& translation)
+bool AddWord( string word, Dictionary& vocabulary, string& translation)
 {
+	transform(word.begin(), word.end(), word.begin(), towlower);
 	Translation translate;
 	translate.push_back(translation);
 	vocabulary[word] = translate;
@@ -149,8 +152,8 @@ void TranslationOfWords( string& vocabularyFileName, Dictionary& vocabulary)
 				if (AddWord(searchWord, vocabulary, translation))
 				{
 					cout << "Слово \"" << searchWord << "\" сохраено в словарь как \"" << translation << "\"." << endl;
+					change = true;
 				}
-				change = true;
 			}
 		}
 	}
@@ -159,16 +162,15 @@ void TranslationOfWords( string& vocabularyFileName, Dictionary& vocabulary)
 int main(int argc, char* argv[])
 
 {
-	if (argc > 2)
-	{
-		cout << "Параметры ввода: <name.exe> <name vocabulary.txt>" << endl;
-	}
-
-	string vocabularyFileName = argv[1];
+	string vocabularyFileName;
 	Dictionary vocabulary;
-	if (!OpeningAndCreatingDictionary(vocabularyFileName, vocabulary))
+	if (argc == 2)
 	{
-		return 1;
+		vocabularyFileName = argv[1];
+		if (!OpeningAndCreatingDictionary(vocabularyFileName, vocabulary))
+		{
+			return 1;
+		}
 	}
 
 	TranslationOfWords(vocabularyFileName, vocabulary);
