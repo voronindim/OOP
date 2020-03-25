@@ -10,9 +10,9 @@ using namespace std;
 typedef vector <string> Translation;
 typedef map <string, Translation> Dictionary;
 
-const string STRING_SAVE = "...";
+const static string STRING_SAVE = "...";
 
-bool OpeningAndCreatingDictionary(const string& fileName, Dictionary &vocabulary)
+bool OpeningInputFileAndCreatingDictionary(const string& fileName, Dictionary &vocabulary)
 {
 	fstream file;
 	file.open(fileName);
@@ -42,7 +42,7 @@ bool OpeningAndCreatingDictionary(const string& fileName, Dictionary &vocabulary
 	return true;
 }
 
-bool Save( string& vocabularyFileName, Dictionary& vocabulary)
+bool OpenOutputFileAndSave( string& vocabularyFileName, Dictionary& vocabulary)
 {
 	ofstream file;
 	file.open(vocabularyFileName);
@@ -80,7 +80,7 @@ void AskingAndSaveChanges(string& vocabularyFileName, Dictionary& vocabulary)
 			cout << "Введите название файла для сохранения" << endl;
 			getline(cin, vocabularyFileName);
 		}
-		if (Save(vocabularyFileName, vocabulary))
+		if (OpenOutputFileAndSave(vocabularyFileName, vocabulary))
 		{
 			cout << "Изменения сохранены в " << vocabularyFileName << ". Goodbye!" << endl;
 		}
@@ -167,7 +167,7 @@ int main(int argc, char* argv[])
 	if (argc == 2)
 	{
 		vocabularyFileName = argv[1];
-		if (!OpeningAndCreatingDictionary(vocabularyFileName, vocabulary))
+		if (!OpeningInputFileAndCreatingDictionary(vocabularyFileName, vocabulary))
 		{
 			return 1;
 		}
