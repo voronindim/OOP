@@ -5,8 +5,11 @@
 #include <sstream>
 
 using namespace std;
+
 typedef vector <string> Translation;
 typedef map <string, Translation> Dictionary;
+
+const string STRING_SAVE = "...";
 
 bool OpeningAndCreatingDictionary(const string& fileName, Dictionary &vocabulary)
 {
@@ -20,35 +23,143 @@ bool OpeningAndCreatingDictionary(const string& fileName, Dictionary &vocabulary
 	string str;
 	while (getline(file, str))
 	{
-		int i = 0;
 		stringstream ss(str);
-		string wordKey;
+		string wordKey, wordValue;
 		ss >> wordKey;
-//		vocabulary[i].first = wordKey.erase(wordKey.begin(), wordKey.end() - 1);
-
+		Translation wordTranslation;
+		while (ss >> wordValue)
+		{
+			if (wordValue[wordValue.size() - 1] == ',')
+			{
+				wordValue.erase(wordValue.end() - 1);
+			}
+			wordTranslation.push_back(wordValue);
+		}
+		wordKey = wordKey.substr(1, wordKey.size() - 2);
+		vocabulary[wordKey] = wordTranslation;
 	}
-
-	for (auto &item: vocabulary)
-	{
-	}
-
 	return true;
 }
 
-bool TranslationOfWords(const string& vocabularyFileName, Dictionary& vocabulary)
+bool Save( string& vocabularyFileName, Dictionary& vocabulary)
 {
-	string word;
-	cin >> word;
+	ofstream file;
+	file.open(vocabularyFileName);
+	if (!file.is_open())
+	{
+		cout << "Файл для сохранения не был открыт" << endl;
+		return false;
+	}
+	for (auto & it1 : vocabulary)
+	{
+		file << "[" << it1.first << "] ";
+		for( auto it2 = it1.second.begin(); it2 != it1.second.end(); it2 ++)
+		{
+			file << *it2;
+			if (it2 != it1.second.end() - 1)
+			{
+				file << ",";
+			}
+		}
+		file << endl;
+	}
+	return true;
+}
 
+
+void AskingAndSaveChanges(string& vocabularyFileName, Dictionary& vocabulary)
+{
+	string str;
+	cout << "В словарь были внесены изменения. Введите Y или y для сохранения перед выходом." << endl;
+	getline(cin, str);
+	if (str == "Y" || str == "y")
+	{
+		if (vocabularyFileName.empty())
+		{
+			cout << "Введите название файла для сохранения" << endl;
+			getline(cin, vocabularyFileName);
+		}
+		if (Save(vocabularyFileName, vocabulary))
+		{
+			cout << "Изменения сохранены в " << vocabularyFileName << ". Goodbye!" << endl;
+		}
+	}
+	else
+	{
+		cout << "Изменения не сохранены. До свидания" << endl;
+	}
+}
+
+bool SearchAndPrintTranslation( const string& word, Dictionary& vocabulary)
+{
+	auto it = (vocabulary.find(word));
+	if (it != vocabulary.end())
+	{
+		for (int i = 0; i < it->second.size(); i++)
+		{
+			cout << it->second[i];
+			if (i != it->second.size() - 1)
+			{
+				cout << ", ";
+			}
+		}
+		cout << endl;
+	}
+	else
+	{
+		return false;
+	}
+	return true;
+}
+
+bool AddWord( string& word, Dictionary& vocabulary, string& translation)
+{
+	Translation translate;
+	translate.push_back(translation);
+	vocabulary[word] = translate;
+	return true;
+}
+
+void TranslationOfWords( string& vocabularyFileName, Dictionary& vocabulary)
+{
+	bool change = false;
+	string searchWord;
+	while(getline(cin, searchWord))
+	{
+		if (searchWord == STRING_SAVE)
+		{
+			if (change)
+			{
+				AskingAndSaveChanges(vocabularyFileName, vocabulary);
+			}
+		}
+		if (!SearchAndPrintTranslation( searchWord, vocabulary))
+		{
+			cout << "Неизвестное слово \"" << searchWord << "\" " << "Введите перевод или пустую строку для отказа" << endl;
+			string translation;
+			getline(cin, translation);
+			if (translation.empty())
+			{
+				cout << "\"" << searchWord << "\"" << " проигнорировано." << endl;
+			}
+			else
+			{
+				if (AddWord(searchWord, vocabulary, translation))
+				{
+					cout << "Слово \"" << searchWord << "\" сохраено в словарь как \"" << translation << "\"." << endl;
+				}
+				change = true;
+			}
+		}
+	}
 }
 
 int main(int argc, char* argv[])
 
 {
-	if (argc != 2)
+	if (argc > 2)
 	{
 		cout << "Параметры ввода: <name.exe> <name vocabulary.txt>" << endl;
-		return 1;
 	}
 
 	string vocabularyFileName = argv[1];
