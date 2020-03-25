@@ -132,7 +132,9 @@ void TranslationOfWords( string& vocabularyFileName, Dictionary& vocabulary)
 			{
 				AskingAndSaveChanges(vocabularyFileName, vocabulary);
 			}
+			break;
 		}
+
 		if (!SearchAndPrintTranslation( searchWord, vocabulary))
 		{
 			cout << "Неизвестное слово \"" << searchWord << "\" " << "Введите перевод или пустую строку для отказа" << endl;
