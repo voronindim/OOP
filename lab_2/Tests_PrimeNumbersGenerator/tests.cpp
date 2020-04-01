@@ -16,10 +16,10 @@ TEST_CASE("При верхней границы больше двух должн
 	set<int> resultPrime = {2, 3};
 	CHECK(startPrime == resultPrime);
 
-    upperBound = 12;
-    startPrime = GeneratePrimeNumbersSet(upperBound);
-    resultPrime = {2, 3, 5, 7, 11};
-    CHECK(startPrime == resultPrime);
+	upperBound = 12;
+	startPrime = GeneratePrimeNumbersSet(upperBound);
+	resultPrime = {2, 3, 5, 7, 11};
+	CHECK(startPrime == resultPrime);
 }
 
 TEST_CASE("Если upperBound == 100'000'000 количество простых чисел должно быть 5761255")
