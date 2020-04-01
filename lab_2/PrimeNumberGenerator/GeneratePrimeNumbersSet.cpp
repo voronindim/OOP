@@ -61,12 +61,8 @@ vector<bool> SearchPrimeNumbers(int upperBound)
 set<int> GeneratePrimeNumbersSet(int upperBound)
 {
 	set<int> PrimeNumbers;
-	for (int i = 2; i <= upperBound && i <= 3; i++)
-	{
-		PrimeNumbers.insert(i);
-	}
 	vector<bool> sieve = SearchPrimeNumbers(upperBound);
-	for (int i = 5; i <= upperBound; i++)
+	for (int i = 1; i <= upperBound; i++)
 	{
 		if(sieve[i])
 		{
