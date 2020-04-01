@@ -34,10 +34,8 @@ void GetPrimesByQuadraticForms(vector<bool> &sieveAtkina)
 vector<bool> SearchPrimeNumbers(int upperBound)
 {
 	vector<bool> sieveAtkina(upperBound + 1, false);
-
 	int sqrtUpperBound = int(sqrt(upperBound));
-
-    GetPrimesByQuadraticForms(sieveAtkina);
+	GetPrimesByQuadraticForms(sieveAtkina);
 
 	for (int j = 5; j < sqrtUpperBound; j++)
 	{
