@@ -1,10 +1,8 @@
 #include "GeneratePrimeNumbersSet.h"
 
-vector<bool> SearchPrimeNumbers(int upperBound)
+void GetPrimesByQuadraticForms(vector<bool> &sieveAtkina)
 {
-	vector<bool> sieveAtkina(upperBound + 1, false);
-
-	int sqrtUpperBound = int(sqrt(upperBound));
+	int sqrtUpperBound = int(sqrt(sieveAtkina.size() - 1));
 
 	for (int x = 1; x <= sqrtUpperBound; x++)
 	{
@@ -12,25 +10,33 @@ vector<bool> SearchPrimeNumbers(int upperBound)
 		{
 			int result;
 			result = ((4 * x * x) + (y * y));
-			if (result <= upperBound && (result % 12 == 1 || result % 12 == 5))
+			if (result <= sieveAtkina.size() - 1 && (result % 12 == 1 || result % 12 == 5))
 			{
 				sieveAtkina[result] = !sieveAtkina[result];
 			}
 			result = (3 * x * x) + (y * y);
-			if (result <= upperBound && (result % 12 == 7))
+			if (result <= sieveAtkina.size() - 1 && (result % 12 == 7))
 			{
 				sieveAtkina[result] = !sieveAtkina[result];
 			}
 			if (x > y)
 			{
 				result = ((3 * x * x) - (y * y));
-				if (result <= upperBound && result % 12 == 11)
+				if (result <= sieveAtkina.size() - 1 && result % 12 == 11)
 				{
 					sieveAtkina[result] = !sieveAtkina[result];
 				}
 			}
 		}
 	}
+}
+
+vector<bool> SearchPrimeNumbers(int upperBound)
+{
+	vector<bool> sieveAtkina(upperBound + 1, false);
+	int sqrtUpperBound = int(sqrt(upperBound));
+	GetPrimesByQuadraticForms(sieveAtkina);
+
 	for (int j = 5; j < sqrtUpperBound; j++)
 	{
 		if (sieveAtkina[j])
