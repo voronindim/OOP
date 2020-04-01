@@ -1,7 +1,7 @@
 #include "catch.hpp"
 #include "GeneratePrimeNumbersSet.h"
 
-TEST_CASE("если upper меньше двух должно вернуться пустое множество")
+TEST_CASE("Если upperBound меньше двух должно вернуться пустое множество")
 {
 	int upperBound = 0;
 	set<int> startPrime = GeneratePrimeNumbersSet(upperBound);
