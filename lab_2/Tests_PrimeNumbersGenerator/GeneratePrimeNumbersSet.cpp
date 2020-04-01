@@ -61,6 +61,5 @@ set<int> GeneratePrimeNumbersSet(int upperBound)
 			PrimeNumbers.insert(i);
 		}
 	}
-	cout << PrimeNumbers.size() << endl;
 	return PrimeNumbers;
 }
