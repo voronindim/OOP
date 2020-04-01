@@ -31,33 +31,35 @@ void GetPrimesByQuadraticForms(vector<bool> &sieveAtkina)
 	}
 }
 
-vector<bool> SearchPrimeNumbers(int upperBound)
+void DeleteSquaresNumbers(vector<bool> &sieveAtkina)
 {
-	vector<bool> sieveAtkina(upperBound + 1, false);
-	int sqrtUpperBound = int(sqrt(upperBound));
-	GetPrimesByQuadraticForms(sieveAtkina);
-
-	for (int j = 5; j < sqrtUpperBound; j++)
+	for (int j = 5; j < sqrt(sieveAtkina.size() - 1); j++)
 	{
 		if (sieveAtkina[j])
 		{
 			int n = j * j;
-			for (int i = n; i <= upperBound;i += n)
+			for (int i = n; i <= sieveAtkina.size() - 1; i += n)
 			{
 				sieveAtkina[i] = false;
 			}
 		}
 	}
+}
+
+vector<bool> SearchPrimeNumbers(int upperBound)
+{
+	vector<bool> sieveAtkina(upperBound + 1, false);
+	GetPrimesByQuadraticForms(sieveAtkina);
+	DeleteSquaresNumbers(sieveAtkina);
 	return sieveAtkina;
 }
 
 set<int> GeneratePrimeNumbersSet(int upperBound)
 {
 	set<int> PrimeNumbers;
-	if (upperBound >= 3)
+	for (int i = 2; i <= upperBound && i <=3; i++)
 	{
-		PrimeNumbers.insert(2);
-		PrimeNumbers.insert(3);
+		PrimeNumbers.insert(i);
 	}
 	vector<bool> sieve = SearchPrimeNumbers(upperBound);
 	for (int i = 5; i <= upperBound; i++)
@@ -67,5 +69,6 @@ set<int> GeneratePrimeNumbersSet(int upperBound)
 			PrimeNumbers.insert(i);
 		}
 	}
+	cout << PrimeNumbers.size() << endl;
 	return PrimeNumbers;
 }
