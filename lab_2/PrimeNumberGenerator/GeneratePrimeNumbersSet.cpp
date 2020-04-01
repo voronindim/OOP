@@ -49,6 +49,10 @@ void DeleteSquaresNumbers(vector<bool> &sieveAtkina)
 vector<bool> SearchPrimeNumbers(int upperBound)
 {
 	vector<bool> sieveAtkina(upperBound + 1, false);
+	for (int i = 2; i <= upperBound && i <= 3; i++)
+	{
+		sieveAtkina[i] = true;
+	}
 	GetPrimesByQuadraticForms(sieveAtkina);
 	DeleteSquaresNumbers(sieveAtkina);
 	return sieveAtkina;
