@@ -2,33 +2,33 @@
 
 void GetPrimesByQuadraticForms(vector<bool> &sieveAtkina)
 {
-    int sqrtUpperBound = int(sqrt(sieveAtkina.size() - 1));
+	int sqrtUpperBound = int(sqrt(sieveAtkina.size() - 1));
 
-    for (int x = 1; x <= sqrtUpperBound; x++)
-    {
-        for (int y = 1; y <= sqrtUpperBound; y++)
-        {
-            int result;
-            result = ((4 * x * x) + (y * y));
-            if (result <= sieveAtkina.size() - 1 && (result % 12 == 1 || result % 12 == 5))
-            {
-                sieveAtkina[result] = !sieveAtkina[result];
-            }
-            result = (3 * x * x) + (y * y);
-            if (result <= sieveAtkina.size() - 1 && (result % 12 == 7))
-            {
-                sieveAtkina[result] = !sieveAtkina[result];
-            }
-            if (x > y)
-            {
-                result = ((3 * x * x) - (y * y));
-                if (result <= sieveAtkina.size() - 1 && result % 12 == 11)
-                {
-                    sieveAtkina[result] = !sieveAtkina[result];
-                }
-            }
-        }
-    }
+	for (int x = 1; x <= sqrtUpperBound; x++)
+	{
+		for (int y = 1; y <= sqrtUpperBound; y++)
+		{
+			int result;
+			result = ((4 * x * x) + (y * y));
+			if (result <= sieveAtkina.size() - 1 && (result % 12 == 1 || result % 12 == 5))
+			{
+				sieveAtkina[result] = !sieveAtkina[result];
+			}
+			result = (3 * x * x) + (y * y);
+			if (result <= sieveAtkina.size() - 1 && (result % 12 == 7))
+			{
+				sieveAtkina[result] = !sieveAtkina[result];
+			}
+			if (x > y)
+			{
+				result = ((3 * x * x) - (y * y));
+				if (result <= sieveAtkina.size() - 1 && result % 12 == 11)
+				{
+					sieveAtkina[result] = !sieveAtkina[result];
+				}
+			}
+		}
+	}
 }
 
 void DeleteSquaresNumbers(vector<bool> &sieveAtkina)
@@ -57,7 +57,7 @@ vector<bool> SearchPrimeNumbers(int upperBound)
 set<int> GeneratePrimeNumbersSet(int upperBound)
 {
 	set<int> PrimeNumbers;
-	for (int i = 2; i <= upperBound && i <=3; i++)
+	for (int i = 2; i <= upperBound && i <= 3; i++)
 	{
 		PrimeNumbers.insert(i);
 	}
@@ -69,6 +69,5 @@ set<int> GeneratePrimeNumbersSet(int upperBound)
 			PrimeNumbers.insert(i);
 		}
 	}
-	cout << PrimeNumbers.size() << endl;
 	return PrimeNumbers;
 }
