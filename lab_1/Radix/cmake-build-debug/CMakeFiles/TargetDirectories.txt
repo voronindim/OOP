@@ -1,3 +1,0 @@
-/Applications/Homework/lab_1/Radix/cmake-build-debug/CMakeFiles/rebuild_cache.dir
-/Applications/Homework/lab_1/Radix/cmake-build-debug/CMakeFiles/edit_cache.dir
-/Applications/Homework/lab_1/Radix/cmake-build-debug/CMakeFiles/Radix.dir

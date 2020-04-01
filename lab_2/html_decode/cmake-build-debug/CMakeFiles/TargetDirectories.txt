@@ -1,3 +1,0 @@
-/Users/dmitrii/Documents/GitHub/OOP/lab_2/html_decode/cmake-build-debug/CMakeFiles/rebuild_cache.dir
-/Users/dmitrii/Documents/GitHub/OOP/lab_2/html_decode/cmake-build-debug/CMakeFiles/edit_cache.dir
-/Users/dmitrii/Documents/GitHub/OOP/lab_2/html_decode/cmake-build-debug/CMakeFiles/html_decode.dir
