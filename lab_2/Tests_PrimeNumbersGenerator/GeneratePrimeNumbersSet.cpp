@@ -57,7 +57,7 @@ vector<bool> SearchPrimeNumbers(int upperBound)
 set<int> GeneratePrimeNumbersSet(int upperBound)
 {
 	set<int> PrimeNumbers;
-	for (int i = 2; i <= upperBound && i <=3; i++)
+	for (int i = 2; i <= upperBound && i <= 3; i++)
 	{
 		PrimeNumbers.insert(i);
 	}
@@ -69,6 +69,5 @@ set<int> GeneratePrimeNumbersSet(int upperBound)
 			PrimeNumbers.insert(i);
 		}
 	}
-	cout << PrimeNumbers.size() << endl;
 	return PrimeNumbers;
 }
