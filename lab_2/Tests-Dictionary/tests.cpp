@@ -26,15 +26,18 @@ TEST_CASE("Функция 'SearchTranslation' дожна вернуть вект
 
 	word = "cat";
 	translation = {"кот", "кошка"};
-    CHECK(SearchTranslation(word, vocabulary) == translation);
+	CHECK(SearchTranslation(word, vocabulary) == translation);
 }
 
 TEST_CASE("Функция 'AddWordToVocabulary' должна добавить в словарь запись")
 {
 	string word = "house";
-	string translation = {"дом"};
-	Dictionary vocabulary;
+	string translation = "дом";
+	Dictionary vocabulary = {
+		{"dog", {"собака"}}
+	};
 	Dictionary resultVocabulary = {
+		{"dog", {"собака"}},
 		{"house", {"дом"}}
 	};
 	AddWordToVocabulary(word, vocabulary, translation);
