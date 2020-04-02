@@ -12,12 +12,11 @@ int main(int argc, char *argv[])
 	{
 		return 1;
 	}
-	;
 
 	for(auto item : GeneratePrimeNumbersSet(upperBound))
-    {
+	{
 	    cout << item << endl;
-    }
+	}
 	return 0;
 }
 
