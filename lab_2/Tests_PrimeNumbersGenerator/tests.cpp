@@ -27,6 +27,7 @@ TEST_CASE("При верхней границы больше двух должн
 	startPrime = GeneratePrimeNumbersSet(upperBound);
 	resultPrime = {2, 3, 5, 7, 11};
 	CHECK(startPrime == resultPrime);
+
 	upperBound = 25;
 	startPrime = GeneratePrimeNumbersSet(upperBound);
 	resultPrime = {2, 3, 5, 7, 11, 13, 17, 19, 23};
