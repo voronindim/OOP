@@ -17,14 +17,14 @@ void GetPrimesByQuadraticForms(vector<bool> &isPrime)
 			eqSolution = (3 * x * x) + (y * y);
 			if (eqSolution <= isPrime.size() - 1 && (eqSolution % 12 == 7))
 			{
-                isPrime[eqSolution] = !isPrime[eqSolution];
+				isPrime[eqSolution] = !isPrime[eqSolution];
 			}
 			if (x > y)
 			{
 				eqSolution = ((3 * x * x) - (y * y));
 				if (eqSolution <= isPrime.size() - 1 && eqSolution % 12 == 11)
 				{
-                    isPrime[eqSolution] = !isPrime[eqSolution];
+					isPrime[eqSolution] = !isPrime[eqSolution];
 				}
 			}
 		}
