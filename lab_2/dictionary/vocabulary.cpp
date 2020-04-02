@@ -1,7 +1,5 @@
 #include "vocabulary.h"
 
-#include <utility>
-
 bool Save(const string& vocabularyFileName, const Dictionary& vocabulary)
 {
 	ofstream file;
