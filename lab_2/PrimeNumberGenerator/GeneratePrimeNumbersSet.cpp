@@ -12,7 +12,7 @@ void GetPrimesByQuadraticForms(vector<bool> &isPrime)
 			eqSolution = ((4 * x * x) + (y * y));
 			if (eqSolution <= isPrime.size() - 1 && (eqSolution % 12 == 1 || eqSolution % 12 == 5))
 			{
-                isPrime[eqSolution] = !isPrime[eqSolution];
+				isPrime[eqSolution] = !isPrime[eqSolution];
 			}
 			eqSolution = (3 * x * x) + (y * y);
 			if (eqSolution <= isPrime.size() - 1 && (eqSolution % 12 == 7))
