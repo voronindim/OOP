@@ -40,7 +40,7 @@ void DeleteMultipleSquaresOfNumbers(vector<bool> &isPrime)
 			int n = i * i;
 			for (int j = n; j < isPrime.size(); j += n)
 			{
-                isPrime[j] = false;
+				isPrime[j] = false;
 			}
 		}
 	}
