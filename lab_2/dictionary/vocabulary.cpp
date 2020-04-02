@@ -53,7 +53,7 @@ Translation SearchTranslation(string searchWord, const Dictionary& vocabulary)
 	auto iter = vocabulary.find(searchWord);
 	if (iter == vocabulary.end())
 	{
-		return (Translation){};
+		return {};
 	}
 	return iter->second;
 }
@@ -78,12 +78,12 @@ bool PrintTranslation(string searchWord, const Dictionary& vocabulary)
 	return true;
 }
 
-void AddWordToVocabulary(string word, Dictionary& vocabulary, const string& translation)
+void AddWordToVocabulary(string word, Dictionary& vocabulary, const string& wordTranslation)
 {
 	transform(word.begin(), word.end(), word.begin(), towlower);
-	Translation translate;
-	translate.push_back(translation);
-	vocabulary[word] = translate;
+	Translation translation;
+	translation.push_back(wordTranslation);
+	vocabulary[word] = translation;
 }
 
 void TranslationOfWords(const string& vocabularyFileName, Dictionary &vocabulary)
