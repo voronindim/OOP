@@ -1,15 +1,13 @@
 #include "catch.hpp"
 #include "../dictionary/vocabulary.h"
 
-using namespace std::literals;
-
 TEST_CASE("В словаре после функции 'CopyStringToVocabulary' должна повится запись строки str")
 {
     Dictionary vocabulary;
-    string str = "[cat] кот, кошка"s;
+    string str = "[cat] кот, кошка";
     CopyStringToVocabulary(vocabulary, str);
 	Dictionary resultVocabulary = {
-            {"cat"s, {"кот"s, "кошка"s}}
+            {"cat", {"кот", "кошка"}}
     };
     CHECK(resultVocabulary == vocabulary);
 }
