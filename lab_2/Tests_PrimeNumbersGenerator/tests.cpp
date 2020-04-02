@@ -1,5 +1,7 @@
 #include "catch.hpp"
-#include "GeneratePrimeNumbersSet.h"
+#include "../PrimeNumberGenerator/GeneratePrimeNumbersSet.h"
+
+
 
 TEST_CASE("Если upperBound меньше двух должно вернуться пустое множество")
 {
@@ -20,6 +22,11 @@ TEST_CASE("При верхней границы больше двух должн
 	startPrime = GeneratePrimeNumbersSet(upperBound);
 	resultPrime = {2, 3, 5, 7, 11};
 	CHECK(startPrime == resultPrime);
+
+    upperBound = 25;
+    startPrime = GeneratePrimeNumbersSet(upperBound);
+    resultPrime = {2, 3, 5, 7, 11, 13, 17, 19, 23};
+    CHECK(startPrime == resultPrime);
 }
 
 TEST_CASE("Если upperBound == 100'000'000 количество простых чисел должно быть 5761255")
@@ -27,6 +34,14 @@ TEST_CASE("Если upperBound == 100'000'000 количество просты�
 	int upperBound = 100000000;
 	set<int> startPrime = GeneratePrimeNumbersSet(upperBound);
 	CHECK(startPrime.size() == 5761455);
+}
+
+TEST_CASE("Если upperBound == -100'000'000 должно вернуться пустое множенство")
+{
+    int upperBound = -100000000;
+    set<int> startPrime = GeneratePrimeNumbersSet(upperBound);
+    set<int> resultPrime = {};
+    CHECK(startPrime == resultPrime);
 }
 
 

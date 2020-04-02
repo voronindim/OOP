@@ -3,4 +3,4 @@ project(Tests_PrimeNumbersGenerator)
 
 set(CMAKE_CXX_STANDARD 20)
 
-add_executable(Tests_PrimeNumbersGenerator main.cpp tests.cpp GeneratePrimeNumbersSet.cpp GeneratePrimeNumbersSet.h)
+add_executable(Tests_PrimeNumbersGenerator main.cpp tests.cpp ../PrimeNumberGenerator/GeneratePrimeNumbersSet.cpp ../PrimeNumberGenerator/GeneratePrimeNumbersSet.h)

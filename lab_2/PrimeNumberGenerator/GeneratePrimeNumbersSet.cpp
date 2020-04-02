@@ -1,46 +1,46 @@
 #include "GeneratePrimeNumbersSet.h"
 
-void GetPrimesByQuadraticForms(vector<bool> &sieveAtkina)
+void GetPrimesByQuadraticForms(vector<bool> &isPrime)
 {
-	int sqrtUpperBound = int(sqrt(sieveAtkina.size() - 1));
+	int sqrtUpperBound = int(sqrt(isPrime.size() - 1));
 
 	for (int x = 1; x <= sqrtUpperBound; x++)
 	{
 		for (int y = 1; y <= sqrtUpperBound; y++)
 		{
-			int result;
-			result = ((4 * x * x) + (y * y));
-			if (result <= sieveAtkina.size() - 1 && (result % 12 == 1 || result % 12 == 5))
+			int eqSolution;
+            eqSolution = ((4 * x * x) + (y * y));
+			if (eqSolution <= isPrime.size() - 1 && (eqSolution % 12 == 1 || eqSolution % 12 == 5))
 			{
-				sieveAtkina[result] = !sieveAtkina[result];
+                isPrime[eqSolution] = !isPrime[eqSolution];
 			}
-			result = (3 * x * x) + (y * y);
-			if (result <= sieveAtkina.size() - 1 && (result % 12 == 7))
+            eqSolution = (3 * x * x) + (y * y);
+			if (eqSolution <= isPrime.size() - 1 && (eqSolution % 12 == 7))
 			{
-				sieveAtkina[result] = !sieveAtkina[result];
+                isPrime[eqSolution] = !isPrime[eqSolution];
 			}
 			if (x > y)
 			{
-				result = ((3 * x * x) - (y * y));
-				if (result <= sieveAtkina.size() - 1 && result % 12 == 11)
+                eqSolution = ((3 * x * x) - (y * y));
+				if (eqSolution <= isPrime.size() - 1 && eqSolution % 12 == 11)
 				{
-					sieveAtkina[result] = !sieveAtkina[result];
+                    isPrime[eqSolution] = !isPrime[eqSolution];
 				}
 			}
 		}
 	}
 }
 
-void DeleteSquaresNumbers(vector<bool> &sieveAtkina)
+void DeleteMultipleSquaresOfNumbers(vector<bool> &isPrime)
 {
-	for (int j = 5; j < sqrt(sieveAtkina.size() - 1); j++)
+	for (int i = 5; i < sqrt(isPrime.size()); i++)
 	{
-		if (sieveAtkina[j])
+		if (isPrime[i])
 		{
-			int n = j * j;
-			for (int i = n; i <= sieveAtkina.size() - 1; i += n)
+			int n = i * i;
+			for (int j = n; j < isPrime.size(); j += n)
 			{
-				sieveAtkina[i] = false;
+                isPrime[j] = false;
 			}
 		}
 	}
@@ -48,26 +48,30 @@ void DeleteSquaresNumbers(vector<bool> &sieveAtkina)
 
 vector<bool> SearchPrimeNumbers(int upperBound)
 {
-	vector<bool> sieveAtkina(upperBound + 1, false);
+	vector<bool> isPrime(upperBound + 1, false);
 	for (int i = 2; i <= upperBound && i <= 3; i++)
 	{
-		sieveAtkina[i] = true;
+        isPrime[i] = true;
 	}
-	GetPrimesByQuadraticForms(sieveAtkina);
-	DeleteSquaresNumbers(sieveAtkina);
-	return sieveAtkina;
+	GetPrimesByQuadraticForms(isPrime);
+	DeleteMultipleSquaresOfNumbers(isPrime);
+	return isPrime;
 }
 
 set<int> GeneratePrimeNumbersSet(int upperBound)
 {
-	set<int> PrimeNumbers;
-	vector<bool> sieve = SearchPrimeNumbers(upperBound);
-	for (int i = 1; i <= upperBound; i++)
+	set<int> primeNumbers;
+	if (upperBound > -1)
 	{
-		if(sieve[i])
+		vector<bool> sieve = SearchPrimeNumbers(upperBound);
+
+		for (int i = 1; i <= upperBound; i++)
 		{
-			PrimeNumbers.insert(i);
+			if(sieve[i])
+			{
+				primeNumbers.emplace_hint(primeNumbers.end(), i);
+			}
 		}
 	}
-	return PrimeNumbers;
+	return primeNumbers;
 }
