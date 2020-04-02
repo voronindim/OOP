@@ -9,6 +9,11 @@ TEST_CASE("Если upperBound меньше двух должно вернуть
 	set<int> startPrime = GeneratePrimeNumbersSet(upperBound);
 	set<int> resultPrime = {};
 	CHECK(startPrime == resultPrime);
+
+	upperBound = -10;
+	startPrime = GeneratePrimeNumbersSet(upperBound);
+	resultPrime = {};
+	CHECK(startPrime == resultPrime);
 }
 
 TEST_CASE("При верхней границы больше двух должно вернуться множество простых чисел, непрвышающих заданную границу")
@@ -35,13 +40,6 @@ TEST_CASE("Если upperBound == 100'000'000 количество просты�
 	CHECK(startPrime.size() == 5761455);
 }
 
-TEST_CASE("Если upperBound == -100'000'000 должно вернуться пустое множенство")
-{
-	int upperBound = -100000000;
-	set<int> startPrime = GeneratePrimeNumbersSet(upperBound);
-	set<int> resultPrime = {};
-	CHECK(startPrime == resultPrime);
-}
 
 
 

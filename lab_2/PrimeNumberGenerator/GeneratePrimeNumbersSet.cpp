@@ -10,19 +10,19 @@ void GetPrimesByQuadraticForms(vector<bool> &isPrime)
 		{
 			int eqSolution;
 			eqSolution = ((4 * x * x) + (y * y));
-			if (eqSolution <= isPrime.size() - 1 && (eqSolution % 12 == 1 || eqSolution % 12 == 5))
+			if (eqSolution < isPrime.size() && (eqSolution % 12 == 1 || eqSolution % 12 == 5))
 			{
 				isPrime[eqSolution] = !isPrime[eqSolution];
 			}
 			eqSolution = (3 * x * x) + (y * y);
-			if (eqSolution <= isPrime.size() - 1 && (eqSolution % 12 == 7))
+			if (eqSolution < isPrime.size() && (eqSolution % 12 == 7))
 			{
 				isPrime[eqSolution] = !isPrime[eqSolution];
 			}
 			if (x > y)
 			{
 				eqSolution = ((3 * x * x) - (y * y));
-				if (eqSolution <= isPrime.size() - 1 && eqSolution % 12 == 11)
+				if (eqSolution < isPrime.size() && eqSolution % 12 == 11)
 				{
 					isPrime[eqSolution] = !isPrime[eqSolution];
 				}
@@ -61,7 +61,7 @@ vector<bool> SearchPrimeNumbers(int upperBound)
 set<int> GeneratePrimeNumbersSet(int upperBound)
 {
 	set<int> primeNumbers;
-	if (upperBound > -1)
+	if (upperBound > 1)
 	{
 		vector<bool> sieve = SearchPrimeNumbers(upperBound);
 
