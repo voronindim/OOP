@@ -47,7 +47,7 @@ void AskAndSaveChanges(const string& vocabularyFileName, const Dictionary &vocab
 	}
 }
 
-Translation SearchTranslation(string searchWord, Dictionary& vocabulary)
+Translation SearchTranslation(string searchWord, const Dictionary& vocabulary)
 {
 	transform(searchWord.begin(), searchWord.end(), searchWord.begin(), towlower);
 	Translation translation;
@@ -59,7 +59,7 @@ Translation SearchTranslation(string searchWord, Dictionary& vocabulary)
 	return translation = iter->second;
 }
 
-bool PrintTranslation(string searchWord, Dictionary& vocabulary)
+bool PrintTranslation(string searchWord, const Dictionary& vocabulary)
 {
 	Translation translation;
 	translation = SearchTranslation(move(searchWord), vocabulary);

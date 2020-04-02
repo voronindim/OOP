@@ -12,6 +12,11 @@ int main(int argc, char* argv[])
 			return 1;
 		}
 	}
+	else if (argc > 2)
+	{
+		cout << "Параметры командной строки: <name.exe> <file.txt>" << endl;
+		return 1;
+	}
 	TranslationOfWords(vocabularyFileName, vocabulary);
 
 	return 0;
