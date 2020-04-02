@@ -50,13 +50,12 @@ void AskAndSaveChanges(const string& vocabularyFileName, const Dictionary &vocab
 Translation SearchTranslation(string searchWord, const Dictionary& vocabulary)
 {
 	transform(searchWord.begin(), searchWord.end(), searchWord.begin(), towlower);
-	Translation translation;
 	auto iter = vocabulary.find(searchWord);
 	if (iter == vocabulary.end())
 	{
-		return {};
+		return (Translation){};
 	}
-	return translation = iter->second;
+	return iter->second;
 }
 
 bool PrintTranslation(string searchWord, const Dictionary& vocabulary)
@@ -87,7 +86,7 @@ void AddWordToVocabulary(string word, Dictionary& vocabulary, const string& tran
 	vocabulary[word] = translate;
 }
 
-void TranslationOfWords(string &vocabularyFileName, Dictionary &vocabulary)
+void TranslationOfWords(const string& vocabularyFileName, Dictionary &vocabulary)
 {
 	bool changesInVocabulary = false;
 	string searchWord;
