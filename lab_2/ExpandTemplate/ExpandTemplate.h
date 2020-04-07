@@ -7,6 +7,8 @@
 using namespace std;
 
 const int NOT_USED = -1;
+const int ROOT = 0;
+const char CHAR_ROOT = '~';
 
 typedef map <string, string> Replacement;
 
@@ -22,4 +24,4 @@ struct BohrVertex
 	bool flag = false;
 };
 
-bool  CopyFileWithReplace(const string& inputFileName, const string& outputFileName, const Replacement& params);
+string ExpandTemplate(const string& tpl, const Replacement& params);

@@ -1,5 +1,29 @@
 #include "ExpandTemplate.h"
 
+bool CopyFileWithReplace(const string& inputFileName, const string& outputFileName, const Replacement& params)
+{
+	ifstream inputFile;
+	inputFile.open(inputFileName);
+	if (!inputFile.is_open())
+	{
+		cout << "Input файл не открыт" << endl;
+		return false;
+	}
+	ofstream outputFile;
+	outputFile.open(outputFileName);
+	if (!outputFile.is_open())
+	{
+		cout << "Output файл не открыт" << endl;
+		return false;
+	}
+	string tpl;
+	while (getline(inputFile, tpl))
+	{
+		outputFile << ExpandTemplate(tpl, params) << endl;
+	}
+	return true;
+}
+
 int main(int argc, char* argv[])
 {
 	if (argc < 3)
