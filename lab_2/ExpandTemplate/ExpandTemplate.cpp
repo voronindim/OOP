@@ -5,7 +5,7 @@ BohrVertex MakeBohrVertex(int parent, char symbol)
 	BohrVertex vertex{};
 	memset(reinterpret_cast<void*>(vertex.nextVertex), 255, sizeof(vertex.nextVertex));
 	memset(reinterpret_cast<void*>(vertex.autoMove), 255, sizeof(vertex.autoMove));
-	vertex.flag = false;
+	vertex.isTerminal = false;
 	vertex.suffLink = NOT_USED;
 	vertex.suffFlink = NOT_USED;
 	vertex.parent = parent;
@@ -17,58 +17,66 @@ int GetAutoMove(int vertex, char symbol, vector<BohrVertex>& bohr);
 
 int GetSuffLink(int vertex, vector<BohrVertex>& bohr)
 {
-	if (bohr[vertex].suffLink == NOT_USED)
+	int &suffLink = bohr[vertex].suffLink;
+	int &parent = bohr[vertex].parent;
+
+	if (suffLink == NOT_USED)
 	{
-		if (vertex == ROOT || bohr[vertex].parent == ROOT)
+		if (vertex == ROOT || parent == ROOT)
 		{
-			bohr[vertex].suffLink = ROOT;
+			suffLink = ROOT;
 		}
 		else
 		{
-			bohr[vertex].suffLink = GetAutoMove(GetSuffLink(bohr[vertex].parent, bohr), bohr[vertex].symbol, bohr);
+			suffLink = GetAutoMove(GetSuffLink(parent, bohr), bohr[vertex].symbol, bohr);
 		}
 	}
-	return bohr[vertex].suffLink;
+	return suffLink;
 }
 
 int GetAutoMove(int vertex, char symbol, vector<BohrVertex>& bohr)
 {
-	if (bohr[vertex].autoMove[symbol] == NOT_USED)
+	int &nextVertex = bohr[vertex].nextVertex[symbol];
+	int &lastTransition = bohr[vertex].autoMove[symbol];
+
+	if (lastTransition == NOT_USED)
 	{
-		if (bohr[vertex].nextVertex[symbol] != NOT_USED)
+		if (nextVertex != NOT_USED)
 		{
-			bohr[vertex].autoMove[symbol] = bohr[vertex].nextVertex[symbol];
+			lastTransition = nextVertex;
 		}
 		else
 		{
-			if (vertex == 0)
+			if (vertex == ROOT)
 			{
-				bohr[vertex].autoMove[symbol] = ROOT;
+				lastTransition = ROOT;
 			}
 			else
 			{
-				bohr[vertex].autoMove[symbol] = GetAutoMove(GetSuffLink(vertex, bohr), symbol, bohr);
+				lastTransition = GetAutoMove(GetSuffLink(vertex, bohr), symbol, bohr);
 			}
 		}
 	}
-	return bohr[vertex].autoMove[symbol];
+	return lastTransition;
 }
 
 int GetSuffFlink(int vertex, vector<BohrVertex>& bohr)
 {
-	if (bohr[vertex].suffFlink == NOT_USED)
+	int &suffFlink = bohr[vertex].suffFlink;
+
+	if (suffFlink == NOT_USED)
 	{
 		int u = GetSuffLink(vertex, bohr);
 		if (u == ROOT)
 		{
-			bohr[vertex].suffFlink = ROOT;
+			suffFlink = ROOT;
 		}
 		else
 		{
-			bohr[vertex].suffFlink = (bohr[u].flag) ? u : GetSuffFlink(u, bohr);
+			suffFlink = (bohr[u].isTerminal) ? u : GetSuffFlink(u, bohr);
 		}
 	}
-	return bohr[vertex].suffFlink;
+	return suffFlink;
 }
 
 void AddStringToBohr(const string * ptr, vector<BohrVertex>& bohr)
@@ -77,16 +85,14 @@ void AddStringToBohr(const string * ptr, vector<BohrVertex>& bohr)
 	string str = *ptr;
 	for (char ch : str)
 	{
-		int i = ch;
-
-		if (bohr[num].nextVertex[i] == NOT_USED)
+		if (bohr[num].nextVertex[ch] == NOT_USED)
 		{
 			bohr.push_back(MakeBohrVertex(num, ch));
-			bohr[num].nextVertex[i] = bohr.size() - 1;
+			bohr[num].nextVertex[ch] = int(bohr.size() - 1);
 		}
-		num = bohr[num].nextVertex[i];
+		num = bohr[num].nextVertex[ch];
 	}
-	bohr[num].flag = true;
+	bohr[num].isTerminal = true;
 	bohr[num].ptr = const_cast<string*>(ptr);
 }
 
@@ -94,9 +100,10 @@ void Check(int vertex, int startStr, vector<BohrVertex>& bohr, map<int, string>&
 {
 	for(int u = vertex; u != 0; u = GetSuffFlink(u, bohr))
 	{
-		if (bohr[u].flag)
+		string &stringToReplace = *(bohr[u].ptr);
+		if (bohr[u].isTerminal)
 		{
-			substrings[startStr - (*(bohr[u].ptr)).length()] = (*(bohr[u].ptr));
+			substrings[startStr - stringToReplace.length()] = stringToReplace;
 		}
 	}
 }
@@ -124,7 +131,7 @@ map<int, string> SearchSubstrings(const string& tpl, vector<BohrVertex>& bohr)
 	return substrings;
 }
 
-string ReplaceSubstrings(const string& tpl, map<int, string>& substrings, const Replacement& params)
+string ReplaceSubstrings(const string& tpl, const map<int, string>& substrings, const Replacement& params)
 {
 	string resultStr;
 	int pos = 0;
