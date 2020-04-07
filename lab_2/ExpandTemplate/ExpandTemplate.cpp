@@ -90,17 +90,18 @@ void AddStringToBohr(const string * ptr, vector<BohrVertex>& bohr)
 	bohr[num].ptr = const_cast<string*>(ptr);
 }
 
-void Check(int vertex, int i, vector<BohrVertex>& bohr, map<int, string>& subStrings)
+void Check(int vertex, int startStr, vector<BohrVertex>& bohr, map<int, string>& subStrings)
 {
 	for(int u = vertex; u != 0; u = GetSuffFlink(u, bohr))
 	{
 		if (bohr[u].flag)
 		{
-			cout << i - (*(bohr[u].ptr)).length() + 1 << (*(bohr[u].ptr)) << endl;
-			subStrings[i - (*(bohr[u].ptr)).length()] = (*(bohr[u].ptr));
+			subStrings[startStr - (*(bohr[u].ptr)).length()] = (*(bohr[u].ptr));
 		}
 	}
 }
+
+
 
 string ExpendTemplate(const string& tpl, const Replacement& params)
 {
@@ -121,14 +122,18 @@ string ExpendTemplate(const string& tpl, const Replacement& params)
 
     string resultStr;
     int pos = 0;
-    for(auto it = subStrings.begin(); it != subStrings.end(); it++)
+    for(auto & subString : subStrings)
 	{
-    	if (it->first >= pos)
+    	if (subString.first >= pos)
 		{
-    		
+			resultStr += tpl.substr(pos, subString.first - pos);
+			pos = subString.first;
+			resultStr += params.find(subString.second)->second;
+			pos += subString.second.length();
 		}
 	}
-
+    resultStr += tpl.substr(pos, tpl.length() - pos);
+	cout << resultStr << endl;
     return resultStr;
 }
 
@@ -152,7 +157,7 @@ bool CopyFileWithReplace(const string& inputFileName, const string& outputFileNa
 	string tpl;
 	while (getline(inputFile, tpl))
 	{
-		outputFile << ExpendTemplate(tpl, params) << endl;;
+		outputFile << ExpendTemplate(tpl, params) << endl;
 	}
 	return true;
 }
