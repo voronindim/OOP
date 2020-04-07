@@ -3,4 +3,4 @@ project(Tests___ExpandTemplate)
 
 set(CMAKE_CXX_STANDARD 20)
 
-add_executable(Tests___ExpandTemplate main.cpp tests.cpp ../ExpandTemplate/ExpendTeplate.cpp)
+add_executable(Tests___ExpandTemplate main.cpp tests.cpp ../ExpandTemplate/ExpandTemplate.cpp)

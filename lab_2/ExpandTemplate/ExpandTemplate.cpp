@@ -131,25 +131,28 @@ map<int, string> SearchSubstrings(const string& tpl, vector<BohrVertex>& bohr)
 	return substrings;
 }
 
-string ReplaceSubstrings(const string& tpl, const map<int, string>& substrings, const Replacement& params)
-{
-	string resultStr;
-	int pos = 0;
-	for(auto & substring : substrings)
-	{
-		if (substring.first >= pos)
-		{
-			resultStr += tpl.substr(pos, substring.first - pos);
-			pos = substring.first;
-			resultStr += params.find(substring.second)->second;
-			pos += substring.second.length();
-		}
-	}
-	resultStr += tpl.substr(pos, tpl.length() - pos);
-	cout << resultStr << endl;
-	return resultStr;
-
-}
+//string ReplaceSubstrings(const string& tpl, const map<int, string>& substrings, const Replacement& params)
+//{
+//	string resultStr, stringToReplace;
+//	int startSubstring;
+//	int pos = 0;
+//	for(auto & substring : substrings)
+//	{
+//		startSubstring = substring.first;
+//		stringToReplace = substring.second;
+//		if (startSubstring >= pos)
+//		{
+//			resultStr += tpl.substr(pos, startSubstring - pos);
+//			pos = startSubstring;
+//			resultStr += params.find(stringToReplace)->second;
+//			pos += stringToReplace.length();
+//		}
+//	}
+//	resultStr += tpl.substr(pos, tpl.length() - pos);
+//	cout << resultStr << endl;
+//	return resultStr;
+//
+//}
 
 string ExpandTemplate(const string& tpl, const Replacement& params)
 {
@@ -157,7 +160,23 @@ string ExpandTemplate(const string& tpl, const Replacement& params)
 
 	map<int, string> substrings = SearchSubstrings(tpl, bohr);
 
-	string resultStr = ReplaceSubstrings(tpl, substrings, params);
+	string resultStr, stringToReplace;
+	int startSubstring;
+	int pos = 0;
+	for(auto & substring : substrings)
+	{
+		startSubstring = substring.first;
+		stringToReplace = substring.second;
+		if (startSubstring >= pos)
+		{
+			resultStr += tpl.substr(pos, startSubstring - pos);
+			pos = startSubstring;
+			resultStr += params.find(stringToReplace)->second;
+			pos += stringToReplace.length();
+		}
+	}
+	resultStr += tpl.substr(pos, tpl.length() - pos);
+	cout << resultStr << endl;
     return resultStr;
 }
 
