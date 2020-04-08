@@ -141,14 +141,13 @@ string ExpandTemplate(const string& tpl, const Replacement& params)
     for(auto & substring : substrings)
     {
         startSubstring = substring.first;
-		stringToReplace = substring.second;
-
-		if (startSubstring >= pos)
+        stringToReplace = substring.second;
+        if (startSubstring >= pos)
 		{
-			resultStr += tpl.substr(pos, startSubstring - pos);
-			pos = startSubstring;
-			resultStr += params.find(stringToReplace)->second;
-			pos += stringToReplace.length();
+            resultStr += tpl.substr(pos, startSubstring - pos);
+            pos = startSubstring;
+            resultStr += params.find(stringToReplace)->second;
+            pos += stringToReplace.length();
 		}
 	}
     resultStr += tpl.substr(pos, tpl.length() - pos);
