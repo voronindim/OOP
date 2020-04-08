@@ -13,8 +13,6 @@ BohrVertex MakeBohrVertex(int parent, char symbol)
 	return vertex;
 }
 
-int GetAutoMove(int vertex, char symbol, vector<BohrVertex>& bohr);
-
 int GetSuffixLink(int vertex, vector<BohrVertex>& bohr)
 {
 	int &suffixLink = bohr[vertex].suffixLink;
@@ -37,27 +35,27 @@ int GetSuffixLink(int vertex, vector<BohrVertex>& bohr)
 int GetAutoMove(int vertex, char symbol, vector<BohrVertex>& bohr)
 {
 	int &nextVertex = bohr[vertex].nextVertex[symbol];
-	int &suffixFromlastTransition = bohr[vertex].autoMove[symbol];
+	int &suffixFromLastTransition = bohr[vertex].autoMove[symbol];
 
-	if (suffixFromlastTransition == NOT_USED)
+	if (suffixFromLastTransition == NOT_USED)
 	{
 		if (nextVertex != NOT_USED)
 		{
-			suffixFromlastTransition = nextVertex;
+			suffixFromLastTransition = nextVertex;
 		}
 		else
 		{
 			if (vertex == ROOT)
 			{
-				suffixFromlastTransition = ROOT;
+				suffixFromLastTransition = ROOT;
 			}
 			else
 			{
-				suffixFromlastTransition = GetAutoMove(GetSuffixLink(vertex, bohr), symbol, bohr);
+				suffixFromLastTransition = GetAutoMove(GetSuffixLink(vertex, bohr), symbol, bohr);
 			}
 		}
 	}
-	return suffixFromlastTransition;
+	return suffixFromLastTransition;
 }
 
 int GetGoodSuffixLink(int vertex, vector<BohrVertex>& bohr)

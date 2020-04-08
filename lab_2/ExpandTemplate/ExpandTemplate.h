@@ -14,10 +14,10 @@ typedef map <string, string> Replacement;
 
 struct BohrVertex
 {
-	int nextVertex[255]{};
+	int nextVertex[255]{-1};
 	string *ptr = nullptr; // указатель на строку в params
 	int parent{}; // родитель
-	int autoMove[255]{}; // показывает ссылку на сына от последнего перехода
+	int autoMove[255]{-1}; // показывает ссылку на сына от последнего перехода
 	int suffixLink{}; // суффиксальная ссылка
 	int suffixGoodLink{}; // "хорошая" суффиксальная ссылка
 	char symbol{}; // символ на ребре от родителя
@@ -25,4 +25,9 @@ struct BohrVertex
 };
 
 string ExpandTemplate(const string& tpl, const Replacement& params);
+
 vector<BohrVertex> CreateBohr(const Replacement& params);
+
+int GetSuffixLink(int vertex, vector<BohrVertex>& bohr);
+
+int GetAutoMove(int vertex, char symbol, vector<BohrVertex>& bohr);
