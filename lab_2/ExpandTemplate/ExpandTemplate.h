@@ -17,11 +17,12 @@ struct BohrVertex
 	int nextVertex[255]{};
 	string *ptr = nullptr; // указатель на строку в params
 	int parent{}; // родитель
-	int autoMove[255]{}; // переход автомата от текущей вершины
-	int suffLink{}; // суффиксальная ссылка
-	int suffFlink{}; // "хорошая" суффиксальная ссылка
+	int autoMove[255]{}; // показывает ссылку на сына от последнего перехода
+	int suffixLink{}; // суффиксальная ссылка
+	int suffixGoodLink{}; // "хорошая" суффиксальная ссылка
 	char symbol{}; // символ на ребре от родителя
 	bool isTerminal = false;
 };
 
 string ExpandTemplate(const string& tpl, const Replacement& params);
+vector<BohrVertex> CreateBohr(const Replacement& params);

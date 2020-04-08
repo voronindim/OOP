@@ -6,8 +6,8 @@ BohrVertex MakeBohrVertex(int parent, char symbol)
 	memset(reinterpret_cast<void*>(vertex.nextVertex), 255, sizeof(vertex.nextVertex));
 	memset(reinterpret_cast<void*>(vertex.autoMove), 255, sizeof(vertex.autoMove));
 	vertex.isTerminal = false;
-	vertex.suffLink = NOT_USED;
-	vertex.suffFlink = NOT_USED;
+	vertex.suffixLink = NOT_USED;
+	vertex.suffixGoodLink = NOT_USED;
 	vertex.parent = parent;
 	vertex.symbol = symbol;
 	return vertex;
@@ -15,65 +15,65 @@ BohrVertex MakeBohrVertex(int parent, char symbol)
 
 int GetAutoMove(int vertex, char symbol, vector<BohrVertex>& bohr);
 
-int GetSuffLink(int vertex, vector<BohrVertex>& bohr)
+int GetSuffixLink(int vertex, vector<BohrVertex>& bohr)
 {
-	int &suffLink = bohr[vertex].suffLink;
+	int &suffixLink = bohr[vertex].suffixLink;
 	int &parent = bohr[vertex].parent;
 
-	if (suffLink == NOT_USED)
+	if (suffixLink == NOT_USED)
 	{
 		if (vertex == ROOT || parent == ROOT)
 		{
-			suffLink = ROOT;
+			suffixLink = ROOT;
 		}
 		else
 		{
-			suffLink = GetAutoMove(GetSuffLink(parent, bohr), bohr[vertex].symbol, bohr);
+			suffixLink = GetAutoMove(GetSuffixLink(parent, bohr), bohr[vertex].symbol, bohr);
 		}
 	}
-	return suffLink;
+	return suffixLink;
 }
 
 int GetAutoMove(int vertex, char symbol, vector<BohrVertex>& bohr)
 {
 	int &nextVertex = bohr[vertex].nextVertex[symbol];
-	int &lastTransition = bohr[vertex].autoMove[symbol];
+	int &suffixFromlastTransition = bohr[vertex].autoMove[symbol];
 
-	if (lastTransition == NOT_USED)
+	if (suffixFromlastTransition == NOT_USED)
 	{
 		if (nextVertex != NOT_USED)
 		{
-			lastTransition = nextVertex;
+			suffixFromlastTransition = nextVertex;
 		}
 		else
 		{
 			if (vertex == ROOT)
 			{
-				lastTransition = ROOT;
+				suffixFromlastTransition = ROOT;
 			}
 			else
 			{
-				lastTransition = GetAutoMove(GetSuffLink(vertex, bohr), symbol, bohr);
+				suffixFromlastTransition = GetAutoMove(GetSuffixLink(vertex, bohr), symbol, bohr);
 			}
 		}
 	}
-	return lastTransition;
+	return suffixFromlastTransition;
 }
 
-int GetSuffFlink(int vertex, vector<BohrVertex>& bohr)
+int GetGoodSuffixLink(int vertex, vector<BohrVertex>& bohr)
 {
-	int &suffFlink = bohr[vertex].suffFlink;
+	int &suffFlink = bohr[vertex].suffixGoodLink;
 
 	if (suffFlink == NOT_USED)
 	{
-		int u = GetSuffLink(vertex, bohr);
+		int u = GetSuffixLink(vertex, bohr);
 		if (u == ROOT)
 		{
 			suffFlink = ROOT;
 		}
 		else
 		{
-			suffFlink = (bohr[u].isTerminal) ? u : GetSuffFlink(u, bohr);
+			suffFlink = (bohr[u].isTerminal) ? u : GetGoodSuffixLink(u, bohr);
 		}
 	}
 	return suffFlink;
@@ -98,7 +98,7 @@ void AddStringToBohr(const string * ptr, vector<BohrVertex>& bohr)
 
 void Check(int vertex, int startStr, vector<BohrVertex>& bohr, map<int, string>& substrings)
 {
-	for(int u = vertex; u != 0; u = GetSuffFlink(u, bohr))
+	for(int u = vertex; u != 0; u = GetGoodSuffixLink(u, bohr))
 	{
 		string &stringToReplace = *(bohr[u].ptr);
 		if (bohr[u].isTerminal)
@@ -131,29 +131,6 @@ map<int, string> SearchSubstrings(const string& tpl, vector<BohrVertex>& bohr)
 	return substrings;
 }
 
-//string ReplaceSubstrings(const string& tpl, const map<int, string>& substrings, const Replacement& params)
-//{
-//	string resultStr, stringToReplace;
-//	int startSubstring;
-//	int pos = 0;
-//	for(auto & substring : substrings)
-//	{
-//		startSubstring = substring.first;
-//		stringToReplace = substring.second;
-//		if (startSubstring >= pos)
-//		{
-//			resultStr += tpl.substr(pos, startSubstring - pos);
-//			pos = startSubstring;
-//			resultStr += params.find(stringToReplace)->second;
-//			pos += stringToReplace.length();
-//		}
-//	}
-//	resultStr += tpl.substr(pos, tpl.length() - pos);
-//	cout << resultStr << endl;
-//	return resultStr;
-//
-//}
-
 string ExpandTemplate(const string& tpl, const Replacement& params)
 {
     vector<BohrVertex> bohr = CreateBohr(params);
@@ -167,6 +144,7 @@ string ExpandTemplate(const string& tpl, const Replacement& params)
 	{
 		startSubstring = substring.first;
 		stringToReplace = substring.second;
+
 		if (startSubstring >= pos)
 		{
 			resultStr += tpl.substr(pos, startSubstring - pos);
