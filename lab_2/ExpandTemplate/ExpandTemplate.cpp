@@ -154,7 +154,7 @@ string ExpandTemplate(const string& tpl, const Replacement& params)
 		}
 	}
 	resultStr += tpl.substr(pos, tpl.length() - pos);
-    return resultStr;
+	return resultStr;
 }
 
 
