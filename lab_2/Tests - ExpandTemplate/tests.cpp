@@ -34,7 +34,7 @@ TEST_CASE("Функция CreateBohr должна вернуть vector<BohrVert
 	vector<BohrVertex> resultBohr = CreateBohr(params);
 	CHECK(resultBohr[1].symbol == 'A');
 	CHECK(!resultBohr[1].isTerminal);
-	CHECK(resultBohr[1].suffFlink == -1);
+	CHECK(resultBohr[1].suffixGoodLink == -1);
 	CHECK(resultBohr[1].parent == ROOT);
 	CHECK(resultBohr[1].ptr == nullptr);
 }
