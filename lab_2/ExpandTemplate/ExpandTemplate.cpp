@@ -134,15 +134,13 @@ map<int, string> SearchSubstrings(const string& tpl, vector<BohrVertex>& bohr)
 string ExpandTemplate(const string& tpl, const Replacement& params)
 {
     vector<BohrVertex> bohr = CreateBohr(params);
-
-	map<int, string> substrings = SearchSubstrings(tpl, bohr);
-
-	string resultStr, stringToReplace;
-	int startSubstring;
-	int pos = 0;
-	for(auto & substring : substrings)
-	{
-		startSubstring = substring.first;
+    map<int, string> substrings = SearchSubstrings(tpl, bohr);
+    string resultStr, stringToReplace;
+    int startSubstring;
+    int pos = 0;
+    for(auto & substring : substrings)
+    {
+        startSubstring = substring.first;
 		stringToReplace = substring.second;
 
 		if (startSubstring >= pos)
@@ -153,8 +151,8 @@ string ExpandTemplate(const string& tpl, const Replacement& params)
 			pos += stringToReplace.length();
 		}
 	}
-	resultStr += tpl.substr(pos, tpl.length() - pos);
-	return resultStr;
+    resultStr += tpl.substr(pos, tpl.length() - pos);
+    return resultStr;
 }
 
 
