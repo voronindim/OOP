@@ -154,7 +154,6 @@ string ExpandTemplate(const string& tpl, const Replacement& params)
 		}
 	}
 	resultStr += tpl.substr(pos, tpl.length() - pos);
-	cout << resultStr << endl;
     return resultStr;
 }
 
