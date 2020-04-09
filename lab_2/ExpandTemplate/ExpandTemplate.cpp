@@ -142,9 +142,8 @@ string ExpandTemplate(const string& tpl, const Replacement& params)
     {
         startSubstring = substring.first;
         stringToReplace = substring.second;
-
         if (startSubstring >= pos)
-		{
+        {
             resultStr += tpl.substr(pos, startSubstring - pos);
             pos = startSubstring;
             resultStr += params.find(stringToReplace)->second;
