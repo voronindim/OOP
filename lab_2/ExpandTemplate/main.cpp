@@ -1,4 +1,5 @@
 #include "ExpandTemplate.h"
+#include <string>
 
 using namespace std;
 
