@@ -4,19 +4,18 @@
 #include <vector>
 #include <sstream>
 
-using namespace std;
 
-typedef vector<string> Translation;
-typedef map <string, Translation> Dictionary;
+typedef std::vector<std::string> Translation;
+typedef std::map <std::string, Translation> Dictionary;
 
-bool CreatingVocabulary(const string& vocabularyFileName, Dictionary &vocabulary);
+bool CreatingVocabulary(const std::string& vocabularyFileName, Dictionary &vocabulary);
 
-void CopyStringToVocabulary(Dictionary &vocabulary, const string& str);
+void CopyStringToVocabulary(Dictionary &vocabulary, const std::string& str);
 
-void TranslationOfWords(const string &vocabularyFileName, Dictionary &vocabulary);
+void TranslationOfWords(const std::string &vocabularyFileName, Dictionary &vocabulary);
 
-bool Save(const string& vocabularyFileName, const Dictionary& vocabulary);
+bool Save(const std::string& vocabularyFileName, const Dictionary& vocabulary);
 
-Translation SearchTranslation(string searchWord, const Dictionary& vocabulary);
+Translation SearchTranslation(std::string searchWord, const Dictionary& vocabulary);
 
-void AddWordToVocabulary(string word, Dictionary& vocabulary, const string& translation);
+void AddWordToVocabulary(std::string word, Dictionary& vocabulary, const std::string& translation);
