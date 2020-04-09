@@ -69,11 +69,11 @@ int GetGoodSuffixLink(int vertex, vector<BohrVertex>& bohr)
 		int u = GetSuffixLink(vertex, bohr);
 		if (u == ROOT)
 		{
-            suffixFlink = ROOT;
+		    suffixFlink = ROOT;
 		}
 		else
 		{
-            suffixFlink = (bohr[u].isTerminal) ? u : GetGoodSuffixLink(u, bohr);
+		    suffixFlink = (bohr[u].isTerminal) ? u : GetGoodSuffixLink(u, bohr);
 		}
 	}
 	return suffixFlink;
