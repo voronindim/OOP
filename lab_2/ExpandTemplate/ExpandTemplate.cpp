@@ -149,7 +149,7 @@ string ExpandTemplate(const string& tpl, const Replacement& params)
             resultStr += params.find(stringToReplace)->second;
             pos += stringToReplace.length();
         }
-	}
+    }
     resultStr += tpl.substr(pos, tpl.length() - pos);
     return resultStr;
 }
