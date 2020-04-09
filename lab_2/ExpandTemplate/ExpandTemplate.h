@@ -4,18 +4,17 @@
 #include <vector>
 #include <cstring>
 
-using namespace std;
 
 const int NOT_USED = -1;
 const int ROOT = 0;
 const char CHAR_ROOT = '~';
 
-typedef map <string, string> Replacement;
+typedef std::map <std::string, std::string> Replacement;
 
 struct BohrVertex
 {
 	int nextVertex[255]{-1};
-	string *ptr = nullptr; // указатель на строку в params
+	std::string *ptr = nullptr; // указатель на строку в params
 	int parent{}; // родитель
 	int autoMove[255]{-1}; // показывает ссылку на сына от последнего перехода
 	int suffixLink{}; // суффиксальная ссылка
@@ -24,10 +23,10 @@ struct BohrVertex
 	bool isTerminal = false;
 };
 
-string ExpandTemplate(const string& tpl, const Replacement& params);
+std::string ExpandTemplate(const std::string& tpl, const Replacement& params);
 
-vector<BohrVertex> CreateBohr(const Replacement& params);
+std::vector<BohrVertex> CreateBohr(const Replacement& params);
 
-int GetSuffixLink(int vertex, vector<BohrVertex>& bohr);
+int GetSuffixLink(int vertex, std::vector<BohrVertex>& bohr);
 
-int GetAutoMove(int vertex, char symbol, vector<BohrVertex>& bohr);
+int GetAutoMove(int vertex, char symbol, std::vector<BohrVertex>& bohr);

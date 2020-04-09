@@ -1,5 +1,7 @@
 #include "ExpandTemplate.h"
 
+using namespace std;
+
 BohrVertex MakeBohrVertex(int parent, char symbol)
 {
 	BohrVertex vertex{};
@@ -60,21 +62,21 @@ int GetAutoMove(int vertex, char symbol, vector<BohrVertex>& bohr)
 
 int GetGoodSuffixLink(int vertex, vector<BohrVertex>& bohr)
 {
-	int &suffFlink = bohr[vertex].suffixGoodLink;
+	int &suffixFlink = bohr[vertex].suffixGoodLink;
 
-	if (suffFlink == NOT_USED)
+	if (suffixFlink == NOT_USED)
 	{
 		int u = GetSuffixLink(vertex, bohr);
 		if (u == ROOT)
 		{
-			suffFlink = ROOT;
+            suffixFlink = ROOT;
 		}
 		else
 		{
-			suffFlink = (bohr[u].isTerminal) ? u : GetGoodSuffixLink(u, bohr);
+            suffixFlink = (bohr[u].isTerminal) ? u : GetGoodSuffixLink(u, bohr);
 		}
 	}
-	return suffFlink;
+	return suffixFlink;
 }
 
 void AddStringToBohr(const string * ptr, vector<BohrVertex>& bohr)
@@ -140,6 +142,7 @@ string ExpandTemplate(const string& tpl, const Replacement& params)
     {
         startSubstring = substring.first;
         stringToReplace = substring.second;
+
         if (startSubstring >= pos)
 		{
             resultStr += tpl.substr(pos, startSubstring - pos);

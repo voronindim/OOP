@@ -3,7 +3,7 @@
 
 TEST_CASE("Функция ExpandTemplate должна вернуть строку с заменой")
 {
-	string tpl, resultStr;
+	std::string tpl, resultStr;
 	Replacement params;
 
 	tpl = "-AABBCCCCCABC+";
@@ -31,7 +31,7 @@ TEST_CASE("Функция CreateBohr должна вернуть vector<BohrVert
 	Replacement params = {
 		{"AB", "[a]"}
 	};
-	vector<BohrVertex> resultBohr = CreateBohr(params);
+	std::vector<BohrVertex> resultBohr = CreateBohr(params);
 	CHECK(resultBohr[1].symbol == 'A');
 	CHECK(!resultBohr[1].isTerminal);
 	CHECK(resultBohr[1].suffixGoodLink == -1);
@@ -49,7 +49,7 @@ TEST_CASE("Функция GetSuffixLink должна вернуть число, 
 		{"AB", "[a]"},
 		{"BC", "[b]"}
 	};
-	vector<BohrVertex> bohr = CreateBohr(params);
+	std::vector<BohrVertex> bohr = CreateBohr(params);
 	int vertex = 2;
 	CHECK(GetSuffixLink(vertex, bohr) == 3);
 
@@ -67,7 +67,7 @@ TEST_CASE("Функция GetAutoMove должна вернуть число, к
 		{"cccb", "5"},
 
 	};
-	vector<BohrVertex> bohr = CreateBohr(params);
+	std::vector<BohrVertex> bohr = CreateBohr(params);
 
 	int vertex = 1;
 	char symbol = 'a';

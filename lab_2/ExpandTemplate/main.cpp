@@ -1,5 +1,7 @@
 #include "ExpandTemplate.h"
 
+using namespace std;
+
 bool CopyFileWithReplace(const string& inputFileName, const string& outputFileName, const Replacement& params)
 {
 	ifstream inputFile;
