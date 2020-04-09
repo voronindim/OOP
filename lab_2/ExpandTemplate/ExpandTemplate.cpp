@@ -148,7 +148,7 @@ string ExpandTemplate(const string& tpl, const Replacement& params)
             pos = startSubstring;
             resultStr += params.find(stringToReplace)->second;
             pos += stringToReplace.length();
-		}
+        }
 	}
     resultStr += tpl.substr(pos, tpl.length() - pos);
     return resultStr;
