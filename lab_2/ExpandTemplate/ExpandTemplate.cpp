@@ -35,8 +35,8 @@ int GetSuffixLink(int vertex, vector<BohrVertex>& bohr)
 
 int GetAutoMove(int vertex, char symbol, vector<BohrVertex>& bohr)
 {
-	int &nextVertex = bohr[vertex].nextVertex[symbol];
-	int &suffixFromLastTransition = bohr[vertex].autoMove[symbol];
+	int &nextVertex = bohr[vertex].nextVertex[int(symbol)];
+	int &suffixFromLastTransition = bohr[vertex].autoMove[int(symbol)];
 
 	if (suffixFromLastTransition == NOT_USED)
 	{
@@ -84,12 +84,12 @@ void AddStringToBohr(const string * ptr, vector<BohrVertex>& bohr)
 	string str = *ptr;
 	for (char ch : str)
 	{
-		if (int(bohr[num].nextVertex[ch]) == NOT_USED)
+		if (int(bohr[num].nextVertex[int(ch)]) == NOT_USED)
 		{
 			bohr.push_back(MakeBohrVertex(num, ch));
-			bohr[num].nextVertex[ch] = int(bohr.size() - 1);
+			bohr[num].nextVertex[int(ch)] = int(bohr.size() - 1);
 		}
-		num = bohr[num].nextVertex[ch];
+		num = bohr[num].nextVertex[int(ch)];
 	}
 	bohr[num].isTerminal = true;
 	bohr[num].ptr = const_cast<string*>(ptr);
