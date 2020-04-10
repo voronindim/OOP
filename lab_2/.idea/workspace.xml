@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="CMakeRunConfigurationManager" shouldGenerate="true" shouldDeleteObsolete="true">
-    <generated>
-      <config projectName="lab_2" targetName="lab_2" />
-    </generated>
+    <generated />
   </component>
   <component name="CMakeSettings">
     <configurations>
@@ -12,24 +10,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ab9b5bb8-9044-4727-ba05-5ab36259667d" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/lab_2.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tests-Vocabulary/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Tests-Vocabulary/CMakeLists.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tests-Vocabulary/tests.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Tests-Vocabulary/tests.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vocabulary/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/vocabulary/main.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vocabulary/vocabulary.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/vocabulary/vocabulary.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vocabulary/vocabulary.h" beforeDir="false" afterPath="$PROJECT_DIR$/vocabulary/vocabulary.h" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="CMakeBuildProfile:Debug" />
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
@@ -45,13 +32,6 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="cf.advertisement.text.overridden" value="true" />
   </component>
-  <component name="RunManager">
-    <configuration name="lab_2" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="lab_2" TARGET_NAME="lab_2" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="lab_2" RUN_TARGET_NAME="lab_2">
-      <method v="2">
-        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
-      </method>
-    </configuration>
-  </component>
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -63,6 +43,7 @@
       <option name="presentableId" value="Default" />
       <updated>1585824012359</updated>
       <workItem from="1585824013757" duration="2000" />
+      <workItem from="1586430614134" duration="25000" />
     </task>
     <servers />
   </component>

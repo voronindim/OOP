@@ -13,10 +13,10 @@ typedef std::map <std::string, std::string> Replacement;
 
 struct BohrVertex
 {
-	int nextVertex[255]{-1};
+	int nextVertex[255]{NOT_USED};
 	std::string *ptr = nullptr; // указатель на строку в params
 	int parent{}; // родитель
-	int autoMove[255]{-1}; // показывает ссылку на сына от последнего перехода
+	int autoMove[255]{NOT_USED}; // показывает ссылку на сына от последнего перехода
 	int suffixLink{}; // суффиксальная ссылка
 	int suffixGoodLink{}; // "хорошая" суффиксальная ссылка
 	char symbol{}; // символ на ребре от родителя

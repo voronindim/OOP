@@ -1,5 +1,4 @@
 #include "ExpandTemplate.h"
-
 using namespace std;
 
 BohrVertex MakeBohrVertex(int parent, char symbol)
@@ -62,21 +61,21 @@ int GetAutoMove(int vertex, char symbol, vector<BohrVertex>& bohr)
 
 int GetGoodSuffixLink(int vertex, vector<BohrVertex>& bohr)
 {
-	int &suffixFlink = bohr[vertex].suffixGoodLink;
+	int &suffixGoofLink = bohr[vertex].suffixGoodLink;
 
-	if (suffixFlink == NOT_USED)
+	if (suffixGoofLink == NOT_USED)
 	{
 		int u = GetSuffixLink(vertex, bohr);
 		if (u == ROOT)
 		{
-		    suffixFlink = ROOT;
+			suffixGoofLink = ROOT;
 		}
 		else
 		{
-		    suffixFlink = (bohr[u].isTerminal) ? u : GetGoodSuffixLink(u, bohr);
+			suffixGoofLink = (bohr[u].isTerminal) ? u : GetGoodSuffixLink(u, bohr);
 		}
 	}
-	return suffixFlink;
+	return suffixGoofLink;
 }
 
 void AddStringToBohr(const string * ptr, vector<BohrVertex>& bohr)
@@ -85,7 +84,7 @@ void AddStringToBohr(const string * ptr, vector<BohrVertex>& bohr)
 	string str = *ptr;
 	for (char ch : str)
 	{
-		if (bohr[num].nextVertex[ch] == NOT_USED)
+		if (int(bohr[num].nextVertex[ch]) == NOT_USED)
 		{
 			bohr.push_back(MakeBohrVertex(num, ch));
 			bohr[num].nextVertex[ch] = int(bohr.size() - 1);
