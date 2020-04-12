@@ -36,6 +36,17 @@ TEST_CASE("CCar::SetSpeed переключает скорость, если эт
 	CHECK(!car.CCar::SetSpeed(speed));
 }
 
+TEST_CASE("Переключение -1 передачи, возможно только при 0 скорости")
+{
+	CCar car;
+	car.CCar::TurnOnEngine();
+	CHECK(car.CCar::SetGear(-1));
+	int speed = 10;
+	car.CCar::SetSpeed(speed);
+	car.CCar::SetGear(0);
+	CHECK(!car.CCar::SetGear(-1));
+}
+
 TEST_CASE("AutoPilot::SetSpeed переключает скорость, если это возможно, иначе ошибка.")
 {
 	AutoPilot car;
@@ -48,3 +59,4 @@ TEST_CASE("AutoPilot::SetSpeed переключает скорость, если
 	speed = 5;
 	CHECK(car.AutoPilot::SetSpeed(speed));
 }
+
