@@ -1,8 +1,15 @@
+#include "Control.h"
 #include <iostream>
-#include "AutoPilot.h"
+#include <string>
 
-int main(int argc, char *argv[])
+int main()
 {
-
+	CCar car;
+	Control carControl(car);
+	std::string commandLine;
+	while (getline( std::cin, commandLine))
+	{
+		carControl.HandleCommand(commandLine);
+	}
 	return 0;
 }

@@ -4,7 +4,7 @@
 class AutoPilot : public CCar
 {
 public:
-	bool SetSpeedWithAutoPilot(int speed);
+	bool SetSpeed(int speed);
 
 private:
 	void DecreaseSpeed(int speed);

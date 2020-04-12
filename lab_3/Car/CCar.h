@@ -32,6 +32,7 @@ public:
 	int ReturnSpeed() const;
 
 	Direction ReturnDirection() const;
+
 protected:
 
 	bool m_isEngineOn = false;

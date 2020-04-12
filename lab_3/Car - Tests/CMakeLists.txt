@@ -3,4 +3,4 @@ project(Car___Tests)
 
 set(CMAKE_CXX_STANDARD 20)
 
-add_executable(Car___Tests main.cpp ../Car/CCar.cpp ../Car/CCar.h tests.cpp)
+add_executable(Car___Tests main.cpp ../Car/CCar.cpp ../Car/CCar.h tests.cpp tests.cpp ../Car/AutoPilot.cpp ../Car/AutoPilot.h ../Car/Control.cpp ../Car/Control.h)

@@ -1,4 +1,5 @@
 #include "AutoPilot.h"
+#include <iostream>
 
 std::pair<int, int> ReturnSpeedRange(int gear)
 {
@@ -34,10 +35,10 @@ void AutoPilot::IncreaseSpeed(int speed)
 	while (speed != m_speed)
 	{
 		SetGear(m_gear + 1);
-		if (!SetSpeed(speed))
+		if (!CCar::SetSpeed(speed))
 		{
 			int maxSpeedInCurrentRange = ReturnSpeedRange(m_gear).second;
-			SetSpeed(maxSpeedInCurrentRange);
+			CCar::SetSpeed(maxSpeedInCurrentRange);
 		}
 	}
 }
@@ -47,21 +48,21 @@ void AutoPilot::DecreaseSpeed(int speed)
 	while (speed != m_speed)
 	{
 		SetGear(m_gear - 1);
-		if (!SetSpeed(speed))
+		if (!CCar::SetSpeed(speed))
 		{
 			int maxSpeedInCurrentRange = ReturnSpeedRange(m_gear).first;
-			SetSpeed(maxSpeedInCurrentRange);
+			CCar::SetSpeed(maxSpeedInCurrentRange);
 		}
 	}
 }
 
-bool AutoPilot::SetSpeedWithAutoPilot(int speed)
+bool AutoPilot::SetSpeed(int speed)
 {
 	if (speed > MAX_SPEED)
 	{
 		return false;
 	}
-	if (!SetSpeed(speed))
+	if (!CCar::SetSpeed(speed))
 	{
 		if (m_direction != Direction::Back && speed > m_speed)
 		{
