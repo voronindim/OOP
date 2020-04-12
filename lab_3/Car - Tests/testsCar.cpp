@@ -36,7 +36,7 @@ TEST_CASE("CCar::SetSpeed переключает скорость, если эт
 	CHECK(!car.CCar::SetSpeed(speed));
 }
 
-TEST_CASE("Переключение -1 передачи, возможно только при 0 скорости")
+TEST_CASE("Переключение задней передачи, возможно только при 0-ой скорости")
 {
 	CCar car;
 	car.CCar::TurnOnEngine();
