@@ -9,7 +9,10 @@ int main()
 	std::string commandLine;
 	while (getline( std::cin, commandLine))
 	{
-		carControl.HandleCommand(commandLine);
+		if (!carControl.HandleCommand(commandLine))
+		{
+			std::cout << "Неизвестная команда" << std::endl;
+		}
 	}
 	return 0;
 }

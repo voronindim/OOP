@@ -37,6 +37,10 @@ bool Control::HandleCommand(const std::string& commandLine)
 	{
 		CarInformation();
 	}
+	else
+	{
+		return false;
+	}
 	return true;
 }
 
