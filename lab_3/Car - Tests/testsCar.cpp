@@ -29,28 +29,28 @@ TEST_CASE("CCar::TurnOffEngine после выключения двигател�
 TEST_CASE("CCar::SetGear переключает передачу, если это возможно, иначе состояние не меняется.")
 {
 //  Включение допустимой передачи.
-	CCar car;
-	car.CCar::TurnOnEngine();
-	car.CCar::SetGear(1);
-	CHECK(car.CCar::ReturnGear() == 1);
+    CCar car;
+    car.CCar::TurnOnEngine();
+    car.CCar::SetGear(1);
+    CHECK(car.CCar::ReturnGear() == 1);
 
 //	После невозможного переключения, состояние остается прежним.
-	car.CCar::SetGear(5);
-	CHECK(car.CCar::ReturnGear() == 1);
+    car.CCar::SetGear(5);
+    CHECK(car.CCar::ReturnGear() == 1);
 
 //	Нельзя переключиться на заднюю передачу, если скорость не равно 0.
-	car.CCar::SetSpeed(10);
-	car.CCar::SetGear(0);
-	car.CCar::SetGear(-1);
-	CHECK(car.CCar::ReturnGear() == 0);
+    car.CCar::SetSpeed(10);
+    car.CCar::SetGear(0);
+    car.CCar::SetGear(-1);
+    CHECK(car.CCar::ReturnGear() == 0);
 
 //	Нельзя переключиться на заднюю передачу, если скорость не равно 0, даже если направление Back.
-	car.CCar::SetSpeed(0);
-	car.CCar::SetGear(-1);
-	car.CCar::SetSpeed(10);
-	car.CCar::SetGear(0);
-	car.CCar::SetGear(-1);
-	CHECK(car.CCar::ReturnDirection() == Direction::Back);
+    car.CCar::SetSpeed(0);
+    car.CCar::SetGear(-1);
+    car.CCar::SetSpeed(10);
+    car.CCar::SetGear(0);
+    car.CCar::SetGear(-1);
+    CHECK(car.CCar::ReturnDirection() == Direction::Back);
     CHECK(car.CCar::ReturnGear() == 0);
 
 }
@@ -58,13 +58,13 @@ TEST_CASE("CCar::SetGear переключает передачу, если эт�
 TEST_CASE("CCar::SetSpeed переключение скорости в текущем диапазоне, если невомзожно, то скорость остается прежней")
 {
 //  Переключение на нужную скорость на 1 передаче
-	CCar car;
-	car.CCar::TurnOnEngine();
-	car.CCar::SetGear(1);
-	car.CCar::SetSpeed(30);
-	CHECK(car.CCar::ReturnSpeed() == 30);
+    CCar car;
+    car.CCar::TurnOnEngine();
+    car.CCar::SetGear(1);
+    car.CCar::SetSpeed(30);
+    CHECK(car.CCar::ReturnSpeed() == 30);
 
-//	Переключение невозможно, остается текущая скорость
+//  Переключение невозможно, остается текущая скорость
     car.CCar::SetSpeed(40);
     CHECK(car.CCar::ReturnSpeed() == 30);
 
@@ -128,18 +128,18 @@ TEST_CASE("Переключение направлений движения")
 TEST_CASE("AutoPilot::SetSpeed переключает скорость, если она не превышает максимальнуюскорость авто, не зависит от прежней передачи")
 {
 //  Включает любую скорость меньше максимальной (повышение)
-	AutoPilot car;
-	car.AutoPilot::TurnOnEngine();
-	car.AutoPilot::SetSpeed(10);
-	CHECK(car.AutoPilot::ReturnSpeed() == 10);
+    AutoPilot car;
+    car.AutoPilot::TurnOnEngine();
+    car.AutoPilot::SetSpeed(10);
+    CHECK(car.AutoPilot::ReturnSpeed() == 10);
 
-	car.AutoPilot::SetSpeed(100);
-	CHECK(car.AutoPilot::ReturnGear() == 5);
-	CHECK(car.AutoPilot::ReturnSpeed() == 100);
+    car.AutoPilot::SetSpeed(100);
+    CHECK(car.AutoPilot::ReturnGear() == 5);
+    CHECK(car.AutoPilot::ReturnSpeed() == 100);
 
 //	Остается текущая скорость, так как, нужная скорость больше максимальной
-	car.AutoPilot::SetSpeed(151);
-	CHECK(car.AutoPilot::ReturnSpeed() == 100);
+    car.AutoPilot::SetSpeed(151);
+    CHECK(car.AutoPilot::ReturnSpeed() == 100);
 
 //	Включает любую скорость меньше максимальной (понижение)
     car.AutoPilot::SetSpeed(30);
