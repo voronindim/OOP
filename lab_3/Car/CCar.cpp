@@ -35,9 +35,9 @@ bool CurrentSpeedInGearSpeedRange(int speed, int gear)
 		(gear == 5 && IsSpeedInRange(FIFTH_SPEED_RANGE, speed));
 }
 
-bool CorrectGearShift(int gear, int m_speed, const Direction& m_direction)
+bool CorrectGearShift(int gear, const Direction& m_direction)
 {
-	return (gear == -1 && m_speed == 0 && m_direction != Direction::Forward) ||
+	return (gear == -1 && m_direction == Direction::Stand) ||
 		(gear == 1 && m_direction != Direction::Back) ||
 		(gear > 1 && m_direction == Direction::Forward) ||
 		(gear == 0);
@@ -53,7 +53,7 @@ bool CCar::SetGear(int gear)
 	{
 		return false;
 	}
-	if (!CorrectGearShift(gear, m_speed, m_direction))
+	if (!CorrectGearShift(gear, m_direction))
 	{
 		return false;
 	}

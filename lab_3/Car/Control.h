@@ -5,7 +5,7 @@ class Control
 {
 public:
 	Control(CCar& car);
-	virtual bool HandleCommand(const std::string& commandLine);
+	bool HandleCommand(const std::string& commandLine);
 
 protected:
 	bool TurnOnEngine();
