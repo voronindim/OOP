@@ -4,7 +4,6 @@
 #include <vector>
 #include <sstream>
 
-
 typedef std::vector<std::string> Translation;
 typedef std::map <std::string, Translation> Dictionary;
 
