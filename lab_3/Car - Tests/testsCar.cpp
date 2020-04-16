@@ -3,14 +3,15 @@
 
 TEST_CASE("CCar::TurnOnEngine после включения двигателя, двигатель всегда включен")
 {
+
 //  Меняется состояние двигателя на включенное
     CCar car;
-    CHECK(car.CCar::TurnOnEngine());
-    CHECK(car.CCar::ReturnEngine());
+    CHECK(car.TurnOnEngine());
+    CHECK(car.ReturnEngine());
 
 //	После повтороного включения состояние не меняется
-    CHECK(!car.CCar::TurnOnEngine());
-    CHECK(car.CCar::ReturnEngine());
+    CHECK(!car.TurnOnEngine());
+    CHECK(car.ReturnEngine());
 }
 
 TEST_CASE("CCar::TurnOffEngine после выключения двигателя, двигатель выключен до включения")
