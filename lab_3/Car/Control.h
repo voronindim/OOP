@@ -1,6 +1,5 @@
-#include "AutoPilot.h"
+#include "CCar.h"
 #include <string>
-#include <any>
 
 
 class Control
@@ -10,7 +9,9 @@ public:
 
 	bool HandleCommand(const std::string& commandLine);
 
-protected:
+private:
+	std::string DirectionTostring(const Direction& direction) const;
+
 	bool TurnOnEngine();
 	bool TurnOffEngine();
 
@@ -18,6 +19,5 @@ protected:
 
 	bool SetGear(int gear);
 	bool SetSpeed(int speed);
-private:
 	CCar& m_car;
 };

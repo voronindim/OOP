@@ -100,7 +100,7 @@ bool Control::SetSpeed(int speed)
 	}
 }
 
-std::string DirectionTostring(const Direction& direction)
+std::string Control::DirectionTostring(const Direction& direction) const
 {
 	if (direction == Direction::Stand)
 	{

@@ -118,7 +118,7 @@ void AutoPilot::DecreaseSpeed(int speed)
 
 bool AutoPilot::SetSpeed(int speed)
 {
-	if (speed > MAX_SPEED)
+	if (speed > MAX_SPEED || (m_gear == -1 && speed > REVERSE_SPEED_RANGE.second))
 	{
 		return false;
 	}
@@ -140,6 +140,7 @@ bool AutoPilot::SetSpeed(int speed)
 	}
 	return true;
 }
+
 
 bool AutoPilot::TurnOnEngine()
 {

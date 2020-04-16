@@ -1,4 +1,4 @@
-#include "CCar.h"
+#include "ICar.h"
 #include <utility>
 
 class AutoPilot : public ICar
@@ -8,6 +8,7 @@ public:
 	bool TurnOffEngine() override;
 	[[nodiscard]] bool ReturnEngine() const override;
 
+	bool SetGear(int gear) override;
 	[[nodiscard]] int ReturnGear() const override;
 
 	bool SetSpeed(int speed) override;
@@ -19,7 +20,7 @@ private:
 	[[nodiscard]] bool CorrectGearShift(int gear) const;
 	[[nodiscard]] bool CurrentSpeedInGearSpeedRange(int speed, int gear) const;
 	[[nodiscard]] bool IsSpeedInRange(const std::pair<int, int>& speedRange, int speed) const;
-	bool SetGear(int gear) override;
+
 	void DecreaseSpeed(int speed);
 	void IncreaseSpeed(int speed);
 	bool MechanicalSetSpeed(int speed);

@@ -1,5 +1,5 @@
 #include "../catch.hpp"
-#include "../Car/AutoPilot.h"
+#include "../Car/CCar.h"
 
 TEST_CASE("CCar::TurnOnEngine после включения двигателя, двигатель всегда включен")
 {
@@ -112,7 +112,7 @@ TEST_CASE("Переключение направлений движения")
 
     car.CCar::SetGear(1);
     car.CCar::SetSpeed(10);
-    CHECK(car.ReturnDirection() == Direction::Forward);
+    CHECK(car.CCar::ReturnDirection() == Direction::Forward);
 
     car.CCar::SetSpeed(0);
     car.CCar::SetGear(0);
@@ -124,24 +124,3 @@ TEST_CASE("Переключение направлений движения")
 
 }
 
-TEST_CASE("AutoPilot::SetSpeed переключает скорость, если она не превышает максимальнуюскорость авто, не зависит от прежней передачи")
-{
-//  Включает любую скорость меньше максимальной (повышение)
-    AutoPilot car;
-    car.AutoPilot::TurnOnEngine();
-    CHECK(car.AutoPilot::SetSpeed(10));
-    CHECK(car.AutoPilot::ReturnSpeed() == 10);
-
-    CHECK(car.AutoPilot::SetSpeed(100));
-    CHECK(car.AutoPilot::ReturnGear() == 5);
-    CHECK(car.AutoPilot::ReturnSpeed() == 100);
-
-//	Остается текущая скорость, так как, нужная скорость больше максимальной
-    CHECK(!car.AutoPilot::SetSpeed(151));
-    CHECK(car.AutoPilot::ReturnSpeed() == 100);
-
-//	Включает любую скорость меньше максимальной (понижение)
-    CHECK(car.AutoPilot::SetSpeed(30));
-    CHECK(car.AutoPilot::ReturnGear() == 3);
-    CHECK(car.AutoPilot::ReturnSpeed() == 30);
-}
