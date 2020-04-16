@@ -19,12 +19,12 @@ bool CCar::TurnOffEngine()
 	return false;
 }
 
-bool IsSpeedInRange(const std::pair<int, int>& speedRange, int speed)
+bool CCar::IsSpeedInRange(const std::pair<int, int>& speedRange, int speed) const
 {
 	return speed >= speedRange.first && speed <= speedRange.second;
 }
 
-bool CurrentSpeedInGearSpeedRange(int speed, int gear)
+bool CCar::CurrentSpeedInGearSpeedRange(int speed, int gear) const
 {
 	return (gear == -1 && IsSpeedInRange(REVERSE_SPEED_RANGE, speed)) ||
 		(gear == 0 && IsSpeedInRange(NEUTRAL_SPEED_RANGE, speed)) ||
@@ -35,7 +35,7 @@ bool CurrentSpeedInGearSpeedRange(int speed, int gear)
 		(gear == 5 && IsSpeedInRange(FIFTH_SPEED_RANGE, speed));
 }
 
-bool CorrectGearShift(int gear, const Direction& m_direction)
+bool CCar::CorrectGearShift(int gear) const
 {
 	return (gear == -1 && m_direction == Direction::Stand) ||
 		(gear == 1 && m_direction != Direction::Back) ||
@@ -53,7 +53,7 @@ bool CCar::SetGear(int gear)
 	{
 		return false;
 	}
-	if (!CorrectGearShift(gear, m_direction))
+	if (!CorrectGearShift(gear))
 	{
 		return false;
 	}

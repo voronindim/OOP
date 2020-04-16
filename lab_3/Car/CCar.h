@@ -1,43 +1,28 @@
+#include "ICar.h"
 #include <utility>
 
-const std::pair<int, int> REVERSE_SPEED_RANGE = { 0, 20};
-const std::pair<int, int> NEUTRAL_SPEED_RANGE = { 0, 150};
-const std::pair<int, int> FIRST_SPEED_RANGE = { 0, 30};
-const std::pair<int, int> SECOND_SPEED_RANGE = { 20, 50};
-const std::pair<int, int> THIRD_SPEED_RANGE = { 30, 60};
-const std::pair<int, int> FOURTH_SPEED_RANGE = { 40, 90};
-const std::pair<int, int> FIFTH_SPEED_RANGE = { 50, 150};
-const int MAX_SPEED = 150;
-
-
-
-enum class Direction
-{
-    Forward,
-    Stand,
-    Back
-};
-
-class CCar
+class CCar : public ICar
 {
 public:
-	bool TurnOnEngine();
-	bool TurnOffEngine();
-	bool ReturnEngine() const;
+	bool TurnOnEngine() override;
+	bool TurnOffEngine() override;
+	[[nodiscard]] bool ReturnEngine() const override;
 
-	bool SetGear(int gear);
-	int ReturnGear() const;
+	bool SetGear(int gear) override;
+	[[nodiscard]] int ReturnGear() const override;
 
-	bool SetSpeed(int speed);
-	int ReturnSpeed() const;
+	bool SetSpeed(int speed) override;
+	[[nodiscard]] int ReturnSpeed() const override;
 
-	Direction ReturnDirection() const;
+	[[nodiscard]] Direction ReturnDirection() const override;
 
-protected:
+private:
+	[[nodiscard]] bool CorrectGearShift(int gear) const;
+	[[nodiscard]] bool CurrentSpeedInGearSpeedRange(int speed, int gear) const;
+	[[nodiscard]] bool IsSpeedInRange(const std::pair<int, int>& speedRange, int speed) const;
 
 	bool m_isEngineOn = false;
 	Direction m_direction = Direction::Stand;
 	int m_speed = 0;
 	int m_gear = 0;
-
 };

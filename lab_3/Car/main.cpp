@@ -4,15 +4,31 @@
 
 int main()
 {
-	CCar car;
-	Control carControl(car);
-	std::string commandLine;
-	while (getline( std::cin, commandLine))
+	std::cout << "Выберите тип автомобиля: 0 - Обычный автомобиль, 1 - Автопилот" << std::endl;
+	int number;
+	std::cin >> number;
+	if (number == 0 || number == 1)
 	{
-		if (!carControl.HandleCommand(commandLine))
+		if (number == 0)
 		{
-			std::cout << "Неизвестная команда" << std::endl;
+			CCar car;
+			Control carControl(car);
+			std::string commandLine;
+			while (getline( std::cin, commandLine))
+			{
+				if (!carControl.HandleCommand(commandLine))
+				{
+					std::cout << "Неизвестная команда" << std::endl;
+				}
+			}
 		}
+		else
+		{
+			AutoPilot car;
+
+		}
+		return 0;
+
 	}
-	return 0;
+	return 1;
 }

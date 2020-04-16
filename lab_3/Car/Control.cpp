@@ -132,3 +132,4 @@ bool Control::CarInformation()
 	std::cout << "Направление: " << DirectionTostring(m_car.CCar::ReturnDirection()) << std::endl;
 	return true;
 }
+
