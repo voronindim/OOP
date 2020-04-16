@@ -168,16 +168,24 @@ bool CAutoPilot::SetSpeed(int speed)
 
 bool CAutoPilot::BackWardGear()
 {
-	CAutoPilot::SetSpeed(0);
-	CAutoPilot::SetGear(-1);
-	return true;
+	if (m_direction != Direction::Back)
+	{
+		CAutoPilot::SetSpeed(0);
+		CAutoPilot::SetGear(-1);
+		return true;
+	}
+	return false;
 }
 
 bool CAutoPilot::ForwardGear()
 {
-	CAutoPilot::SetSpeed(0);
-	CAutoPilot::SetGear(1);
-	return true;
+	if (m_direction != Direction::Forward)
+	{
+		CAutoPilot::SetSpeed(0);
+		CAutoPilot::SetGear(1);
+		return true;
+	}
+	return false;
 }
 
 int CAutoPilot::ReturnCurrentSpeed()
