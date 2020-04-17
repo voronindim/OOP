@@ -1,5 +1,8 @@
 #include "CAutoPilot.h"
 #include "CCar.h"
+#include <iostream>
+
+using namespace std;
 
 CAutoPilot::CAutoPilot(IManualGearVehicle& car)
 	: m_car(&car)
@@ -37,125 +40,54 @@ std::pair<int, int> ReturnSpeedRange(int gear)
 
 bool CAutoPilot::TurnOnEngine()
 {
-	if (!m_isEngineOn)
-	{
-		m_isEngineOn = true;
-		return true;
-	}
-	return false;
+	return m_car->TurnOnEngine();
 }
 
 bool CAutoPilot::TurnOffEngine()
 {
-	if (m_isEngineOn && m_gear == 0 && m_speed == 0)
-	{
-		m_isEngineOn = false;
-		return true;
-	}
-	return false;
-}
-
-bool CAutoPilot::IsSpeedInRange(const std::pair<int, int>& speedRange, int speed) const
-{
-	return speed >= speedRange.first && speed <= speedRange.second;
-}
-
-bool CAutoPilot::CurrentSpeedInGearSpeedRange(int speed, int gear) const
-{
-	return (gear == -1 && IsSpeedInRange(REVERSE_SPEED_RANGE, speed)) ||
-		   (gear == 0 && IsSpeedInRange(NEUTRAL_SPEED_RANGE, speed)) ||
-		   (gear == 1 && IsSpeedInRange(FIRST_SPEED_RANGE, speed)) ||
-		   (gear == 2 && IsSpeedInRange(SECOND_SPEED_RANGE, speed)) ||
-		   (gear == 3 && IsSpeedInRange(THIRD_SPEED_RANGE, speed)) ||
-		   (gear == 4 && IsSpeedInRange(FOURTH_SPEED_RANGE, speed)) ||
-		   (gear == 5 && IsSpeedInRange(FIFTH_SPEED_RANGE, speed));
-}
-
-bool CAutoPilot::MechanicalSetSpeed(int speed)
-{
-	if (m_gear == 0 && speed > m_speed)
-	{
-		return false;
-	}
-
-	if (!CurrentSpeedInGearSpeedRange(speed, m_gear))
-	{
-		return false;
-	}
-	m_speed = speed;
-	m_direction = (speed == 0) ? Direction::Stand :
-				  (speed > 0 && m_gear == -1) ? Direction::Back :
-				  (speed > 0 && m_gear > 0) ? Direction::Forward :
-				  m_direction;
-	return true;
-}
-
-bool CAutoPilot::CorrectGearShift(int gear) const
-{
-	return (gear == -1 && m_direction == Direction::Stand) ||
-		   (gear == 1 && m_direction != Direction::Back) ||
-		   (gear > 1 && m_direction == Direction::Forward) ||
-		   (gear == 0);
-}
-
-bool CAutoPilot::SetGear(int gear)
-{
-	if (!m_isEngineOn && gear != 0)
-	{
-		return false;
-	}
-	if (!CurrentSpeedInGearSpeedRange(m_speed, gear))
-	{
-		return false;
-	}
-	if (!CorrectGearShift(gear))
-	{
-		return false;
-	}
-	m_gear = gear;
-	return true;
+	return m_car->TurnOffEngine();
 }
 
 void CAutoPilot::IncreaseSpeed(int speed)
 {
-	while (speed != m_speed)
+	while (speed != m_car->ReturnCurrentSpeed())
 	{
-		SetGear(m_gear + 1);
-		if (!CAutoPilot::MechanicalSetSpeed(speed))
+		m_car->SetGear(m_car->ReturnCurrentGear() + 1);
+		if (!m_car->SetSpeed(speed))
 		{
-			int maxSpeedInCurrentRange = ReturnSpeedRange(m_gear).second;
-			CAutoPilot::MechanicalSetSpeed(maxSpeedInCurrentRange);
+			int maxSpeedInCurrentRange = ReturnSpeedRange(m_car->ReturnCurrentGear()).second;
+			m_car->SetSpeed(maxSpeedInCurrentRange);
 		}
 	}
 }
 
 void CAutoPilot::DecreaseSpeed(int speed)
 {
-	while (speed != m_speed)
+	while (speed != m_car->ReturnCurrentSpeed())
 	{
-		SetGear(m_gear - 1);
-		if (!CAutoPilot::MechanicalSetSpeed(speed))
+		m_car->SetGear(m_car->ReturnCurrentGear() - 1);
+		if (!m_car->SetSpeed(speed))
 		{
-			int maxSpeedInCurrentRange = ReturnSpeedRange(m_gear).first;
-			CAutoPilot::MechanicalSetSpeed(maxSpeedInCurrentRange);
+			int maxSpeedInCurrentRange = ReturnSpeedRange(m_car->ReturnCurrentGear()).first;
+			m_car->SetSpeed(maxSpeedInCurrentRange);
 		}
 	}
 }
 
 bool CAutoPilot::SetSpeed(int speed)
 {
-	if (speed > MAX_SPEED || (m_gear == -1 && speed > REVERSE_SPEED_RANGE.second))
+	if (speed > MAX_SPEED || (m_car->ReturnCurrentGear() == -1 && speed > REVERSE_SPEED_RANGE.second))
 	{
 		return false;
 	}
 
-	if (!CAutoPilot::MechanicalSetSpeed(speed))
+	if (!m_car->SetSpeed(speed))
 	{
-		if (m_direction != Direction::Back && speed > m_speed)
+		if (m_car->ReturnCurrentDirection() != Direction::Back && speed > m_car->ReturnCurrentSpeed())
 		{
 			IncreaseSpeed(speed);
 		}
-		else if (m_direction != Direction::Back && speed < m_speed)
+		else if (m_car->ReturnCurrentDirection() != Direction::Back && speed < m_car->ReturnCurrentSpeed())
 		{
 			DecreaseSpeed(speed);
 		}
@@ -169,10 +101,10 @@ bool CAutoPilot::SetSpeed(int speed)
 
 bool CAutoPilot::BackWardGear()
 {
-	if (m_direction != Direction::Back)
+	if (m_car->ReturnCurrentDirection() != Direction::Back)
 	{
 		CAutoPilot::SetSpeed(0);
-		CAutoPilot::SetGear(-1);
+		m_car->SetGear(-1);
 		return true;
 	}
 	return false;
@@ -180,10 +112,10 @@ bool CAutoPilot::BackWardGear()
 
 bool CAutoPilot::ForwardGear()
 {
-	if (m_direction != Direction::Forward)
+	if (m_car->ReturnCurrentDirection() != Direction::Forward)
 	{
 		CAutoPilot::SetSpeed(0);
-		CAutoPilot::SetGear(1);
+		m_car->SetGear(1);
 		return true;
 	}
 	return false;
@@ -191,20 +123,20 @@ bool CAutoPilot::ForwardGear()
 
 int CAutoPilot::ReturnCurrentSpeed() const
 {
-	return m_speed;
+	return m_car->ReturnCurrentSpeed();
 }
 
 int CAutoPilot::ReturnCurrentGear() const
 {
-	return m_gear;
+	return m_car->ReturnCurrentGear();
 }
 
 Direction CAutoPilot::ReturnCurrentDirection() const
 {
-	return m_direction;
+	return m_car->ReturnCurrentDirection();
 }
 
 bool CAutoPilot::ReturnEngineOn() const
 {
-	return m_isEngineOn;
+	return m_car->ReturnEngineOn();
 }

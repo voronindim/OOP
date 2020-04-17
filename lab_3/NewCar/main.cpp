@@ -15,7 +15,8 @@ int main()
 		CCar car;
 		if(number == "1")
 		{
-			CAutoPilot(*car);
+			CAutoPilot controlAutoPilot = CAutoPilot(car);
+
 			return 0;
 		}
 
