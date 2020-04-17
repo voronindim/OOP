@@ -1,6 +1,5 @@
 #include "CAutoPilot.h"
 #include "CCar.h"
-#include <iostream>
 
 using namespace std;
 
@@ -99,12 +98,22 @@ bool CAutoPilot::SetSpeed(int speed)
 	return true;
 }
 
-bool CAutoPilot::BackWardGear()
+bool CAutoPilot::BackwardGear()
 {
 	if (m_car->ReturnCurrentDirection() != Direction::Back)
 	{
 		CAutoPilot::SetSpeed(0);
 		m_car->SetGear(-1);
+		return true;
+	}
+	return false;
+}
+
+bool CAutoPilot::NeutralGear()
+{
+	if(m_car->ReturnCurrentSpeed() == 0)
+	{
+		m_car->SetGear(0);
 		return true;
 	}
 	return false;

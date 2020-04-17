@@ -1,27 +1,38 @@
 #include <iostream>
 #include <string>
-#include "CAutoPilot.h"
-#include "CCar.h"
+#include "ControlForCCar.h"
+#include "ControlAutoPilot.h"
 
 using namespace std;
 
 int main()
 {
-	cout << "Выберите тип автомобиля: 0 - Обычный авто, 1 - Автопилот" << endl;
-	string number;
-	getline(cin, number);
-	if (number == "0" || number == "1")
+	CCar car;
+	ControlForCCar control(car);
+	std::string commandLine;
+	while (getline(cin, commandLine))
 	{
-		CCar car;
-		if(number == "1")
+		if (commandLine == "toAutoPilot")
 		{
-			CAutoPilot controlAutoPilot = CAutoPilot(car);
+			auto carAutoPilot = CAutoPilot(car);
+			ControlAutoPilot controlAutoPilot(carAutoPilot);
 
-			return 0;
+			while(getline(cin, commandLine))
+			{
+				if (commandLine == "toCar")
+				{
+					break;
+				}
+				if (!controlAutoPilot.HandleCommand(commandLine))
+				{
+					std::cout << "Неизвестная команда" << std::endl;
+				}
+			}
 		}
-
-		return 0;
+		else if(!control.HandleCommand(commandLine))
+		{
+			std::cout << "Неизвестная команда" << std::endl;
+		}
 	}
-	return 1;
-
+	return 0;
 }

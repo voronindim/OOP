@@ -8,7 +8,8 @@ public:
 	bool TurnOffEngine();
 	[[nodiscard]] bool ReturnEngineOn() const;
 
-	bool BackWardGear();
+	bool NeutralGear();
+	bool BackwardGear();
 	bool ForwardGear();
 	bool SetSpeed(int speed);
 
@@ -21,6 +22,5 @@ private:
 
 	void IncreaseSpeed(int speed);
 	void DecreaseSpeed(int speed);
-
 };
 
