@@ -3,6 +3,7 @@
 class CCar : public IManualGearVehicle
 {
 public:
+//	CCar() = default;
 	bool TurnOnEngine() override;
 	bool TurnOffEngine() override;
 	[[nodiscard]] bool ReturnEngineOn() const override;

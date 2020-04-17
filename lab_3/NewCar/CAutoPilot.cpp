@@ -1,7 +1,8 @@
 #include "CAutoPilot.h"
+#include "CCar.h"
 
-CAutoPilot::CAutoPilot(IManualGearVehicle* car)
-	: m_car(car)
+CAutoPilot::CAutoPilot(IManualGearVehicle& car)
+	: m_car(&car)
 {
 }
 
@@ -188,17 +189,17 @@ bool CAutoPilot::ForwardGear()
 	return false;
 }
 
-int CAutoPilot::ReturnCurrentSpeed()
+int CAutoPilot::ReturnCurrentSpeed() const
 {
 	return m_speed;
 }
 
-int CAutoPilot::ReturnCurrentGear()
+int CAutoPilot::ReturnCurrentGear() const
 {
 	return m_gear;
 }
 
-Direction CAutoPilot::ReturnCurrentDirection()
+Direction CAutoPilot::ReturnCurrentDirection() const
 {
 	return m_direction;
 }
