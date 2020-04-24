@@ -1,7 +1,0 @@
-cmake_minimum_required(VERSION 3.15)
-project(Car)
-
-set (CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall")
-set(CMAKE_CXX_STANDARD 20)
-
-add_executable(Car main.cpp CCar.cpp CCar.h AutoPilot.cpp AutoPilot.h Control.cpp Control.h ICar.cpp ICar.h ControlAutoPilot.cpp ControlAutoPilot.h)
