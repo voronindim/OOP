@@ -14,6 +14,7 @@ int main()
 	{
 		if (commandLine == "toAutoPilot")
 		{
+			cout << "Включен режим AutoPilot" << endl;
 			auto carAutoPilot = CAutoPilot(car);
 			ControlAutoPilot controlAutoPilot(carAutoPilot);
 
@@ -21,6 +22,7 @@ int main()
 			{
 				if (commandLine == "toCar")
 				{
+					cout << "AutoPilot выключен" << endl;
 					break;
 				}
 				if (!controlAutoPilot.HandleCommand(commandLine))

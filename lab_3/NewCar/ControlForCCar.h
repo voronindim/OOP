@@ -1,3 +1,4 @@
+#pragma once
 #include "CCar.h"
 #include <string>
 

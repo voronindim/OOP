@@ -1,3 +1,4 @@
+#pragma once
 #include "CAutoPilot.h"
 #include <string>
 class ControlAutoPilot

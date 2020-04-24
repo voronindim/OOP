@@ -1,3 +1,4 @@
+#pragma once
 #include "IManualGearVehicle.h"
 
 class CAutoPilot

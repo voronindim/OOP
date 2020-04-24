@@ -1,5 +1,4 @@
 #include "CAutoPilot.h"
-#include "CCar.h"
 
 using namespace std;
 
@@ -111,7 +110,7 @@ bool CAutoPilot::BackwardGear()
 
 bool CAutoPilot::NeutralGear()
 {
-	if(m_car->ReturnCurrentSpeed() == 0)
+	if (m_car->ReturnCurrentSpeed() == 0)
 	{
 		m_car->SetGear(0);
 		return true;
