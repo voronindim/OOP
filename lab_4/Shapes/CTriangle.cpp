@@ -24,6 +24,7 @@ double CTriangle::GetPerimeter() const
 {
 	return GetLength(m_vertex1, m_vertex2) + GetLength(m_vertex1, m_vertex3) + GetLength(m_vertex2, m_vertex3);
 }
+
 std::string CTriangle::ToString() const
 {
 	return "Вершина треугольника №1: " + std::to_string(m_vertex1.x) + " " + std::to_string(m_vertex1.y) + "\n" +
@@ -38,18 +39,22 @@ uint32_t CTriangle::GetOutlineColor() const
 {
 	return m_outlineColor;
 }
+
 uint32_t CTriangle::GetFillColor() const
 {
 	return m_fillColor;
 }
+
 CPoint CTriangle::GetVertex1() const
 {
 	return m_vertex1;
 }
+
 CPoint CTriangle::GetVertex2() const
 {
 	return m_vertex2;
 }
+
 CPoint CTriangle::GetVertex3() const
 {
 	return m_vertex3;
