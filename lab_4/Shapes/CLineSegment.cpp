@@ -37,3 +37,4 @@ CPoint CLineSegment::GetEndPoint() const
 {
 	return m_endPoint;
 }
+

@@ -1,17 +1,18 @@
+#pragma once
 #include "ISolidShape.h"
 #include "CPoint.h"
 #include <string>
 
-class CTriangle : ISolidShape
+class CTriangle : public ISolidShape
 {
 public:
 	CTriangle( CPoint vertex1, CPoint vertex2, CPoint vertex3, uint32_t outlineColor, uint32_t fillCOlor);
-	[[nodiscard]] double GetArea() const;
-	[[nodiscard]] double GetPerimeter() const;
-	[[nodiscard]] std::string ToString() const;
+	[[nodiscard]] double GetArea() const override;
+	[[nodiscard]] double GetPerimeter() const override;
+	[[nodiscard]] std::string ToString() const override;
 
-	[[nodiscard]] uint32_t GetOutlineColor() const;
-	[[nodiscard]] uint32_t GetFillColor() const;
+	[[nodiscard]] uint32_t GetOutlineColor() const override;
+	[[nodiscard]] uint32_t GetFillColor() const override;
 
 	[[nodiscard]] CPoint GetVertex1() const;
 	[[nodiscard]] CPoint GetVertex2() const;
@@ -24,6 +25,5 @@ private:
 
 	uint32_t m_fillColor{};
 	uint32_t m_outlineColor{};
-//	[[nodiscard]] double GetLength(CPoint point1, CPoint point2) const;
 };
 

@@ -1,5 +1,6 @@
 #include "CTriangle.h"
 #include <cmath>
+
 CTriangle::CTriangle(CPoint vertex1, CPoint vertex2, CPoint vertex3, uint32_t outlineColor, uint32_t fillColor)
 {
 	this->m_vertex1 = vertex1;

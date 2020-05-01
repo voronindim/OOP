@@ -9,34 +9,34 @@ CRectangle::CRectangle(CPoint topLeft, double wight, double height, uint32_t fil
 	this->m_outlineColor = outlineColor;
 }
 
-double CRectangle::GetArea()
+double CRectangle::GetArea() const
 {
 	return m_height * m_width;
 }
 
-double CRectangle::GetPerimeter()
+double CRectangle::GetPerimeter() const
 {
 	return 2 * (m_height + m_width);
 }
 
-std::string CRectangle::ToString()
+std::string CRectangle::ToString() const
 {
 	return "Верхняя левая вершина имеет координаты: " + std::to_string(m_topLeft.x) + " " +  std::to_string(m_topLeft.y) + "\n" +
 	"Высота: " + std::to_string(m_height) + "\n" +
 	"Ширина" + std::to_string(m_width) + "\n";
 }
 
-uint32_t CRectangle::GetOutlineColor()
+uint32_t CRectangle::GetOutlineColor() const
 {
-	return 0;
+	return m_outlineColor;
 }
 
-CPoint CRectangle::GetTopLeftPoint()
+CPoint CRectangle::GetTopLeftPoint() const
 {
 	return m_topLeft;
 }
 
-CPoint CRectangle::GetBottomRightPoint()
+CPoint CRectangle::GetBottomRightPoint() const
 {
 	CPoint rightBottomPoint{};
 	rightBottomPoint.x = m_topLeft.x + m_width;
@@ -44,17 +44,17 @@ CPoint CRectangle::GetBottomRightPoint()
 	return rightBottomPoint;
 }
 
-double CRectangle::GetHeight()
+double CRectangle::GetHeight() const
 {
 	return m_height;
 }
 
-double CRectangle::GetWight()
+double CRectangle::GetWight() const
 {
 	return m_width;
 }
 
-uint32_t CRectangle::GetFillColor()
+uint32_t CRectangle::GetFillColor() const
 {
 	return m_fillColor;
 }
