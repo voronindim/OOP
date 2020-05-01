@@ -22,7 +22,12 @@ double CCircle::GetRadius() const
 }
 std::string CCircle::ToString() const
 {
-	return std::string();
+	return "Координаты центра окружности: " + std::to_string(m_center.x) + " " + std::to_string(m_center.y) + "\n" +
+	"Радиус: " + std::to_string(m_radius) + "\n" +
+	"Плоащдь: " + std::to_string(GetArea()) + "\n" +
+	"Периметр: " + std::to_string(GetPerimeter()) + "\n" +
+	"Цвет контура: " + std::to_string(m_outlineColor) + "\n" +
+	"Цвет заливки: " + std::to_string(m_fillColor) + "\n";
 }
 uint32_t CCircle::GetOutlineColor() const
 {
