@@ -13,7 +13,7 @@ public:
 	[[nodiscard]] uint32_t GetOutlineColor() const override;
 	[[nodiscard]] CPoint GetStartPoint() const;
 	[[nodiscard]] CPoint GetEndPoint() const;
-
+    void Draw(ICanvas& canvas) override;
 private:
 	uint32_t m_outlineColor;
 	CPoint m_startPoint{};

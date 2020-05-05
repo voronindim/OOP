@@ -1,4 +1,5 @@
 #include "CShapeProcessor.h"
+#include "CCanvas.h"
 
 const std::map<std::string, std::string> shapes = {
         {"LineSegment", "^([[:alpha:]]+) ([[:d:]]+(.[[:d:]]+)?) ([[:d:]]+(.[[:d:]]+)?) ([[:d:]]+(.[[:d:]]+)?) ([[:d:]]+(.[[:d:]]+)?) ([[:xdigit:]]{6})$"},
@@ -19,7 +20,7 @@ bool CShapeProcessor::HandleCommand(const std::string &commandLine)
     ss >> action;
     if (auto it = shapes.find(action); it != shapes.end())
     {
-        if (action == "lineSegment")
+        if (action == "LineSegment")
         {
             return CreateLineSegment(commandLine);
         }
@@ -43,6 +44,10 @@ bool CShapeProcessor::HandleCommand(const std::string &commandLine)
     else if (action == "maxArea")
     {
         PrintShapeWithMaxArea();
+    }
+    else if (action == "Draw")
+    {
+        DrawShapes();
     }
     else
     {
@@ -152,6 +157,31 @@ void CShapeProcessor::PrintShapeWithMinPerimeter() const
         return shape1->GetPerimeter() < shape2->GetPerimeter();
     });
     std::cout << (*shapeWithMinPerimeter)->ToString() << std::endl;
+}
+
+void CShapeProcessor::DrawShapes() const
+{
+    sf::ContextSettings settings;
+    settings.antialiasingLevel = 8;
+    sf::RenderWindow window(sf::VideoMode(1000, 1000), "Shapes", sf::Style::Default, settings);
+    CCanvas canvas(window);
+    while(window.isOpen())
+    {
+        sf::Event event;
+        while (window.pollEvent(event))
+        {
+            if (event.type == sf::Event::Closed)
+            {
+                window.close();
+            }
+        }
+        window.clear(sf::Color(255, 255, 255));
+        for(const auto& item : m_shapesSet)
+        {
+            item->Draw(canvas);
+        }
+        window.display();
+    }
 }
 
 

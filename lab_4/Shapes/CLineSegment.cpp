@@ -6,16 +6,19 @@ CLineSegment::CLineSegment(CPoint startPoint, CPoint endPoint, uint32_t outlineC
 	this->m_endPoint = endPoint;
 	this->m_outlineColor = outlineColor;
 }
+
 double CLineSegment::GetArea() const
 {
 	return 0;
 }
+
 double CLineSegment::GetPerimeter() const
 {
 	CPoint startPoint = GetStartPoint();
 	CPoint endPoint = GetEndPoint();
 	return sqrt(pow((startPoint.x - endPoint.x), 2) + pow((startPoint.y - endPoint.y), 2));
 }
+
 std::string CLineSegment::ToString() const
 {
 	return "Начало линии" + std::to_string(m_startPoint.x) + " " + std::to_string(m_startPoint.y) + "\n" +
@@ -36,5 +39,10 @@ CPoint CLineSegment::GetStartPoint() const
 CPoint CLineSegment::GetEndPoint() const
 {
 	return m_endPoint;
+}
+
+void CLineSegment::Draw(ICanvas &canvas)
+{
+    canvas.DrawLine(m_startPoint, m_endPoint, m_outlineColor);
 }
 

@@ -13,6 +13,7 @@ public:
 
 	[[nodiscard]] uint32_t GetOutlineColor() const override;
 	[[nodiscard]] uint32_t GetFillColor() const override;
+	void Draw(ICanvas& canvas) override;
 
 	[[nodiscard]] CPoint GetTopLeftPoint() const;
 	[[nodiscard]] CPoint GetBottomRightPoint() const;

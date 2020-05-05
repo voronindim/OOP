@@ -1,4 +1,5 @@
 #pragma once
+#include <SFML/Graphics.hpp>
 #include <memory>
 #include <vector>
 #include <map>
@@ -24,5 +25,6 @@ private:
     bool CreateRectangle(const std::string& inputString);
     void PrintShapeWithMaxArea() const;
     void PrintShapeWithMinPerimeter() const;
+    void DrawShapes() const;
 };
 

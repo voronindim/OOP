@@ -61,3 +61,16 @@ CPoint CTriangle::GetVertex3() const
 	return m_vertex3;
 }
 
+void CTriangle::Draw(ICanvas &canvas)
+{
+    CPoint p1 = m_vertex1;
+    CPoint p2 = m_vertex2;
+    CPoint p3 = m_vertex3;
+
+    canvas.FillPolygon({p1, p2, p3}, m_fillColor);
+
+    canvas.DrawLine(p1, p2, m_outlineColor);
+    canvas.DrawLine(p2, p3, m_outlineColor);
+    canvas.DrawLine(p3, p1, m_outlineColor);
+}
+
