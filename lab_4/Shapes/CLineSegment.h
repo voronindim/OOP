@@ -14,7 +14,7 @@ public:
 	[[nodiscard]] uint32_t GetOutlineColor() const override;
 	[[nodiscard]] CPoint GetStartPoint() const;
 	[[nodiscard]] CPoint GetEndPoint() const;
-    void Draw(ICanvas& canvas) override;
+	void Draw(ICanvas& canvas) override;
 private:
     [[nodiscard]] static std::string ConvertColor(uint32_t color);
 	uint32_t m_outlineColor;
