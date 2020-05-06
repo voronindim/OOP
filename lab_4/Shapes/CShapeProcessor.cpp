@@ -1,5 +1,6 @@
 #include "CShapeProcessor.h"
 #include "CCanvas.h"
+#include <sstream>
 
 const std::map<std::string, std::string> shapes = {
         {"LineSegment", "^([[:alpha:]]+) ([[:d:]]+(.[[:d:]]+)?) ([[:d:]]+(.[[:d:]]+)?) ([[:d:]]+(.[[:d:]]+)?) ([[:d:]]+(.[[:d:]]+)?) ([[:xdigit:]]{6})$"},
@@ -44,10 +45,6 @@ bool CShapeProcessor::HandleCommand(const std::string &commandLine)
     else if (action == "maxArea")
     {
         PrintShapeWithMaxArea();
-    }
-    else if (action == "Draw")
-    {
-        DrawShapes();
     }
     else
     {
@@ -163,11 +160,11 @@ void CShapeProcessor::DrawShapes() const
 {
     sf::ContextSettings settings;
     settings.antialiasingLevel = 8;
-    sf::RenderWindow window(sf::VideoMode(1000, 1000), "Shapes", sf::Style::Default, settings);
+    sf::RenderWindow window(sf::VideoMode(1280, 720), "Shapes", sf::Style::Default, settings);
     CCanvas canvas(window);
     while(window.isOpen())
     {
-        sf::Event event;
+        sf::Event event{};
         while (window.pollEvent(event))
         {
             if (event.type == sf::Event::Closed)

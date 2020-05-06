@@ -1,6 +1,5 @@
 #include "CCanvas.h"
 
-
 using namespace sf;
 
 CCanvas::CCanvas(RenderWindow& window)

@@ -1,5 +1,6 @@
-#include "CPoint.h"
+#pragma once
 #include "IShape.h"
+
 
 class CLineSegment : public IShape
 {
@@ -15,6 +16,7 @@ public:
 	[[nodiscard]] CPoint GetEndPoint() const;
     void Draw(ICanvas& canvas) override;
 private:
+    [[nodiscard]] static std::string ConvertColor(uint32_t color);
 	uint32_t m_outlineColor;
 	CPoint m_startPoint{};
 	CPoint m_endPoint{};

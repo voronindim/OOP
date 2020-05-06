@@ -1,5 +1,4 @@
 #pragma once
-#include "CPoint.h"
 #include "ISolidShape.h"
 
 class CRectangle : public ISolidShape
@@ -22,6 +21,7 @@ public:
 	[[nodiscard]] double GetWight() const;
 
 private:
+    [[nodiscard]] static std::string ConvertColor(uint32_t color) ;
 	CPoint m_topLeft{};
 	double m_height{};
 	double m_width{};

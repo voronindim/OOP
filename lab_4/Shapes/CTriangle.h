@@ -1,7 +1,5 @@
 #pragma once
 #include "ISolidShape.h"
-#include "CPoint.h"
-#include <string>
 
 class CTriangle : public ISolidShape
 {
@@ -20,6 +18,7 @@ public:
 	[[nodiscard]] CPoint GetVertex3() const;
 
 private:
+    [[nodiscard]] static std::string ConvertColor(uint32_t color) ;
 	CPoint m_vertex1{};
 	CPoint m_vertex2{};
 	CPoint m_vertex3{};

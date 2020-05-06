@@ -2,6 +2,7 @@
 #include "ICanvasDrawable.h"
 #include <utility>
 #include <string>
+
 class IShape : public ICanvasDrawable
 {
 public:

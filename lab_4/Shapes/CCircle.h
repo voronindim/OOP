@@ -1,6 +1,5 @@
 #pragma once
 #include "ISolidShape.h"
-#include "CPoint.h"
 
 class CCircle : public ISolidShape
 {
@@ -13,12 +12,13 @@ public:
 	[[nodiscard]] std::string ToString() const override;
 
 	[[nodiscard]] uint32_t GetOutlineColor() const override;
-	[[nodiscard]] u_int32_t GetFillColor() const override;
+	[[nodiscard]] uint32_t GetFillColor() const override;
     void Draw(ICanvas& canvas) override;
 
 	[[nodiscard]] CPoint GetCenter() const;
 
 private:
+    [[nodiscard]] static std::string ConvertColor(uint32_t color);
 	CPoint m_center{};
 	double m_radius;
 	uint32_t m_fillColor;

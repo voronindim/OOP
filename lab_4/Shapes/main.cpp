@@ -1,18 +1,18 @@
 #include <iostream>
 #include "CShapeProcessor.h"
 
-using namespace std;
 
 int main()
 {
-    string inputString;
+    std::string inputString;
 	CShapeProcessor processor;
-	while (getline(cin, inputString))
+	while (getline(std::cin, inputString))
 	{
 		if (!processor.HandleCommand(inputString))
         {
-		    cout << "Неправильный ввод!" << endl;
+		    std::cout << "Неправильный ввод!" << std::endl;
         }
 	}
-	return 0;
+    processor.DrawShapes();
+    return 0;
 }

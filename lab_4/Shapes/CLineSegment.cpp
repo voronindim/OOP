@@ -1,5 +1,7 @@
 #include "CLineSegment.h"
 #include <cmath>
+#include <sstream>
+
 CLineSegment::CLineSegment(CPoint startPoint, CPoint endPoint, uint32_t outlineColor)
 {
 	this->m_startPoint = startPoint;
@@ -21,9 +23,9 @@ double CLineSegment::GetPerimeter() const
 
 std::string CLineSegment::ToString() const
 {
-	return "Начало линии" + std::to_string(m_startPoint.x) + " " + std::to_string(m_startPoint.y) + "\n" +
+	return "Начало линии: " + std::to_string(m_startPoint.x) + " " + std::to_string(m_startPoint.y) + "\n" +
 	"Конец линии: " + std::to_string(m_endPoint.x) + " " + std::to_string(m_endPoint.y) + "\n" +
-	"Цвет линии: " + std::to_string(m_outlineColor) + "\n";
+	"Цвет линии: " + ConvertColor(m_outlineColor) + "\n";
 }
 
 uint32_t CLineSegment::GetOutlineColor() const
@@ -44,5 +46,12 @@ CPoint CLineSegment::GetEndPoint() const
 void CLineSegment::Draw(ICanvas &canvas)
 {
     canvas.DrawLine(m_startPoint, m_endPoint, m_outlineColor);
+}
+
+std::string CLineSegment::ConvertColor(uint32_t color)
+{
+    std::stringstream ss;
+    ss << std::hex << color;
+    return ss.str();
 }
 

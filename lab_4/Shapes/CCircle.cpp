@@ -1,5 +1,6 @@
 #include "CCircle.h"
 #include <cmath>
+#include "sstream"
 
 CCircle::CCircle(CPoint center, double radius, uint32_t outlineColor, uint32_t fillColor)
 {
@@ -20,14 +21,15 @@ double CCircle::GetRadius() const
 {
 	return m_radius;
 }
+
 std::string CCircle::ToString() const
 {
 	return "Координаты центра окружности: " + std::to_string(m_center.x) + " " + std::to_string(m_center.y) + "\n" +
 	"Радиус: " + std::to_string(m_radius) + "\n" +
 	"Плоащдь: " + std::to_string(GetArea()) + "\n" +
 	"Периметр: " + std::to_string(GetPerimeter()) + "\n" +
-	"Цвет контура: " + std::to_string(m_outlineColor) + "\n" +
-	"Цвет заливки: " + std::to_string(m_fillColor) + "\n";
+	"Цвет контура: " + ConvertColor(m_outlineColor) + "\n" +
+	"Цвет заливки: " + ConvertColor(m_fillColor) + "\n";
 }
 uint32_t CCircle::GetOutlineColor() const
 {
@@ -47,3 +49,12 @@ void CCircle::Draw(ICanvas &canvas)
     canvas.DrawCircle(m_center, m_radius, m_outlineColor);
     canvas.FillCircle(m_center, m_radius, m_fillColor);
 }
+
+std::string CCircle::ConvertColor(uint32_t color)
+{
+    std::stringstream ss;
+    ss << std::hex << color;
+    return ss.str();
+}
+
+

@@ -1,4 +1,5 @@
 #include "CRectangle.h"
+#include <sstream>
 
 CRectangle::CRectangle(CPoint topLeft, double wight, double height, uint32_t fillColor, uint32_t outlineColor)
 {
@@ -23,7 +24,9 @@ std::string CRectangle::ToString() const
 {
 	return "Верхняя левая вершина имеет координаты: " + std::to_string(m_topLeft.x) + " " +  std::to_string(m_topLeft.y) + "\n" +
 	"Высота: " + std::to_string(m_height) + "\n" +
-	"Ширина" + std::to_string(m_width) + "\n";
+	"Ширина" + std::to_string(m_width) + "\n" +
+	"Цвет контура: " + ConvertColor(m_outlineColor) + "\n" +
+	"Цвет заливки: " + ConvertColor(m_fillColor) + "\n";
 }
 
 uint32_t CRectangle::GetOutlineColor() const
@@ -74,5 +77,12 @@ void CRectangle::Draw(ICanvas& canvas)
     canvas.DrawLine(p2, p3, m_outlineColor);
     canvas.DrawLine(p3, p4, m_outlineColor);
     canvas.DrawLine(p4, p1, m_outlineColor);
+}
+
+std::string CRectangle::ConvertColor(uint32_t color)
+{
+    std::stringstream ss;
+    ss << std::hex << color;
+    return ss.str();
 }
 

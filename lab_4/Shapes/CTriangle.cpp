@@ -1,5 +1,6 @@
 #include "CTriangle.h"
 #include <cmath>
+#include <sstream>
 
 CTriangle::CTriangle(CPoint vertex1, CPoint vertex2, CPoint vertex3, uint32_t outlineColor, uint32_t fillColor)
 {
@@ -13,10 +14,10 @@ CTriangle::CTriangle(CPoint vertex1, CPoint vertex2, CPoint vertex3, uint32_t ou
 double CTriangle::GetArea() const
 {
 	return abs((m_vertex2.x - m_vertex1.x) * (m_vertex3.y - m_vertex1.y) -
-	(m_vertex3.x - m_vertex1.x) * (m_vertex2.y - m_vertex1.y) / 2);
+	(m_vertex3.x - m_vertex1.x) * (m_vertex2.y - m_vertex1.y)) / 2;
 }
 
-double GetLength( CPoint point1, CPoint point2 )
+double GetLength(CPoint point1, CPoint point2)
 {
 	return sqrt(pow((point1.x - point2.x), 2) + pow((point1.y - point2.y), 2));
 }
@@ -33,8 +34,8 @@ std::string CTriangle::ToString() const
 		"Вершина треугольника №3: " + std::to_string(m_vertex3.x) + " " + std::to_string(m_vertex3.y) + "\n" +
 		"Периметр: " + std::to_string(GetPerimeter()) + "\n" +
 		"Площадь: " + std::to_string(GetArea()) + "\n" +
-		"Цвет контура: " + std::to_string(m_outlineColor) + "\n" +
-		"Цвет заливки: " + std::to_string(m_fillColor) + "\n";
+		"Цвет контура: " + ConvertColor(m_outlineColor) + "\n" +
+		"Цвет заливки: " + ConvertColor(m_fillColor) + "\n";
 }
 uint32_t CTriangle::GetOutlineColor() const
 {
@@ -72,5 +73,12 @@ void CTriangle::Draw(ICanvas &canvas)
     canvas.DrawLine(p1, p2, m_outlineColor);
     canvas.DrawLine(p2, p3, m_outlineColor);
     canvas.DrawLine(p3, p1, m_outlineColor);
+}
+
+std::string CTriangle::ConvertColor(uint32_t color)
+{
+    std::stringstream ss;
+    ss << std::hex << color;
+    return ss.str();
 }
 

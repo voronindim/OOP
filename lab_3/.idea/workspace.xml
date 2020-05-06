@@ -9,7 +9,27 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cbceed01-7787-4ab5-9ac4-1c939bbd30c4" name="Default Changelist" comment="" />
+    <list default="true" id="cbceed01-7787-4ab5-9ac4-1c939bbd30c4" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/../lab_4/Shapes/CCanvas.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../lab_4/Shapes/CCanvas.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lab_4/Shapes/CCircle.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../lab_4/Shapes/CCircle.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lab_4/Shapes/CCircle.h" beforeDir="false" afterPath="$PROJECT_DIR$/../lab_4/Shapes/CCircle.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lab_4/Shapes/CLineSegment.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../lab_4/Shapes/CLineSegment.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lab_4/Shapes/CLineSegment.h" beforeDir="false" afterPath="$PROJECT_DIR$/../lab_4/Shapes/CLineSegment.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lab_4/Shapes/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../lab_4/Shapes/CMakeLists.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lab_4/Shapes/CPoint.h" beforeDir="false" afterPath="$PROJECT_DIR$/../lab_4/Shapes/CPoint.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lab_4/Shapes/CRectangle.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../lab_4/Shapes/CRectangle.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lab_4/Shapes/CRectangle.h" beforeDir="false" afterPath="$PROJECT_DIR$/../lab_4/Shapes/CRectangle.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lab_4/Shapes/CShapeProcessor.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../lab_4/Shapes/CShapeProcessor.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lab_4/Shapes/CShapeProcessor.h" beforeDir="false" afterPath="$PROJECT_DIR$/../lab_4/Shapes/CShapeProcessor.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lab_4/Shapes/CTriangle.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../lab_4/Shapes/CTriangle.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lab_4/Shapes/CTriangle.h" beforeDir="false" afterPath="$PROJECT_DIR$/../lab_4/Shapes/CTriangle.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lab_4/Shapes/ICanvas.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lab_4/Shapes/ICanvasDrawable.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lab_4/Shapes/IShape.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lab_4/Shapes/IShape.h" beforeDir="false" afterPath="$PROJECT_DIR$/../lab_4/Shapes/IShape.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lab_4/Shapes/ISolidShape.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lab_4/Shapes/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../lab_4/Shapes/main.cpp" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -45,6 +65,7 @@
       <option name="presentableId" value="Default" />
       <updated>1588330349698</updated>
       <workItem from="1588330351909" duration="12000" />
+      <workItem from="1588754417621" duration="33000" />
     </task>
     <servers />
   </component>
