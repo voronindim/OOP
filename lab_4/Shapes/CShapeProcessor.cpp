@@ -2,7 +2,7 @@
 #include "CCanvas.h"
 #include <sstream>
 
-const std::map<std::string, std::string> shapes = {
+const std::map<std::string, std::string> regexForShapes = {
         {"LineSegment", "^([[:alpha:]]+) ([[:d:]]+(.[[:d:]]+)?) ([[:d:]]+(.[[:d:]]+)?) ([[:d:]]+(.[[:d:]]+)?) ([[:d:]]+(.[[:d:]]+)?) ([[:xdigit:]]{6})$"},
 
         {"Triangle", "^([[:alpha:]]+) ([[:d:]]+(.[[:d:]]+)?) ([[:d:]]+(.[[:d:]]+)?) ([[:d:]]+(.[[:d:]]+)?) ([[:d:]]+(.[[:d:]]+)?) "
@@ -19,7 +19,7 @@ bool CShapeProcessor::HandleCommand(const std::string &commandLine)
     std::stringstream ss(commandLine);
     std::string action;
     ss >> action;
-    if (auto it = shapes.find(action); it != shapes.end())
+    if (auto it = regexForShapes.find(action); it != regexForShapes.end())
     {
         if (action == "LineSegment")
         {
@@ -60,7 +60,7 @@ std::smatch ParseInputString(const std::string& inputString)
     std::string shapeName;
     ss >> shapeName;
 
-    std::regex rx(shapes.find(shapeName)->second);
+    std::regex rx(regexForShapes.find(shapeName)->second);
     regex_match(inputString, matches, rx);
     return matches;
 }

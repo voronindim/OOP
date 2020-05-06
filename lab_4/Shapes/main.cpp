@@ -1,7 +1,6 @@
 #include <iostream>
 #include "CShapeProcessor.h"
 
-
 int main()
 {
     std::string inputString;
