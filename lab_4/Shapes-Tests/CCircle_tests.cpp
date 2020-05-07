@@ -46,12 +46,12 @@ TEST_CASE("Метод Draw у круга")
     CHECK(canvas.GetActionHistory() == resultActionHistory);
 }
 
-TEST_CASE("Метод toString вернет результат о фигуре")
+TEST_CASE("Метод toString вернет информацию о фигуре")
 {
     CPoint center = {0, 0};
     double radius = 5;
     uint32_t outlineColor = 0xffffff;
-    uint32_t fillColor = 000000;
+    uint32_t fillColor = 0x001100;
 
     CCircle circle(center, radius, outlineColor, fillColor);
 
@@ -60,6 +60,6 @@ TEST_CASE("Метод toString вернет результат о фигуре")
                                "Плоащдь: 78.539816\n"
                                "Периметр: 31.415927\n"
                                "Цвет контура: ffffff\n"
-                               "Цвет заливки: 0\n";
+                               "Цвет заливки: 1100\n";
     CHECK(circle.ToString() == resultString);
 }

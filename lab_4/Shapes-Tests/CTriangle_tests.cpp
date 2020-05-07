@@ -53,3 +53,26 @@ TEST_CASE("Метод Draw у треугольника")
     std::vector<std::string> resultActionHistory = {"FillPolygon", "DrawLine", "DrawLine", "DrawLine"};
     CHECK(canvas.GetActionHistory() == resultActionHistory);
 }
+
+TEST_CASE("Метод toString вернет информацию о треугольника")
+{
+    CMockedCanvas canvas;
+    CPoint vertex1 = {0, 0};
+    CPoint vertex2 = {4, 0};
+    CPoint vertex3 = {0, 3};
+    uint32_t outlineColor = 000000;
+    uint32_t fillColor = 0xffff00;
+
+    CTriangle triangle(vertex1, vertex2, vertex3, outlineColor, fillColor);
+    triangle.Draw(canvas);
+
+    std::string resultString = "Вершина треугольника №1: 0.000000 0.000000\n"
+                               "Вершина треугольника №2: 4.000000 0.000000\n"
+                               "Вершина треугольника №3: 0.000000 3.000000\n"
+                               "Периметр: 12.000000\n"
+                               "Площадь: 6.000000\n"
+                               "Цвет контура: 0\n"
+                               "Цвет заливки: ffff00\n";;
+
+    CHECK(triangle.ToString() == resultString);
+}

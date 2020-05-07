@@ -41,5 +41,20 @@ TEST_CASE("Метод Draw у линии")
     line.Draw(canvas);
     std::vector<std::string> resultActionHistory = {"DrawLine"};
     CHECK(canvas.GetActionHistory() == resultActionHistory);
+}
 
+TEST_CASE("Метод toString вернет информацию о линии")
+{
+    CMockedCanvas canvas;
+    CPoint from = {0,0};
+    CPoint to = {100, 100};
+    uint32_t color = 0xffffff;
+
+    CLineSegment line(from, to, color);
+
+    std::string resultString = "Начало линии: 0.000000 0.000000\n"
+                               "Конец линии: 100.000000 100.000000\n"
+                               "Цвет линии: ffffff\n";
+
+    CHECK(line.ToString() == resultString);
 }

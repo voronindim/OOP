@@ -52,3 +52,24 @@ TEST_CASE("Метод Draw у прямоугольника")
     std::vector<std::string> resultActionHistory = {"FillPolygon", "DrawLine", "DrawLine", "DrawLine", "DrawLine"};
     CHECK(canvas.GetActionHistory() == resultActionHistory);
 }
+
+TEST_CASE("Метод toString вернет информацию о прямоугольнике")
+{
+    CMockedCanvas canvas;
+    CPoint leftUpperPoint = {40, 40};
+    CPoint bottomRightPoint = {60, 35};
+    double width = 20;
+    double height = 5;
+    uint32_t outlineColor = 000000;
+    uint32_t  fillColor = 0xffffff;
+
+    CRectangle rectangle(leftUpperPoint, width, height, fillColor, outlineColor);
+
+    std::string resultString = "Верхняя левая вершина имеет координаты: 40.000000 40.000000\n"
+                               "Высота: 5.000000\n"
+                               "Ширина20.000000\n"
+                               "Цвет контура: 0\n"
+                               "Цвет заливки: ffffff\n";
+
+    CHECK(rectangle.ToString() == resultString);
+}
