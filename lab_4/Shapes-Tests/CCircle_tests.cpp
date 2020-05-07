@@ -45,3 +45,21 @@ TEST_CASE("Метод Draw у круга")
     std::vector<std::string> resultActionHistory = {"DrawCircle", "FillCircle"};
     CHECK(canvas.GetActionHistory() == resultActionHistory);
 }
+
+TEST_CASE("Метод toString вернет результат о фигуре")
+{
+    CPoint center = {0, 0};
+    double radius = 5;
+    uint32_t outlineColor = 0xffffff;
+    uint32_t fillColor = 000000;
+
+    CCircle circle(center, radius, outlineColor, fillColor);
+
+    std::string resultString = "Координаты центра окружности: 0.000000 0.000000\n"
+                               "Радиус: 5.000000\n"
+                               "Плоащдь: 78.539816\n"
+                               "Периметр: 31.415927\n"
+                               "Цвет контура: ffffff\n"
+                               "Цвет заливки: 0\n";
+    CHECK(circle.ToString() == resultString);
+}
