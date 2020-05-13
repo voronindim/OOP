@@ -115,7 +115,7 @@ TEST_CASE("Проверка бинарного минуса, вычетает д
     CHECK(result.GetDenominator() == 1);
 }
 
-TEST_CASE("ПРоверка умножение дробей")
+TEST_CASE("Проверка умножение дробей")
 {
     CRational rational(3, 5);
     CRational rational1(7, 10);
@@ -123,6 +123,9 @@ TEST_CASE("ПРоверка умножение дробей")
     CHECK(result.GetNumerator() == 21);
     CHECK(result.GetDenominator() == 50);
 
+    result = result * 3;
+    CHECK(result.GetNumerator() == 63);
+    CHECK(result.GetDenominator() == 50);
 }
 
 TEST_CASE("Проверка деление дробей")
