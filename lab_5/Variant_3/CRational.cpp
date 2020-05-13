@@ -96,7 +96,7 @@ CRational& CRational::operator*=(const CRational& rational)
 }
 CRational& CRational::operator/=(const CRational& rational)
 {
-	if (rational.GetNumerator() == 0)
+	if (rational == 0)
 	{
 		throw std::runtime_error("Деление на 0");
 	};
@@ -173,7 +173,7 @@ CRational operator*(const CRational& rational, const CRational& rational1)
 
 CRational operator/(const CRational& rational, const CRational& rational1)
 {
-	if (rational1.GetNumerator() == 0)
+	if (rational1 == 0)
 	{
 		throw std::runtime_error("Деление на 0");
 	}

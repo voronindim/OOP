@@ -96,6 +96,7 @@ TEST_CASE("Проверка бинарного плюса, складывает 
     CRational result = rational + rational1;
     CHECK(result.GetNumerator() == 4);
     CHECK(result.GetDenominator() == 1);
+    result = result + 1;
 
     CRational rational2(5, 3);
     CRational result2 = rational + rational2;
@@ -120,6 +121,7 @@ TEST_CASE("ПРоверка умножение дробей")
     CRational result = rational * rational1;
     CHECK(result.GetNumerator() == 21);
     CHECK(result.GetDenominator() == 50);
+
 }
 
 TEST_CASE("Проверка деление дробей")
@@ -144,6 +146,10 @@ TEST_CASE("Проверка += прибавение числа к числу")
     rational += rational1;
     CHECK(rational.GetNumerator() == 3);
     CHECK(rational.GetDenominator() == 5);
+
+    rational += 2;
+    CHECK(rational.GetNumerator() == 13);
+    CHECK(rational.GetDenominator() == 5);
 }
 
 TEST_CASE("Проверка -= вычетание дроби из дроби")
@@ -152,6 +158,10 @@ TEST_CASE("Проверка -= вычетание дроби из дроби")
     CRational rational1(2, 5);
     rational -= rational1;
     CHECK(rational.GetNumerator() == -1);
+    CHECK(rational.GetDenominator() == 5);
+
+    rational -= 1;
+    CHECK(rational.GetNumerator() == -6);
     CHECK(rational.GetDenominator() == 5);
 }
 
@@ -162,6 +172,10 @@ TEST_CASE("Проверка *= умножение двух дробей")
     rational *= rational1;
     CHECK(rational.GetNumerator() == 1);
     CHECK(rational.GetDenominator() == 18);
+
+    rational *= 2;
+    CHECK(rational.GetNumerator() == 1);
+    CHECK(rational.GetDenominator() == 9);
 }
 
 TEST_CASE("Проверка /= деление двух дробей")
@@ -171,6 +185,12 @@ TEST_CASE("Проверка /= деление двух дробей")
     rational /= rational1;
     CHECK(rational.GetNumerator() == 1);
     CHECK(rational.GetDenominator() == 2);
+
+    CHECK_THROWS(rational / 0);
+
+    rational /= 2;
+    CHECK(rational.GetNumerator() == 1);
+    CHECK(rational.GetDenominator() == 4);
 }
 
 TEST_CASE("Проверка == сравнение двух дробей, возвращает true, если дроби равны, иначе false")

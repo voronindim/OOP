@@ -6,7 +6,7 @@ class CRational
 {
 public:
 	CRational();
-	explicit CRational(int value);
+	CRational(int value);
 	CRational(int numerator, int denominator);
 
 	int GetNumerator() const;
