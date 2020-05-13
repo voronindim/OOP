@@ -26,12 +26,10 @@ CRational::CRational(int numerator, int denominator)
 
 int FindGreatestCommandDivisor(int num1, int num2)
 {
-//	numerator = abs(numerator);
-//	denominator = abs(denominator);
 	while (num2 != 0)
 	{
 		num1 %= num2;
-		std::tie(num1, num2);
+		std::swap(num1, num2);
 	}
 	return num1;
 }
@@ -111,7 +109,7 @@ std::pair<int, CRational> CRational::ToCompoundFraction() const
 {
 	int integerPart = m_numerator / m_denominator;
 	int numerator = m_numerator % m_denominator;
-	return std::make_pair(integerPart, {numerator, m_denominator});
+	return std::make_pair(integerPart, CRational{numerator, m_denominator});
 }
 
 bool operator==(const CRational& rational, const CRational& rational1)
