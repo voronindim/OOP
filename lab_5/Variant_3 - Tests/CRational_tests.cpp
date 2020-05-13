@@ -97,6 +97,7 @@ TEST_CASE("Проверка бинарного плюса, складывает 
     CHECK(result.GetNumerator() == 4);
     CHECK(result.GetDenominator() == 1);
     result = result + 1;
+    CHECK(result.GetNumerator() == 5);
 
     CRational rational2(5, 3);
     CRational result2 = rational + rational2;
