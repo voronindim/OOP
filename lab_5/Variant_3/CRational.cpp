@@ -1,18 +1,6 @@
 #include "CRational.h"
 #include <tuple>
 
-CRational::CRational()
-{
-	this->m_numerator = 0;
-	this->m_denominator = 1;
-}
-
-CRational::CRational(int value)
-{
-	this->m_numerator = value;
-	this->m_denominator = 1;
-}
-
 CRational::CRational(int numerator, int denominator)
 {
 	if (denominator == 0)

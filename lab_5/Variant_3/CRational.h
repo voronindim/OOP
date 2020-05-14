@@ -5,9 +5,7 @@
 class CRational
 {
 public:
-	CRational();
-	CRational(int value);
-	CRational(int numerator, int denominator);
+	CRational(int numerator = 0, int denominator = 1);
 
 	int GetNumerator() const;
 	int GetDenominator() const;

@@ -250,3 +250,9 @@ TEST_CASE("Ошибка при неправильном вводе")
     ss >> rational;
     CHECK(ss.fail());
 }
+
+TEST_CASE("Проверка метода toDouble")
+{
+    CRational rational(5, 10);
+    CHECK(rational.ToDouble() == 0.5);
+}
