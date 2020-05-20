@@ -31,12 +31,12 @@ private:
 };
 
 CMyString operator+(const CMyString &str, const CMyString & str1);
-bool operator==(CMyString &str, CMyString &str1);
-bool operator!=(CMyString &str, CMyString &str1);
-bool operator<(CMyString &str, CMyString &str1);
-bool operator<=(CMyString &str, CMyString &str1);
-bool operator>=(CMyString &str, CMyString &str1);
-bool operator>(CMyString &str, CMyString &str1);
+bool operator==(const CMyString &str, const CMyString &str1);
+bool operator!=(const CMyString &str, const CMyString &str1);
+bool operator<(const CMyString &str, const CMyString &str1);
+bool operator<=(const CMyString &str, const CMyString &str1);
+bool operator>=(const CMyString &str, const CMyString &str1);
+bool operator>(const CMyString &str, const CMyString &str1);
 
 std::ostream &operator<<(std::ostream &ostream, const CMyString &str);
 std::istream &operator>>(std::istream &istream, CMyString &str);

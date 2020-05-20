@@ -38,8 +38,6 @@ CMyString::CMyString(CMyString &&other) noexcept
     other.m_length = 0;
 }
 
-using namespace std;
-
 CMyString::CMyString(const std::string &stlString)
 {
     this->m_length = stlString.length();
@@ -66,9 +64,9 @@ CMyString CMyString::SubString(size_t start, size_t length) const
 {
     if (start >= length)
     {
-        throw runtime_error("Начальная позиция больше длины строки");
+        throw std::runtime_error("Начальная позиция больше длины строки");
     }
-    return {m_pString + start, min(length, m_length - start)};
+    return {m_pString + start, std::min(length, m_length - start)};
 }
 
 void CMyString::Clear()
@@ -115,7 +113,7 @@ const char &CMyString::operator[](size_t index) const
     {
         return m_pString[index];
     }
-    throw runtime_error("Номер элеманта больше длины строки");
+    throw std::runtime_error("Номер элеманта больше длины строки");
 }
 
 char &CMyString::operator[](size_t index)
@@ -124,7 +122,7 @@ char &CMyString::operator[](size_t index)
     {
         return m_pString[index];
     }
-    throw runtime_error("Номер элеманта больше длины строки");
+    throw std::runtime_error("Номер элеманта больше длины строки");
 }
 
 CMyString operator+(const CMyString &str, const CMyString &str1)
@@ -136,7 +134,7 @@ CMyString operator+(const CMyString &str, const CMyString &str1)
     return {newString, newLength};
 }
 
-bool operator==(CMyString &str, CMyString &str1)
+bool operator==(const CMyString &str, const CMyString &str1)
 {
     if (str.GetLength() == str1.GetLength())
     {
@@ -152,14 +150,14 @@ bool operator==(CMyString &str, CMyString &str1)
     return false;
 }
 
-bool operator!=(CMyString str, CMyString str1)
+bool operator!=(const CMyString &str, const CMyString &str1)
 {
     return !(str == str1);
 }
 
-bool operator<(CMyString &str, CMyString &str1)
+bool operator<(const CMyString &str, const CMyString &str1)
 {
-    for (size_t i = 0; i < min(str.GetLength(), str1.GetLength()); i++)
+    for (size_t i = 0; i < std::min(str.GetLength(), str1.GetLength()); i++)
     {
         if (str[i] < str1[i])
         {
@@ -173,17 +171,17 @@ bool operator<(CMyString &str, CMyString &str1)
     return str.GetLength() < str1.GetLength();
 }
 
-bool operator>(CMyString &str, CMyString &str1)
+bool operator>(const CMyString &str, const CMyString &str1)
 {
     return str1 < str;
 }
 
-bool operator<=(CMyString &str, CMyString &str1)
+bool operator<=(const CMyString &str, const CMyString &str1)
 {
     return !(str > str1);
 }
 
-bool operator>=(CMyString &str, CMyString &str1)
+bool operator>=(const CMyString &str, const CMyString &str1)
 {
     return !(str < str1);
 }
