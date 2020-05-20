@@ -35,7 +35,7 @@ TEST_CASE("Проверка метода SubString")
     CMyString substr = myString.SubString(3);
     CHECK(substr.GetLength() == 8);
     CHECK(substr.GetStringDate() == std::string("lo\0world"));
-//    CHECK_THROWS_AS(myString.SubString(12), std::runtime_error);
+    CHECK_THROWS_AS(myString.SubString(12), std::runtime_error);
 }
 
 TEST_CASE("Проверка метода Clear")

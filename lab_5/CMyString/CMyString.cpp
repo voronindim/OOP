@@ -62,7 +62,7 @@ const char *CMyString::GetStringDate() const
 
 CMyString CMyString::SubString(size_t start, size_t length) const
 {
-    if (start >= length)
+    if (start >= m_length)
     {
         throw std::runtime_error("Начальная позиция больше длины строки");
     }
