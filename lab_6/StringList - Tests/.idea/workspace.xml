@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CMakeRunConfigurationManager" shouldGenerate="true" shouldDeleteObsolete="true">
+    <generated>
+      <config projectName="StringList___Tests" targetName="StringList___Tests" />
+    </generated>
+  </component>
+  <component name="CMakeSettings" AUTO_RELOAD="true">
+    <configurations>
+      <configuration PROFILE_NAME="Debug" CONFIG_NAME="Debug" />
+    </configurations>
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="04341bd1-d3d8-4b67-8541-813dcad1d8ae" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/../../lab_5/CMyString - Tests/CMyString_tests.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../../lab_5/CMyString - Tests/CMyString_tests.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../lab_5/CMyString/CMyString.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../../lab_5/CMyString/CMyString.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../lab_5/CMyString/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../../lab_5/CMyString/main.cpp" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ClangdSettings">
+    <option name="formatViaClangd" value="false" />
+  </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="CMakeBuildProfile:Debug" />
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
+  <component name="ProjectId" id="1ctVHagfjBWtISjIQDQw0WU5syT" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="cf.advertisement.text.has.clang-format" value="true" />
+    <property name="cf.first.check.clang-format" value="false" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
+  </component>
+  <component name="RunManager" selected="Catch.Тестирование const списка">
+    <configuration name="Тестирование обратных итераторов" type="CMakeCatchTestRunConfigurationType" factoryName="Catch Test" temporary="true" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="StringList___Tests" TARGET_NAME="StringList___Tests" RUN_TARGET_PROJECT_NAME="StringList___Tests" RUN_TARGET_NAME="StringList___Tests" TEST_METHOD="Тестирование обратных итераторов" TEST_MODE="SUITE_TEST">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+        <option name="BeforeTestRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Проверка метода Delete" type="CMakeCatchTestRunConfigurationType" factoryName="Catch Test" temporary="true" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="StringList___Tests" TARGET_NAME="StringList___Tests" RUN_TARGET_PROJECT_NAME="StringList___Tests" RUN_TARGET_NAME="StringList___Tests" TEST_METHOD="Проверка метода Delete" TEST_MODE="SUITE_TEST">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+        <option name="BeforeTestRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Проверка метода Insert" type="CMakeCatchTestRunConfigurationType" factoryName="Catch Test" temporary="true" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="StringList___Tests" TARGET_NAME="StringList___Tests" RUN_TARGET_PROJECT_NAME="StringList___Tests" RUN_TARGET_NAME="StringList___Tests" TEST_METHOD="Проверка метода Insert" TEST_MODE="SUITE_TEST">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+        <option name="BeforeTestRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Тестирование итераторов" type="CMakeCatchTestRunConfigurationType" factoryName="Catch Test" temporary="true" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="StringList___Tests" TARGET_NAME="StringList___Tests" RUN_TARGET_PROJECT_NAME="StringList___Tests" RUN_TARGET_NAME="StringList___Tests" TEST_METHOD="Тестирование итераторов" TEST_MODE="SUITE_TEST">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+        <option name="BeforeTestRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Тестирование const списка" type="CMakeCatchTestRunConfigurationType" factoryName="Catch Test" temporary="true" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="StringList___Tests" TARGET_NAME="StringList___Tests" RUN_TARGET_PROJECT_NAME="StringList___Tests" RUN_TARGET_NAME="StringList___Tests" TEST_METHOD="Тестирование const списка" TEST_MODE="SUITE_TEST">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+        <option name="BeforeTestRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Тестирование итераторов" type="CMakeCatchTestRunConfigurationType" factoryName="Catch Test" temporary="true" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="StringList___Tests" TARGET_NAME="StringList___Tests" RUN_TARGET_PROJECT_NAME="StringList___Tests" RUN_TARGET_NAME="StringList___Tests" TEST_METHOD="Тестирование итераторов" TEST_MODE="SUITE_TEST">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+        <option name="BeforeTestRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="StringList___Tests" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="StringList___Tests" TARGET_NAME="StringList___Tests" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="StringList___Tests" RUN_TARGET_NAME="StringList___Tests">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="CMake Application.StringList___Tests" />
+      <item itemvalue="Catch.Тестирование итераторов" />
+      <item itemvalue="Catch.Тестирование обратных итераторов" />
+      <item itemvalue="Catch.Проверка метода Insert" />
+      <item itemvalue="Catch.Проверка метода Delete" />
+      <item itemvalue="Catch.Тестирование const списка" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Catch.Тестирование const списка" />
+        <item itemvalue="Catch.Тестирование обратных итераторов" />
+        <item itemvalue="Catch.Проверка метода Delete" />
+        <item itemvalue="Catch.Проверка метода Insert" />
+        <item itemvalue="Catch.Тестирование итераторов" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="04341bd1-d3d8-4b67-8541-813dcad1d8ae" name="Default Changelist" comment="" />
+      <created>1591347789857</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1591347789857</updated>
+      <workItem from="1591347791295" duration="7000" />
+      <workItem from="1592231745061" duration="2037000" />
+      <workItem from="1592505544811" duration="162000" />
+      <workItem from="1592558755395" duration="10131000" />
+      <workItem from="1592646615673" duration="7266000" />
+      <workItem from="1592747497921" duration="4679000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="2" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state width="1750" height="262" key="GridCell.Tab.0.bottom" timestamp="1592755732525">
+      <screen x="0" y="0" width="1792" height="1120" />
+    </state>
+    <state width="1750" height="262" key="GridCell.Tab.0.bottom/0.0.1792.1120@0.0.1792.1120" timestamp="1592755732525" />
+    <state width="1750" height="247" key="GridCell.Tab.0.bottom/0.23.1792.1025@0.23.1792.1025" timestamp="1592747376013" />
+    <state width="1750" height="262" key="GridCell.Tab.0.center" timestamp="1592755732524">
+      <screen x="0" y="0" width="1792" height="1120" />
+    </state>
+    <state width="1750" height="262" key="GridCell.Tab.0.center/0.0.1792.1120@0.0.1792.1120" timestamp="1592755732524" />
+    <state width="1750" height="247" key="GridCell.Tab.0.center/0.23.1792.1025@0.23.1792.1025" timestamp="1592747376010" />
+    <state width="1750" height="262" key="GridCell.Tab.0.left" timestamp="1592755732524">
+      <screen x="0" y="0" width="1792" height="1120" />
+    </state>
+    <state width="1750" height="262" key="GridCell.Tab.0.left/0.0.1792.1120@0.0.1792.1120" timestamp="1592755732524" />
+    <state width="1750" height="247" key="GridCell.Tab.0.left/0.23.1792.1025@0.23.1792.1025" timestamp="1592747376009" />
+    <state width="1750" height="262" key="GridCell.Tab.0.right" timestamp="1592755732525">
+      <screen x="0" y="0" width="1792" height="1120" />
+    </state>
+    <state width="1750" height="262" key="GridCell.Tab.0.right/0.0.1792.1120@0.0.1792.1120" timestamp="1592755732525" />
+    <state width="1750" height="247" key="GridCell.Tab.0.right/0.23.1792.1025@0.23.1792.1025" timestamp="1592747376013" />
+    <state width="1750" height="392" key="GridCell.Tab.1.bottom" timestamp="1592646610593">
+      <screen x="0" y="0" width="1792" height="1120" />
+    </state>
+    <state width="1750" height="392" key="GridCell.Tab.1.bottom/0.0.1792.1120@0.0.1792.1120" timestamp="1592646610593" />
+    <state width="1750" height="392" key="GridCell.Tab.1.center" timestamp="1592646610592">
+      <screen x="0" y="0" width="1792" height="1120" />
+    </state>
+    <state width="1750" height="392" key="GridCell.Tab.1.center/0.0.1792.1120@0.0.1792.1120" timestamp="1592646610592" />
+    <state width="1750" height="392" key="GridCell.Tab.1.left" timestamp="1592646610592">
+      <screen x="0" y="0" width="1792" height="1120" />
+    </state>
+    <state width="1750" height="392" key="GridCell.Tab.1.left/0.0.1792.1120@0.0.1792.1120" timestamp="1592646610592" />
+    <state width="1750" height="392" key="GridCell.Tab.1.right" timestamp="1592646610593">
+      <screen x="0" y="0" width="1792" height="1120" />
+    </state>
+    <state width="1750" height="392" key="GridCell.Tab.1.right/0.0.1792.1120@0.0.1792.1120" timestamp="1592646610593" />
+    <state x="519" y="177" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1592561974791">
+      <screen x="0" y="0" width="1792" height="1120" />
+    </state>
+    <state x="519" y="177" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.0.1792.1120@0.0.1792.1120" timestamp="1592561974791" />
+    <state x="561" y="265" width="670" height="675" key="run.anything.popup" timestamp="1592754103469">
+      <screen x="0" y="0" width="1792" height="1120" />
+    </state>
+    <state x="561" y="265" width="670" height="675" key="run.anything.popup/0.0.1792.1120@0.0.1792.1120" timestamp="1592754103469" />
+    <state x="561" y="251" width="670" height="676" key="search.everywhere.popup" timestamp="1592647158407">
+      <screen x="0" y="0" width="1792" height="1120" />
+    </state>
+    <state x="561" y="251" width="670" height="676" key="search.everywhere.popup/0.0.1792.1120@0.0.1792.1120" timestamp="1592647158407" />
+  </component>
+</project>
