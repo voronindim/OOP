@@ -12,9 +12,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="04341bd1-d3d8-4b67-8541-813dcad1d8ae" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../../lab_7/MyList - Tests/.idea/.name" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../lab_5/CMyString - Tests/CMyString_tests.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../../lab_5/CMyString - Tests/CMyString_tests.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../lab_5/CMyString/CMyString.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../../lab_5/CMyString/CMyString.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../lab_5/CMyString/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../../lab_5/CMyString/main.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../StringList/StringList.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../StringList/StringList.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../StringList/StringList.h" beforeDir="false" afterPath="$PROJECT_DIR$/../StringList/StringList.h" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,13 +44,7 @@
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
-  <component name="RunManager" selected="Catch.Тестирование const списка">
-    <configuration name="Тестирование обратных итераторов" type="CMakeCatchTestRunConfigurationType" factoryName="Catch Test" temporary="true" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="StringList___Tests" TARGET_NAME="StringList___Tests" RUN_TARGET_PROJECT_NAME="StringList___Tests" RUN_TARGET_NAME="StringList___Tests" TEST_METHOD="Тестирование обратных итераторов" TEST_MODE="SUITE_TEST">
-      <method v="2">
-        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
-        <option name="BeforeTestRunTask" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager" selected="CMake Application.StringList___Tests">
     <configuration name="Проверка метода Delete" type="CMakeCatchTestRunConfigurationType" factoryName="Catch Test" temporary="true" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="StringList___Tests" TARGET_NAME="StringList___Tests" RUN_TARGET_PROJECT_NAME="StringList___Tests" RUN_TARGET_NAME="StringList___Tests" TEST_METHOD="Проверка метода Delete" TEST_MODE="SUITE_TEST">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
@@ -66,13 +63,19 @@
         <option name="BeforeTestRunTask" enabled="true" />
       </method>
     </configuration>
+    <configuration name="Тестирование итераторов" type="CMakeCatchTestRunConfigurationType" factoryName="Catch Test" temporary="true" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="StringList___Tests" TARGET_NAME="StringList___Tests" RUN_TARGET_PROJECT_NAME="StringList___Tests" RUN_TARGET_NAME="StringList___Tests" TEST_METHOD="Тестирование итераторов" TEST_MODE="SUITE_TEST">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+        <option name="BeforeTestRunTask" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="Тестирование const списка" type="CMakeCatchTestRunConfigurationType" factoryName="Catch Test" temporary="true" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="StringList___Tests" TARGET_NAME="StringList___Tests" RUN_TARGET_PROJECT_NAME="StringList___Tests" RUN_TARGET_NAME="StringList___Tests" TEST_METHOD="Тестирование const списка" TEST_MODE="SUITE_TEST">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
         <option name="BeforeTestRunTask" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Тестирование итераторов" type="CMakeCatchTestRunConfigurationType" factoryName="Catch Test" temporary="true" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="StringList___Tests" TARGET_NAME="StringList___Tests" RUN_TARGET_PROJECT_NAME="StringList___Tests" RUN_TARGET_NAME="StringList___Tests" TEST_METHOD="Тестирование итераторов" TEST_MODE="SUITE_TEST">
+    <configuration name="Тестирование обратных итераторов" type="CMakeCatchTestRunConfigurationType" factoryName="Catch Test" temporary="true" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="StringList___Tests" TARGET_NAME="StringList___Tests" RUN_TARGET_PROJECT_NAME="StringList___Tests" RUN_TARGET_NAME="StringList___Tests" TEST_METHOD="Тестирование обратных итераторов" TEST_MODE="SUITE_TEST">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
         <option name="BeforeTestRunTask" enabled="true" />
@@ -84,12 +87,12 @@
       </method>
     </configuration>
     <list>
-      <item itemvalue="CMake Application.StringList___Tests" />
-      <item itemvalue="Catch.Тестирование итераторов" />
-      <item itemvalue="Catch.Тестирование обратных итераторов" />
-      <item itemvalue="Catch.Проверка метода Insert" />
       <item itemvalue="Catch.Проверка метода Delete" />
+      <item itemvalue="Catch.Проверка метода Insert" />
+      <item itemvalue="Catch.Тестирование обратных итераторов" />
+      <item itemvalue="Catch.Тестирование итераторов" />
       <item itemvalue="Catch.Тестирование const списка" />
+      <item itemvalue="CMake Application.StringList___Tests" />
     </list>
     <recent_temporary>
       <list>
@@ -117,6 +120,7 @@
       <workItem from="1592558755395" duration="10131000" />
       <workItem from="1592646615673" duration="7266000" />
       <workItem from="1592747497921" duration="4679000" />
+      <workItem from="1593447072616" duration="12000" />
     </task>
     <servers />
   </component>
@@ -124,25 +128,25 @@
     <option name="version" value="2" />
   </component>
   <component name="WindowStateProjectService">
-    <state width="1750" height="262" key="GridCell.Tab.0.bottom" timestamp="1592755732525">
+    <state width="1750" height="262" key="GridCell.Tab.0.bottom" timestamp="1593447083892">
       <screen x="0" y="0" width="1792" height="1120" />
     </state>
-    <state width="1750" height="262" key="GridCell.Tab.0.bottom/0.0.1792.1120@0.0.1792.1120" timestamp="1592755732525" />
+    <state width="1750" height="262" key="GridCell.Tab.0.bottom/0.0.1792.1120@0.0.1792.1120" timestamp="1593447083892" />
     <state width="1750" height="247" key="GridCell.Tab.0.bottom/0.23.1792.1025@0.23.1792.1025" timestamp="1592747376013" />
-    <state width="1750" height="262" key="GridCell.Tab.0.center" timestamp="1592755732524">
+    <state width="1750" height="262" key="GridCell.Tab.0.center" timestamp="1593447083892">
       <screen x="0" y="0" width="1792" height="1120" />
     </state>
-    <state width="1750" height="262" key="GridCell.Tab.0.center/0.0.1792.1120@0.0.1792.1120" timestamp="1592755732524" />
+    <state width="1750" height="262" key="GridCell.Tab.0.center/0.0.1792.1120@0.0.1792.1120" timestamp="1593447083892" />
     <state width="1750" height="247" key="GridCell.Tab.0.center/0.23.1792.1025@0.23.1792.1025" timestamp="1592747376010" />
-    <state width="1750" height="262" key="GridCell.Tab.0.left" timestamp="1592755732524">
+    <state width="1750" height="262" key="GridCell.Tab.0.left" timestamp="1593447083891">
       <screen x="0" y="0" width="1792" height="1120" />
     </state>
-    <state width="1750" height="262" key="GridCell.Tab.0.left/0.0.1792.1120@0.0.1792.1120" timestamp="1592755732524" />
+    <state width="1750" height="262" key="GridCell.Tab.0.left/0.0.1792.1120@0.0.1792.1120" timestamp="1593447083891" />
     <state width="1750" height="247" key="GridCell.Tab.0.left/0.23.1792.1025@0.23.1792.1025" timestamp="1592747376009" />
-    <state width="1750" height="262" key="GridCell.Tab.0.right" timestamp="1592755732525">
+    <state width="1750" height="262" key="GridCell.Tab.0.right" timestamp="1593447083892">
       <screen x="0" y="0" width="1792" height="1120" />
     </state>
-    <state width="1750" height="262" key="GridCell.Tab.0.right/0.0.1792.1120@0.0.1792.1120" timestamp="1592755732525" />
+    <state width="1750" height="262" key="GridCell.Tab.0.right/0.0.1792.1120@0.0.1792.1120" timestamp="1593447083892" />
     <state width="1750" height="247" key="GridCell.Tab.0.right/0.23.1792.1025@0.23.1792.1025" timestamp="1592747376013" />
     <state width="1750" height="392" key="GridCell.Tab.1.bottom" timestamp="1592646610593">
       <screen x="0" y="0" width="1792" height="1120" />

@@ -101,7 +101,7 @@ void StringList::Insert(const StringList::Iterator& iterator, const std::string&
 	m_size++;
 }
 
-void StringList::Delete(StringList::Iterator& iterator)
+void StringList::Delete(const StringList::Iterator& iterator)
 {
 	if (iterator == rend() || iterator == end())
 	{
@@ -110,7 +110,6 @@ void StringList::Delete(StringList::Iterator& iterator)
 	iterator.m_node->prev->next = iterator.m_node->next;
 	iterator.m_node->next->prev = iterator.m_node->prev;
 	delete iterator.m_node;
-	iterator.m_node = nullptr;
 	--m_size;
 }
 

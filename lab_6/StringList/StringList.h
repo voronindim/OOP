@@ -95,7 +95,7 @@ public:
 	[[nodiscard]] const Iterator crend() const;
 
 	void Insert(const Iterator &iterator, const std::string &string);
-	void Delete(Iterator &iterator);
+	void Delete(const Iterator &iterator);
 
 private:
 	size_t m_size{};
