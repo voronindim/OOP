@@ -13,7 +13,7 @@ TEST_CASE("Проверка копирующего конструктора с �
 	CHECK_FALSE(list1.IsEmpty());
 	CHECK(list1.GetSize() == 3);
 
-	int result;
+	int result = 0;
 	for (const int & number : list1)
 	{
 		result += number;
@@ -38,7 +38,7 @@ TEST_CASE("Тестирование перемещающего конструк�
 	CHECK_FALSE(list1.IsEmpty());
 	CHECK(list1.GetSize() == 3);
 
-	int result;
+	int result = 0;
 	for (const int & number : list1)
 	{
 		result += number;
@@ -90,7 +90,7 @@ TEST_CASE("Проверка метода Insert с числом")
 	CHECK(list.GetSize() == 6);
 	CHECK(*(++list.begin()) == 1);
 
-	int result;
+	int result = 0;
 	for (const int &number : list)
 	{
 		result += number;
