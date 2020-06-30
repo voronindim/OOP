@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CMakeRunConfigurationManager" shouldGenerate="true" shouldDeleteObsolete="true">
+    <generated>
+      <config projectName="MyList___Tests" targetName="MyList___Tests" />
+    </generated>
+  </component>
+  <component name="CMakeSettings" AUTO_RELOAD="true">
+    <configurations>
+      <configuration PROFILE_NAME="Debug" CONFIG_NAME="Debug" />
+    </configurations>
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="7ca6e104-39f8-4a27-ae7f-8fc0eb2644be" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/../../lab_5/CMyString - Tests/CMyString_tests.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../../lab_5/CMyString - Tests/CMyString_tests.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../lab_5/CMyString/CMyString.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../../lab_5/CMyString/CMyString.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../lab_5/CMyString/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../../lab_5/CMyString/main.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../lab_6/StringList - Tests/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../lab_6/StringList - Tests/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../lab_6/StringList/StringList.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../../lab_6/StringList/StringList.cpp" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="CMakeBuildProfile:Debug" />
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
+  <component name="ProjectId" id="1deI0R6EysabgctT4Xzs7yBX0H0" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="cf.advertisement.text.has.clang-format" value="true" />
+    <property name="cf.advertisement.text.overridden" value="true" />
+    <property name="cf.first.check.clang-format" value="false" />
+    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
+  </component>
+  <component name="RunManager" selected="CMake Application.MyList___Tests">
+    <configuration name="Тестирование перемещающего конструктор c числом" type="CMakeCatchTestRunConfigurationType" factoryName="Catch Test" temporary="true" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="MyList___Tests" TARGET_NAME="MyList___Tests" RUN_TARGET_PROJECT_NAME="MyList___Tests" RUN_TARGET_NAME="MyList___Tests" TEST_METHOD="Тестирование перемещающего конструктор c числом" TEST_MODE="SUITE_TEST">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+        <option name="BeforeTestRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Тестирование перемещающего конструктор" type="CMakeCatchTestRunConfigurationType" factoryName="Catch Test" temporary="true" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="MyList___Tests" TARGET_NAME="MyList___Tests" RUN_TARGET_PROJECT_NAME="MyList___Tests" RUN_TARGET_NAME="MyList___Tests" TEST_METHOD="Тестирование перемещающего конструктор" TEST_MODE="SUITE_TEST">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+        <option name="BeforeTestRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Проверка метода Insert с числом" type="CMakeCatchTestRunConfigurationType" factoryName="Catch Test" temporary="true" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="MyList___Tests" TARGET_NAME="MyList___Tests" RUN_TARGET_PROJECT_NAME="MyList___Tests" RUN_TARGET_NAME="MyList___Tests" TEST_METHOD="Проверка метода Insert с числом" TEST_MODE="SUITE_TEST">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+        <option name="BeforeTestRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Проверка метода Insert" type="CMakeCatchTestRunConfigurationType" factoryName="Catch Test" temporary="true" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="MyList___Tests" TARGET_NAME="MyList___Tests" RUN_TARGET_PROJECT_NAME="MyList___Tests" RUN_TARGET_NAME="MyList___Tests" TEST_METHOD="Проверка метода Insert" TEST_MODE="SUITE_TEST">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+        <option name="BeforeTestRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Проверка копирующего конструктора с числом" type="CMakeCatchTestRunConfigurationType" factoryName="Catch Test" temporary="true" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="MyList___Tests" TARGET_NAME="MyList___Tests" RUN_TARGET_PROJECT_NAME="MyList___Tests" RUN_TARGET_NAME="MyList___Tests" TEST_METHOD="Проверка копирующего конструктора с числом" TEST_MODE="SUITE_TEST">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+        <option name="BeforeTestRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MyList___Tests" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="MyList___Tests" TARGET_NAME="MyList___Tests" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="MyList___Tests" RUN_TARGET_NAME="MyList___Tests">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="CMake Application.MyList___Tests" />
+      <item itemvalue="Catch.Проверка копирующего конструктора с числом" />
+      <item itemvalue="Catch.Тестирование перемещающего конструктор" />
+      <item itemvalue="Catch.Тестирование перемещающего конструктор c числом" />
+      <item itemvalue="Catch.Проверка метода Insert" />
+      <item itemvalue="Catch.Проверка метода Insert с числом" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Catch.Проверка метода Insert с числом" />
+        <item itemvalue="Catch.Тестирование перемещающего конструктор c числом" />
+        <item itemvalue="Catch.Проверка копирующего конструктора с числом" />
+        <item itemvalue="Catch.Проверка метода Insert" />
+        <item itemvalue="Catch.Тестирование перемещающего конструктор" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="7ca6e104-39f8-4a27-ae7f-8fc0eb2644be" name="Default Changelist" comment="" />
+      <created>1592778908028</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1592778908028</updated>
+      <workItem from="1592778909391" duration="6000" />
+      <workItem from="1593448680913" duration="2130000" />
+      <workItem from="1593450989840" duration="4109000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="2" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state width="1750" height="349" key="GridCell.Tab.0.bottom" timestamp="1593538394784">
+      <screen x="0" y="0" width="1792" height="1120" />
+    </state>
+    <state width="1750" height="349" key="GridCell.Tab.0.bottom/0.0.1792.1120@0.0.1792.1120" timestamp="1593538394784" />
+    <state width="1750" height="349" key="GridCell.Tab.0.center" timestamp="1593538394782">
+      <screen x="0" y="0" width="1792" height="1120" />
+    </state>
+    <state width="1750" height="349" key="GridCell.Tab.0.center/0.0.1792.1120@0.0.1792.1120" timestamp="1593538394782" />
+    <state width="1750" height="349" key="GridCell.Tab.0.left" timestamp="1593538394781">
+      <screen x="0" y="0" width="1792" height="1120" />
+    </state>
+    <state width="1750" height="349" key="GridCell.Tab.0.left/0.0.1792.1120@0.0.1792.1120" timestamp="1593538394781" />
+    <state width="1750" height="349" key="GridCell.Tab.0.right" timestamp="1593538394783">
+      <screen x="0" y="0" width="1792" height="1120" />
+    </state>
+    <state width="1750" height="349" key="GridCell.Tab.0.right/0.0.1792.1120@0.0.1792.1120" timestamp="1593538394783" />
+    <state width="1750" height="392" key="GridCell.Tab.1.bottom" timestamp="1593536133524">
+      <screen x="0" y="0" width="1792" height="1120" />
+    </state>
+    <state width="1750" height="392" key="GridCell.Tab.1.bottom/0.0.1792.1120@0.0.1792.1120" timestamp="1593536133524" />
+    <state width="1750" height="392" key="GridCell.Tab.1.center" timestamp="1593536133523">
+      <screen x="0" y="0" width="1792" height="1120" />
+    </state>
+    <state width="1750" height="392" key="GridCell.Tab.1.center/0.0.1792.1120@0.0.1792.1120" timestamp="1593536133523" />
+    <state width="1750" height="392" key="GridCell.Tab.1.left" timestamp="1593536133523">
+      <screen x="0" y="0" width="1792" height="1120" />
+    </state>
+    <state width="1750" height="392" key="GridCell.Tab.1.left/0.0.1792.1120@0.0.1792.1120" timestamp="1593536133523" />
+    <state width="1750" height="392" key="GridCell.Tab.1.right" timestamp="1593536133524">
+      <screen x="0" y="0" width="1792" height="1120" />
+    </state>
+    <state width="1750" height="392" key="GridCell.Tab.1.right/0.0.1792.1120@0.0.1792.1120" timestamp="1593536133524" />
+  </component>
+</project>
