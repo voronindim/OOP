@@ -19,7 +19,6 @@ StringList::StringList(const StringList& list)
 }
 StringList::StringList(StringList&& list) noexcept
 {
-	Clear();
 	this->m_first = list.m_first;
 	this->m_last = list.m_last;
 	this->m_size = list.m_size;
