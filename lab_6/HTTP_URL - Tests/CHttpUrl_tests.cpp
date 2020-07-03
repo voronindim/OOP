@@ -38,7 +38,7 @@ TEST_CASE("Првоерка конструктора принимающего п
     CHECK(url.GetDocument() == "/voronindim/OOP");
     CHECK(url.GetURL() == "https://github.com:80/voronindim/OOP");
 
-    CHECK_THROWS_AS(CHttpUrl("github.com", "voronindim/OOP", Protocol::HTTPS, short (65536)), std::invalid_argument);
+    CHECK_THROWS_AS(CHttpUrl("github.com", "voronindim/OOP", Protocol::HTTPS, 0), std::invalid_argument);
     CHECK_THROWS_AS(CHttpUrl("github.com", "voronindim/OOP", Protocol::HTTP,  0), std::invalid_argument);
     CHECK_THROWS_AS(CHttpUrl(""), std::invalid_argument);
 }
