@@ -15,6 +15,10 @@
       <change beforePath="$PROJECT_DIR$/../../lab_5/CMyString - Tests/CMyString_tests.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../../lab_5/CMyString - Tests/CMyString_tests.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../lab_5/CMyString/CMyString.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../../lab_5/CMyString/CMyString.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../lab_5/CMyString/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../../lab_5/CMyString/main.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../lab_6/StringList/StringList.h" beforeDir="false" afterPath="$PROJECT_DIR$/../../lab_6/StringList/StringList.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MyList/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../MyList/CMakeLists.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MyList/MyList.h" beforeDir="false" afterPath="$PROJECT_DIR$/../MyList/MyList.h" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,6 +41,7 @@
     <property name="cf.advertisement.text.has.clang-format" value="true" />
     <property name="cf.advertisement.text.overridden" value="true" />
     <property name="cf.first.check.clang-format" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
   <component name="RunManager" selected="CMake Application.MyList___Tests">
@@ -77,10 +82,10 @@
     </configuration>
     <list>
       <item itemvalue="Catch.Проверка копирующего конструктора с числом" />
-      <item itemvalue="Catch.Тестирование перемещающего конструктор" />
       <item itemvalue="Catch.Тестирование перемещающего конструктор c числом" />
-      <item itemvalue="Catch.Проверка метода Insert" />
       <item itemvalue="Catch.Проверка метода Insert с числом" />
+      <item itemvalue="Catch.Проверка метода Insert" />
+      <item itemvalue="Catch.Тестирование перемещающего конструктор" />
       <item itemvalue="CMake Application.MyList___Tests" />
     </list>
     <recent_temporary>
@@ -106,6 +111,14 @@
       <workItem from="1592778909391" duration="6000" />
       <workItem from="1593448680913" duration="2130000" />
       <workItem from="1593450989840" duration="4232000" />
+      <workItem from="1593550366727" duration="192000" />
+      <workItem from="1593759358884" duration="6000" />
+      <workItem from="1594461905455" duration="31000" />
+      <workItem from="1594461990408" duration="67000" />
+      <workItem from="1594462924346" duration="160000" />
+      <workItem from="1594463169775" duration="17000" />
+      <workItem from="1594463290885" duration="35000" />
+      <workItem from="1594463355646" duration="852000" />
     </task>
     <servers />
   </component>
@@ -113,22 +126,22 @@
     <option name="version" value="2" />
   </component>
   <component name="WindowStateProjectService">
-    <state width="1750" height="392" key="GridCell.Tab.0.bottom" timestamp="1593542392235">
+    <state width="1750" height="256" key="GridCell.Tab.0.bottom" timestamp="1594465954535">
       <screen x="0" y="0" width="1792" height="1120" />
     </state>
-    <state width="1750" height="392" key="GridCell.Tab.0.bottom/0.0.1792.1120@0.0.1792.1120" timestamp="1593542392235" />
-    <state width="1750" height="392" key="GridCell.Tab.0.center" timestamp="1593542392233">
+    <state width="1750" height="256" key="GridCell.Tab.0.bottom/0.0.1792.1120@0.0.1792.1120" timestamp="1594465954535" />
+    <state width="1750" height="256" key="GridCell.Tab.0.center" timestamp="1594465954534">
       <screen x="0" y="0" width="1792" height="1120" />
     </state>
-    <state width="1750" height="392" key="GridCell.Tab.0.center/0.0.1792.1120@0.0.1792.1120" timestamp="1593542392233" />
-    <state width="1750" height="392" key="GridCell.Tab.0.left" timestamp="1593542392232">
+    <state width="1750" height="256" key="GridCell.Tab.0.center/0.0.1792.1120@0.0.1792.1120" timestamp="1594465954534" />
+    <state width="1750" height="256" key="GridCell.Tab.0.left" timestamp="1594465954534">
       <screen x="0" y="0" width="1792" height="1120" />
     </state>
-    <state width="1750" height="392" key="GridCell.Tab.0.left/0.0.1792.1120@0.0.1792.1120" timestamp="1593542392232" />
-    <state width="1750" height="392" key="GridCell.Tab.0.right" timestamp="1593542392234">
+    <state width="1750" height="256" key="GridCell.Tab.0.left/0.0.1792.1120@0.0.1792.1120" timestamp="1594465954534" />
+    <state width="1750" height="256" key="GridCell.Tab.0.right" timestamp="1594465954535">
       <screen x="0" y="0" width="1792" height="1120" />
     </state>
-    <state width="1750" height="392" key="GridCell.Tab.0.right/0.0.1792.1120@0.0.1792.1120" timestamp="1593542392234" />
+    <state width="1750" height="256" key="GridCell.Tab.0.right/0.0.1792.1120@0.0.1792.1120" timestamp="1594465954535" />
     <state width="1750" height="392" key="GridCell.Tab.1.bottom" timestamp="1593542392242">
       <screen x="0" y="0" width="1792" height="1120" />
     </state>

@@ -1,38 +1,41 @@
+#include <memory>
 #include <stdexcept>
-#include "utility"
 
-#include <iostream>
 template <typename T>
 class MyList
 {
     class Node
     {
     public:
-        Node(Node *prev, Node *next)
+        Node(Node* prev, std::unique_ptr<Node>&& next)
         {
             this->prev = prev;
-            this->next = next;
+            this->next = std::move(next);
         }
         virtual T &GetData()
         {
             throw std::runtime_error("Невозможно извлечь данные! :(");
         }
+
         virtual ~Node() = default;
-        Node *prev, *next;
+        Node* prev;
+        std::unique_ptr<Node> next;
     };
 
     class NodeWithData : public Node
     {
     public:
-        NodeWithData(const T& data, Node *prev, Node *next)
-            : Node(prev, next)
+        NodeWithData(T const& data, Node* prev, std::unique_ptr<Node>&& next)
+            : Node(prev, std::move(next))
         {
             this->data = data;
         }
+
         T &GetData() override
         {
             return data;
         }
+
         T data;
     };
 
@@ -40,62 +43,140 @@ class MyList
     {
         if (IsEmpty())
         {
-            throw  std::runtime_error("Нельзя взять элемент из пустого списка!");
+            throw std::runtime_error("Нельзя взять элемент из пустого списка!");
         }
     }
+
+    template <bool IsConst>
+    class Iterator
+    {
+        friend MyList;
+
+        explicit Iterator(Node* node)
+        {
+            this->m_node = node;
+        }
+
+    public:
+        using MyType = Iterator<IsConst>;
+        using value_type = std::conditional_t<IsConst, const T, T>;
+        using reference = value_type&;
+        using pointer = value_type*;
+        using difference_type = ptrdiff_t;
+        using iterator_category = std::random_access_iterator_tag;
+
+        Iterator() = default;
+
+        reference& operator*() const
+        {
+            return m_node->GetData();
+        }
+
+        MyType& operator++()
+        {
+            if (m_node == nullptr || m_node->next == nullptr)
+            {
+                throw std::runtime_error("Нельзя увеличить end() итератор!");
+            }
+            m_node = m_node->next.get();
+            return *this;
+        }
+
+        MyType operator++(int) 
+        {
+            MyType tmp(*this);
+            ++(*this);
+            return tmp;
+        }
+
+        MyType& operator--()
+        {
+            if (m_node == nullptr || m_node->prev == nullptr)
+            {
+                throw std::runtime_error("Нельзя уменьшить begin() итератор!");
+            }
+            m_node = m_node->prev;
+            return *this;
+        }
+
+        MyType operator--(int)
+        {
+            MyType tmp(*this);
+            --(*this);
+            return tmp;
+        }
+
+        bool operator==(const MyType& other) const
+        {
+            return m_node == other.m_node;
+        }
+
+        bool operator!=(const MyType& other) const
+        {
+            return m_node != other.m_node;
+        }
+
+    private:
+        Node* m_node = nullptr;
+    };
 
 public:
     MyList()
     {
-        this->m_size = 0;
-        this->m_first = new Node(nullptr, nullptr);
-        this->m_last = new Node(m_first, nullptr);
-        this->m_first->next = this->m_last;
+        auto lastNode = std::make_unique<Node>(nullptr, nullptr);
+        Node* pLastNode = lastNode.get();
+
+        m_first = std::make_unique<Node>(nullptr, std::move(lastNode));
+        m_last = pLastNode;
+        m_last->prev = m_first.get();
+        m_size = 0;
     }
 
     MyList(const MyList &list)
     {
         MyList tmp;
-        for (const auto & item : list)
+        for (const auto &item : list)
         {
             tmp.PushBack(item);
         }
-        *this = std::move(tmp);
+        std::swap(*this, tmp);
     }
-    MyList(MyList &&list) noexcept
+    MyList(MyList &&list)
     {
-        this->m_first = list.m_first;
-        this->m_last = list.m_last;
-        this->m_size = list.m_size;
+        m_first = std::move(list.m_first);
+        m_last = list.m_last;
+        m_size = list.m_size;
 
-        list.m_size = 0;
-        list.m_first = new Node(nullptr, nullptr);
-        list.m_last = new Node(m_first, nullptr);
-        list.m_first->next = list.m_last;
+        MyList tmp;
+        list.m_first = std::move(tmp.m_first);
+        list.m_last = tmp.m_last;
+        list.m_size = tmp.m_size;
     }
-    ~MyList() noexcept
+
+    ~MyList()
     {
         Clear();
-        delete m_last;
-        delete m_first;
     }
+
     void Clear()
     {
         while (!IsEmpty())
         {
-            auto iterator = begin();
-            Delete(iterator);
+            Delete(begin());
         }
     }
-    [[nodiscard]] bool IsEmpty() const
+
+    [[nodiscard]] bool IsEmpty() const noexcept
     {
         return m_size == 0;
     }
-    [[nodiscard]] size_t GetSize() const
+
+    [[nodiscard]] size_t GetSize() const noexcept
     {
         return m_size;
     }
-    MyList & operator=(const MyList & list)
+
+    MyList & operator=(const MyList &list)
     {
         if (this != &list)
         {
@@ -104,131 +185,93 @@ public:
         }
         return *this;
     }
-    MyList & operator=(MyList && list) noexcept
+
+    MyList & operator=(MyList &&list)
     {
         if (this != &list)
         {
             Clear();
-            m_first = list.m_first;
+
+            m_first = std::move(list.m_first);
             m_last = list.m_last;
             m_size = list.m_size;
 
-            list.m_size = 0;
-            list.m_first = new Node(nullptr, nullptr);
-            list.m_last = new Node(m_first, nullptr);
-            list.m_first->next = m_last;
+            MyList tmp;
+            list.m_first = std::move(tmp.m_first);
+            list.m_last = tmp.m_last;
+            list.m_size = tmp.m_size;
         }
         return *this;
     }
 
-    class Iterator
+    using iterator = Iterator<false>;
+    using const_iterator = Iterator<true>;
+
+    iterator begin()
     {
-    public:
-        Iterator() = delete;
-
-        T & operator*() const
-        {
-            return m_node->GetData();
-        }
-
-        Iterator & operator++()
-        {
-            if ((m_isReverse && this->m_node->prev == nullptr) || (!m_isReverse && this->m_node->next == nullptr))
-            {
-                throw std::runtime_error("Нельзя увеличить end() оператор!");
-            }
-            this->m_node = m_isReverse ? m_node->prev : m_node->next;
-            return *this;
-        }
-        Iterator operator++(int)
-        {
-            Iterator tmp(*this);
-            ++(*this);
-            return tmp;
-        }
-
-        Iterator & operator--()
-        {
-            if ((m_isReverse && this->m_node->next == nullptr) || (!m_isReverse && this->m_node->prev == nullptr))
-            {
-                throw std::runtime_error("Нельзя уменьшить end() оператор!");
-            }
-            this->m_node = m_isReverse ? m_node->next : m_node->prev;
-            return *this;
-        }
-        Iterator operator--(int)
-        {
-            Iterator tmp(*this);
-            --(*this);
-            return tmp;
-        }
-
-        bool operator==(const Iterator& other) const
-        {
-            return m_node == other.m_node;
-        }
-        bool operator!=(const Iterator& other) const
-        {
-            return m_node != other.m_node;
-        }
-    private:
-
-        friend MyList;
-
-        explicit Iterator(Node *node, bool isReverse = false)
-        {
-            this->m_node = node;
-            this->m_isReverse = isReverse;
-        }
-
-        Node *m_node;
-        bool m_isReverse;
-    };
-
-    Iterator begin() const
-    {
-        return Iterator(m_first->next);
+        return iterator(m_first->next.get());
     }
 
-    Iterator end() const
+    iterator end()
     {
-        return Iterator(m_last);
+        return iterator(m_last);
     }
 
-    const Iterator cbegin() const
+    const_iterator begin() const
     {
-        return Iterator(m_first->next);
+        return const_iterator(m_first->next.get());
     }
 
-    const Iterator cend() const
+    const_iterator end() const
     {
-        return Iterator(m_last);
+        return const_iterator(m_last);
     }
 
-    Iterator rbegin() const
+    const_iterator cbegin() const
     {
-        return Iterator(m_last->prev, true);
+        return const_iterator(m_first->next.get());
     }
 
-    Iterator rend() const
+    const_iterator cend() const
     {
-        return Iterator(m_first, true);
+        return const_iterator(m_last);
     }
 
-    const Iterator crbegin() const
+    std::reverse_iterator<iterator> rbegin()
     {
-        return Iterator(m_last->prev, true);
+        return std::reverse_iterator<iterator>(end());
     }
 
-    const Iterator crend() const
+    std::reverse_iterator<iterator> rend()
     {
-        return Iterator(m_first, true);
+        return std::reverse_iterator<iterator>(begin());
+    }
+
+    std::reverse_iterator<const_iterator> rbegin() const
+    {
+        return std::reverse_iterator<const_iterator>(end());
+    }
+
+    std::reverse_iterator<const_iterator> rend() const
+    {
+        return std::reverse_iterator<const_iterator>(begin());
+    }
+
+    std::reverse_iterator<const_iterator> crbegin() const
+    {
+        return std::reverse_iterator<const_iterator>(cend());
+    }
+    
+    std::reverse_iterator<const_iterator> crend() const
+    {
+        return std::reverse_iterator<const_iterator>(cbegin());
     }
 
     void PushBack(const T &data)
     {
         Insert(end(), data);
     }
+    
     void PushFront(const T &data)
     {
         Insert(begin(), data);
@@ -239,43 +282,56 @@ public:
         ThrowEmptyList();
         return m_last->prev->GetData();
     }
-    T const & GetBackElement() const
+
+    T const& GetBackElement() const
     {
         ThrowEmptyList();
         return m_last->prev->GetData();
     }
+
     T & GetFrontElement()
     {
         ThrowEmptyList();
         return m_first->next->GetData();
     }
+
     T const& GetFrontElement() const
     {
         ThrowEmptyList();
         return m_first->next->GetData();
     }
-
-    void Insert(const Iterator& iterator, const T& data)
+    
+    void Insert(const iterator& iterator, const T &data)
     {
-        auto newNode = new NodeWithData(data, iterator.m_node->prev, iterator.m_node->prev->next);
-        iterator.m_node->prev->next = newNode;
-        iterator.m_node->prev = newNode;
-        m_size++;
+        auto newNode = std::make_unique<NodeWithData>(data, iterator.m_node->prev, std::move(iterator.m_node->prev->next));
+        newNode->next->prev = newNode.get();
+        newNode->prev->next = std::move(newNode);
+        ++m_size;
+    }
+    
+    void Insert(const const_iterator& iterator, const T &data)
+    {
+        Insert(iterator(iterator.m_node), data);
     }
 
-    void Delete(const Iterator& iterator)
+    void Delete(const iterator& iterator) noexcept
     {
-        if (iterator == rend() || iterator == end())
+        if (iterator == --begin() || iterator == end())
         {
             throw std::runtime_error("Нельзя удалить этот элемент!");
         }
-        iterator.m_node->prev->next = iterator.m_node->next;
         iterator.m_node->next->prev = iterator.m_node->prev;
-        delete iterator.m_node;
+        iterator.m_node->prev->next = std::move(iterator.m_node->next);
         --m_size;
     }
 
+    void Delete(const const_iterator& it) noexcept
+    {
+        Delete(iterator(it.m_node));
+    }
+
 private:
-    size_t m_size{};
-    Node *m_first, *m_last;
+    size_t m_size = 0;
+    Node* m_last;
+    std::unique_ptr<Node> m_first;
 };
